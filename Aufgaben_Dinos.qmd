@@ -1,0 +1,45 @@
+```{r, echo=FALSE, out.width="60%"}
+knitr::include_graphics("https://img.freepik.com/free-vector/smiling-dinosaur-in-nature-cartoon-illustration_1284-58115.jpg?size=626&ext=jpg")
+```
+# Dinojudo
+
+## Aufgabe 1 
+
+Importiere den Datensatz "Jurassic_Park"
+
+Lass dir die obersten zehn Reihen des Datensatzes in der Konsole anzeigen
+
+Lass dir die unterstens zehn Reihen des Datensatzes in der Konsole anzeigen
+
+
+## Aufgabe 2
+
+Erstelle eine zweiten Datensatz "Jurassic_Park2" ohne die Spalten "link", "taxonomy" und "period"
+
+Ordne den Datensatz jetzt so an, dass die Dinos mit der größten Länge zuerst angezeigt werden
+
+Wie viele Dinos gibt es, die länger als 7.5 Meter sind?
+
+
+## Aufgabe 3
+
+Wie lang ist der durchschnittliche Dino?
+
+Gibt es in dem Datensatz mehr Fleischfresser oder Pflanzenfresser?
+
+Wer hat den Dino "gobisaurus" benannt? 
+
+
+## Aufgabe 4
+
+Hat die Ernährung der Dinos einen großen Einfluss auf deren größe? 
+
+Wo lebten die meisten "armoured dinosaur"?
+
+Was war die kleinste Länge eines "small theropod"?
+
+Was haben die meisten Dinos in den USA damals gegessen? 
+
+## Aufgabe 5
+
+Wie lang war der durchschnittliche "large theropod" der in "North Africa" lebte und sich von Fleisch ernärte im Vergleich zu der durschnittlichen Länge eines "sauropod", der sich von Pflanzen ernährte und in "China" lebte?

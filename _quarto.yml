@@ -1,0 +1,28 @@
+project:
+  type: book
+
+book:
+  title: "QM1-Tutorium SoSe23"
+  author: "Raphael Balzer, Finn Weber"
+  date: "3/28/2023"
+  chapters:
+    - index.qmd
+    - part: "R kennenlernen"
+      chapters: 
+        - Aufgaben1.qmd
+        - Lösungen1.qmd
+    - part: "Data Wrangling"
+      chapters: 
+        - Aufgaben_Dinos.qmd
+        - Lösungen_Dinos.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual

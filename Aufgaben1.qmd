@@ -1,0 +1,59 @@
+```{r, echo=FALSE, out.width="75%"}
+knitr::include_graphics("https://www.pngmart.com/files/22/Programmer-PNG-Photos.png")
+```
+
+# Aufgaben
+
+## Aufgabe 1
+
+Erstelle eine Variable V1, die die Zahl 4 enthält und eine zweite V2, die die Zahl 3 enthält
+
+Subtrahiere V2 von V1
+
+Definiere den Rechenvorgang als neue Variable V3 und überprüfe, ob die Variable gleich 1 ist
+
+## Aufgabe 2
+
+Erstellte einen Vektor V4, der die Zahlen 1 bis 20 enthält
+
+Berechne den Mittelwert des Vektors
+
+Berechne den Median des Vektors
+
+Berechne die Standardabweichung des Vektors
+
+Nutze den Befehl `describe_distribution()`
+
+Berechne den Mittelwert eines Vektors, der die Zahlen 1 bis 13 enthält
+
+## Aufgabe 3
+
+Korrigiere den Fehler in der Syntax: `sum(x = c(13, 5, 27, 4)`
+
+## Aufgabe 4
+
+Gegeben sei diese Syntax:
+
+```{r}
+x <- 8  
+Y <- 4  
+```
+
+Lässt man folgende Syntax laufen, so kommt eine Fehlermeldung:
+
+`X + Y`
+
+`Error in eval(expr, envir, enclos): object 'X' not found`
+
+Geben Sie die korrekte Syntax ein (zur Berechnung der Summe), die nicht zu einer Fehlermeldung führt
+
+## Aufgabe 5
+
+Wählen Sie die syntaktisch korrekten Varianten aus, um einer Variablen den Wert (Zahl) 42 zuzuweisen.
+
+-   loesung \<-42\
+-   loesung \< - 42\
+-   loesung-\>42\
+-   loesung==42\
+-   loesung\<-"42"\
+-   loesung = 42
