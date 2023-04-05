@@ -1,3 +1,0 @@
-# Allgemeines {.unnumbered}
-
-Zur besseren Organisation der Lehrmaterialien des Tutoriums haben wir für euch dieses Buch erstellt. Hier findet ihr alle Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.
