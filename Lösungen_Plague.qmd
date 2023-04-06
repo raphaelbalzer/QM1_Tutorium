@@ -1,0 +1,54 @@
+# Lösungen_Plague 
+
+## Lösung 1
+
+```{r}
+#Aufgabe 1 
+
+library(tidyverse)
+
+Deaths <- read.csv("https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv")
+
+summary_data1 <- 
+  Deaths%>% 
+  group_by(year) %>% 
+  summarise(total_per_year = sum(deaths_millions))
+
+```
+
+## Lösung 2
+
+```{r}
+# Aufgabe 2
+
+summary_data2 <- 
+  Deaths %>% 
+  group_by(sex, year) %>% 
+  summarise(sum(deaths_millions))
+```
+
+## Lösung 3
+
+```{r}
+# Aufgabe 3 
+
+summary_data3 <- 
+  Deaths %>% 
+  group_by(year, cause) %>% 
+  summarise(total_per_cause = sum(deaths_millions))
+```
+
+## Lösung 4
+
+```{r}
+# Aufgabe 4
+
+summary_data4 <- Deaths %>%
+  summarise(Gesamt = sum(deaths_millions))
+
+
+summary_data5 <- Deaths %>%
+  group_by(cause)%>%
+  summarise(total_per_cause = sum(deaths_millions)) %>% 
+  mutate(InProzent = total_per_cause/359.85)
+```
