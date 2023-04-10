@@ -7,41 +7,6 @@
     "text": "Allgemeines\nZur besseren Organisation der Lehrmaterialien des Tutoriums haben wir für euch dieses Buch erstellt. Hier findet ihr alle Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links."
   },
   {
-    "objectID": "Aufgaben_Dinos.html#aufgabe-1",
-    "href": "Aufgaben_Dinos.html#aufgabe-1",
-    "title": "3  Dinojudo",
-    "section": "3.1 Aufgabe 1",
-    "text": "3.1 Aufgabe 1\nImportiere den Datensatz “Jurassic_Park”\nLass dir die obersten zehn Reihen des Datensatzes in der Konsole anzeigen\nLass dir die unterstens zehn Reihen des Datensatzes in der Konsole anzeigen"
-  },
-  {
-    "objectID": "Aufgaben_Dinos.html#aufgabe-2",
-    "href": "Aufgaben_Dinos.html#aufgabe-2",
-    "title": "3  Dinojudo",
-    "section": "3.2 Aufgabe 2",
-    "text": "3.2 Aufgabe 2\nErstelle eine zweiten Datensatz “Jurassic_Park2” ohne die Spalten “link”, “taxonomy” und “period”\nOrdne den Datensatz jetzt so an, dass die Dinos mit der größten Länge zuerst angezeigt werden\nWie viele Dinos gibt es, die länger als 7.5 Meter sind?"
-  },
-  {
-    "objectID": "Aufgaben_Dinos.html#aufgabe-3",
-    "href": "Aufgaben_Dinos.html#aufgabe-3",
-    "title": "3  Dinojudo",
-    "section": "3.3 Aufgabe 3",
-    "text": "3.3 Aufgabe 3\nWie lang ist der durchschnittliche Dino?\nGibt es in dem Datensatz mehr Fleischfresser oder Pflanzenfresser?\nWer hat den Dino “gobisaurus” benannt?"
-  },
-  {
-    "objectID": "Aufgaben_Dinos.html#aufgabe-4",
-    "href": "Aufgaben_Dinos.html#aufgabe-4",
-    "title": "3  Dinojudo",
-    "section": "3.4 Aufgabe 4",
-    "text": "3.4 Aufgabe 4\nHat die Ernährung der Dinos einen großen Einfluss auf deren größe?\nWo lebten die meisten “armoured dinosaur”?\nWas war die kleinste Länge eines “small theropod”?\nWas haben die meisten Dinos in den USA damals gegessen?"
-  },
-  {
-    "objectID": "Aufgaben_Dinos.html#aufgabe-5",
-    "href": "Aufgaben_Dinos.html#aufgabe-5",
-    "title": "3  Dinojudo",
-    "section": "3.5 Aufgabe 5",
-    "text": "3.5 Aufgabe 5\nWie lang war der durchschnittliche “large theropod” der in “North Africa” lebte und sich von Fleisch ernärte im Vergleich zu der durschnittlichen Länge eines “sauropod”, der sich von Pflanzen ernährte und in “China” lebte?"
-  },
-  {
     "objectID": "Aufgaben1.html#aufgabe-1",
     "href": "Aufgaben1.html#aufgabe-1",
     "title": "1  Aufgaben",
@@ -75,6 +40,76 @@
     "title": "1  Aufgaben",
     "section": "1.5 Aufgabe 5",
     "text": "1.5 Aufgabe 5\nWählen Sie die syntaktisch korrekten Varianten aus, um einer Variablen den Wert (Zahl) 42 zuzuweisen.\n\nloesung <-42\n\nloesung < - 42\n\nloesung->42\n\nloesung==42\n\nloesung<-“42”\n\nloesung = 42"
+  },
+  {
+    "objectID": "Lösungen1.html#lösung-1",
+    "href": "Lösungen1.html#lösung-1",
+    "title": "2  Lösungen",
+    "section": "2.1 Lösung 1",
+    "text": "2.1 Lösung 1\n\n# Aufgabe 1\n\nlibrary(easystats)\n\n# Attaching packages: easystats 0.6.0 (red = needs update)\n✖ bayestestR  0.13.0   ✖ correlation 0.8.3 \n✖ datawizard  0.6.5    ✔ effectsize  0.8.3 \n✖ insight     0.19.0   ✔ modelbased  0.8.6 \n✖ performance 0.10.2   ✖ parameters  0.20.2\n✖ report      0.5.6    ✖ see         0.7.4 \n\nRestart the R-Session and update packages in red with `easystats::easystats_update()`.\n\n#1.1\nV1 <- 4\nV2 <- 3\n\n#1.2\nV1 - V2\n\n[1] 1\n\n#1.3\nV3 <- V1-V2\nV3 == 1\n\n[1] TRUE"
+  },
+  {
+    "objectID": "Lösungen1.html#lösung-2",
+    "href": "Lösungen1.html#lösung-2",
+    "title": "2  Lösungen",
+    "section": "2.2 Lösung 2",
+    "text": "2.2 Lösung 2\n\n#Aufgabe 2\n\n#2.1\nV4 <- c(1:20)\n\n#2.2\nmean(V4)\n\n[1] 10.5\n\n#2.3\nmedian(V4)\n\n[1] 10.5\n\n#2.4\nsd(V4)\n\n[1] 5.91608\n\n#2.5\ndescribe_distribution(V4)\n\n Mean |   SD |   IQR |         Range | Skewness | Kurtosis |  n | n_Missing\n---------------------------------------------------------------------------\n10.50 | 5.92 | 10.50 | [1.00, 20.00] |        0 |    -1.20 | 20 |         0\n\n#2.6\nmean(c(1:13))\n\n[1] 7"
+  },
+  {
+    "objectID": "Lösungen1.html#lösung-3",
+    "href": "Lösungen1.html#lösung-3",
+    "title": "2  Lösungen",
+    "section": "2.3 Lösung 3",
+    "text": "2.3 Lösung 3\n\nsum(x = c(13, 5, 27, 4))\n\n[1] 49"
+  },
+  {
+    "objectID": "Lösungen1.html#lösung-4",
+    "href": "Lösungen1.html#lösung-4",
+    "title": "2  Lösungen",
+    "section": "2.4 Lösung 4",
+    "text": "2.4 Lösung 4\n\nx <- 8\nY <- 4\n\nx + Y\n\n[1] 12"
+  },
+  {
+    "objectID": "Lösungen1.html#lösung-5",
+    "href": "Lösungen1.html#lösung-5",
+    "title": "2  Lösungen",
+    "section": "2.5 Lösung 5",
+    "text": "2.5 Lösung 5\n\nloesung <-42\nloesung = 42"
+  },
+  {
+    "objectID": "Aufgaben_Dinos.html#aufgabe-1",
+    "href": "Aufgaben_Dinos.html#aufgabe-1",
+    "title": "3  Dinojudo",
+    "section": "3.1 Aufgabe 1",
+    "text": "3.1 Aufgabe 1\nImportiere den Datensatz “Jurassic_Park”\nLass dir die obersten zehn Reihen des Datensatzes in der Konsole anzeigen\nLass dir die unterstens zehn Reihen des Datensatzes in der Konsole anzeigen"
+  },
+  {
+    "objectID": "Aufgaben_Dinos.html#aufgabe-2",
+    "href": "Aufgaben_Dinos.html#aufgabe-2",
+    "title": "3  Dinojudo",
+    "section": "3.2 Aufgabe 2",
+    "text": "3.2 Aufgabe 2\nErstelle eine zweiten Datensatz “Jurassic_Park2” ohne die Spalten “link”, “taxonomy” und “period”\nOrdne den Datensatz jetzt so an, dass die Dinos mit der größten Länge zuerst angezeigt werden\nWie viele Dinos gibt es, die länger als 7.5 Meter sind?"
+  },
+  {
+    "objectID": "Aufgaben_Dinos.html#aufgabe-3",
+    "href": "Aufgaben_Dinos.html#aufgabe-3",
+    "title": "3  Dinojudo",
+    "section": "3.3 Aufgabe 3",
+    "text": "3.3 Aufgabe 3\nWie lang ist der durchschnittliche Dino?\nGibt es in dem Datensatz mehr Fleischfresser oder Pflanzenfresser?\nWer hat den Dino “gobisaurus” benannt?"
+  },
+  {
+    "objectID": "Aufgaben_Dinos.html#aufgabe-4",
+    "href": "Aufgaben_Dinos.html#aufgabe-4",
+    "title": "3  Dinojudo",
+    "section": "3.4 Aufgabe 4",
+    "text": "3.4 Aufgabe 4\nHat die Ernährung der Dinos einen großen Einfluss auf deren größe?\nWo lebten die meisten “armoured dinosaur”?\nWas war die kleinste Länge eines “small theropod”?\nWas haben die meisten Dinos in den USA damals gegessen?"
+  },
+  {
+    "objectID": "Aufgaben_Dinos.html#aufgabe-5",
+    "href": "Aufgaben_Dinos.html#aufgabe-5",
+    "title": "3  Dinojudo",
+    "section": "3.5 Aufgabe 5",
+    "text": "3.5 Aufgabe 5\nWie lang war der durchschnittliche “large theropod” der in “North Africa” lebte und sich von Fleisch ernärte im Vergleich zu der durschnittlichen Länge eines “sauropod”, der sich von Pflanzen ernährte und in “China” lebte?"
   },
   {
     "objectID": "Lösungen_Dinos.html#lösung-1",
@@ -112,157 +147,10 @@
     "text": "4.5 Lösung 5\n\n# Dino1\nJurassic_Park %>% \n  select(type, diet, lived_in, Length) %>% \n  filter(lived_in == \"North Africa\",\n         type == \"large theropod\",\n         diet == \"carnivorous\") %>%\n  summarise(mean(Length))\n\n# A tibble: 1 × 1\n  `mean(Length)`\n           <dbl>\n1             15\n\n# Dino2\nJurassic_Park %>% \n  select(type, diet, lived_in, Length) %>% \n  filter(lived_in == \"China\",\n         type == \"sauropod\",\n         diet == \"herbivorous\") %>%\n  summarise(mean(Length))\n\n# A tibble: 1 × 1\n  `mean(Length)`\n           <dbl>\n1           11.6"
   },
   {
-    "objectID": "Lösungen1.html#lösung-1",
-    "href": "Lösungen1.html#lösung-1",
-    "title": "2  Lösungen",
-    "section": "2.1 Lösung 1",
-    "text": "2.1 Lösung 1\n\n# Aufgabe 1\n\nlibrary(easystats)\n\n# Attaching packages: easystats 0.6.0 (red = needs update)\n✔ bayestestR  0.13.0   ✖ correlation 0.8.3 \n✖ datawizard  0.6.5    ✔ effectsize  0.8.3 \n✖ insight     0.19.0   ✔ modelbased  0.8.6 \n✔ performance 0.10.2   ✖ parameters  0.20.2\n✖ report      0.5.6    ✖ see         0.7.4 \n\nRestart the R-Session and update packages in red with `easystats::easystats_update()`.\n\n#1.1\nV1 <- 4\nV2 <- 3\n\n#1.2\nV1 - V2\n\n[1] 1\n\n#1.3\nV3 <- V1-V2\nV3 == 1\n\n[1] TRUE"
-  },
-  {
-    "objectID": "Lösungen1.html#lösung-2",
-    "href": "Lösungen1.html#lösung-2",
-    "title": "2  Lösungen",
-    "section": "2.2 Lösung 2",
-    "text": "2.2 Lösung 2\n\n#Aufgabe 2\n\n#2.1\nV4 <- c(1:20)\n\n#2.2\nmean(V4)\n\n[1] 10.5\n\n#2.3\nmedian(V4)\n\n[1] 10.5\n\n#2.4\nsd(V4)\n\n[1] 5.91608\n\n#2.5\ndescribe_distribution(V4)\n\n Mean |   SD |   IQR |         Range | Skewness | Kurtosis |  n | n_Missing\n---------------------------------------------------------------------------\n10.50 | 5.92 | 10.50 | [1.00, 20.00] |        0 |    -1.20 | 20 |         0\n\n#2.6\nmean(c(1:13))\n\n[1] 7"
-  },
-  {
-    "objectID": "Lösungen1.html#lösung-3",
-    "href": "Lösungen1.html#lösung-3",
-    "title": "2  Lösungen",
-    "section": "2.3 Lösung 3",
-    "text": "2.3 Lösung 3\n\nsum(x = c(13, 5, 27, 4))\n\n[1] 49"
-  },
-  {
-    "objectID": "Lösungen1.html#lösung-4",
-    "href": "Lösungen1.html#lösung-4",
-    "title": "2  Lösungen",
-    "section": "2.4 Lösung 4",
-    "text": "2.4 Lösung 4\n\nx <- 8\nY <- 4\n\nx + Y\n\n[1] 12"
-  },
-  {
-    "objectID": "Lösungen1.html#lösung-5",
-    "href": "Lösungen1.html#lösung-5",
-    "title": "2  Lösungen",
-    "section": "2.5 Lösung 5",
-    "text": "2.5 Lösung 5\n\nloesung <-42\nloesung = 42"
-  },
-  {
-    "objectID": "Aufgaben_Deseases.html#aufgabe-1",
-    "href": "Aufgaben_Deseases.html#aufgabe-1",
-    "title": "5  Aufgaben_Deseases",
-    "section": "5.1 Aufgabe 1",
-    "text": "5.1 Aufgabe 1\nImportiere den Datensatz (https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv) und gib an, in welchem Jahr es die meisten Tode gab"
-  },
-  {
-    "objectID": "Aufgaben_Deseases.html#aufgabe-2",
-    "href": "Aufgaben_Deseases.html#aufgabe-2",
-    "title": "5  Aufgaben_Deseases",
-    "section": "5.2 Aufgabe 2",
-    "text": "5.2 Aufgabe 2\nGab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?"
-  },
-  {
-    "objectID": "Aufgaben_Deseases.html#aufgabe-3",
-    "href": "Aufgaben_Deseases.html#aufgabe-3",
-    "title": "5  Aufgaben_Deseases",
-    "section": "5.3 Aufgabe 3",
-    "text": "5.3 Aufgabe 3\nGib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind"
-  },
-  {
-    "objectID": "Aufgaben_Deseases.html#aufgabe-4",
-    "href": "Aufgaben_Deseases.html#aufgabe-4",
-    "title": "5  Aufgaben_Deseases",
-    "section": "5.4 Aufgabe 4",
-    "text": "5.4 Aufgabe 4\nWie viel Prozent der Todesfälle sind über den gesamten Zeitraum hinweg auf die verschiedenen Ursachen zurück zu führen?"
-  },
-  {
-    "objectID": "Lösungen_Deseases.html#lösung-1",
-    "href": "Lösungen_Deseases.html#lösung-1",
-    "title": "6  Lösungen_Deseases",
-    "section": "6.1 Lösung 1",
-    "text": "6.1 Lösung 1\n\n#Aufgabe 1 \n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nDeaths <- read.csv(\"https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv\")\n\nsummary_data1 <- \n  Deaths%>% \n  group_by(year) %>% \n  summarise(total_per_year = sum(deaths_millions))"
-  },
-  {
-    "objectID": "Lösungen_Deseases.html#lösung-2",
-    "href": "Lösungen_Deseases.html#lösung-2",
-    "title": "6  Lösungen_Deseases",
-    "section": "6.2 Lösung 2",
-    "text": "6.2 Lösung 2\n\n# Aufgabe 2\n\nsummary_data2 <- \n  Deaths %>% \n  group_by(sex, year) %>% \n  summarise(sum(deaths_millions))\n\n`summarise()` has grouped output by 'sex'. You can override using the `.groups`\nargument."
-  },
-  {
-    "objectID": "Lösungen_Deseases.html#lösung-3",
-    "href": "Lösungen_Deseases.html#lösung-3",
-    "title": "6  Lösungen_Deseases",
-    "section": "6.3 Lösung 3",
-    "text": "6.3 Lösung 3\n\n# Aufgabe 3 \n\nsummary_data3 <- \n  Deaths %>% \n  group_by(year, cause) %>% \n  summarise(total_per_cause = sum(deaths_millions))\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument."
-  },
-  {
-    "objectID": "Lösungen_Deseases.html#lösung-4",
-    "href": "Lösungen_Deseases.html#lösung-4",
-    "title": "6  Lösungen_Deseases",
-    "section": "6.4 Lösung 4",
-    "text": "6.4 Lösung 4\n\n# Aufgabe 4\n\nsummary_data4 <- Deaths %>%\n  summarise(Gesamt = sum(deaths_millions))\n\n\nsummary_data5 <- Deaths %>%\n  group_by(cause)%>%\n  summarise(total_per_cause = sum(deaths_millions)) %>% \n  mutate(InProzent = total_per_cause/359.85)"
-  },
-  {
-    "objectID": "Aufgaben_Plague.html#aufgabe-1",
-    "href": "Aufgaben_Plague.html#aufgabe-1",
-    "title": "5  Aufgaben_Plague",
-    "section": "5.1 Aufgabe 1",
-    "text": "5.1 Aufgabe 1\nImportiere den Datensatz (https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv) und gib an, in welchem Jahr es die meisten Tode gab"
-  },
-  {
-    "objectID": "Aufgaben_Plague.html#aufgabe-2",
-    "href": "Aufgaben_Plague.html#aufgabe-2",
-    "title": "5  Aufgaben_Plague",
-    "section": "5.2 Aufgabe 2",
-    "text": "5.2 Aufgabe 2\nGab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?"
-  },
-  {
-    "objectID": "Aufgaben_Plague.html#aufgabe-3",
-    "href": "Aufgaben_Plague.html#aufgabe-3",
-    "title": "5  Aufgaben_Plague",
-    "section": "5.3 Aufgabe 3",
-    "text": "5.3 Aufgabe 3\nGib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind"
-  },
-  {
-    "objectID": "Aufgaben_Plague.html#aufgabe-4",
-    "href": "Aufgaben_Plague.html#aufgabe-4",
-    "title": "5  Aufgaben_Plague",
-    "section": "5.4 Aufgabe 4",
-    "text": "5.4 Aufgabe 4\nWie viel Prozent der Todesfälle sind über den gesamten Zeitraum hinweg auf die verschiedenen Ursachen zurück zu führen?"
-  },
-  {
-    "objectID": "Lösungen_Plague.html#lösung-1",
-    "href": "Lösungen_Plague.html#lösung-1",
-    "title": "6  Lösungen_Plague",
-    "section": "6.1 Lösung 1",
-    "text": "6.1 Lösung 1\n\n#Aufgabe 1 \n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nDeaths <- read.csv(\"https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv\")\n\nsummary_data1 <- \n  Deaths%>% \n  group_by(year) %>% \n  summarise(total_per_year = sum(deaths_millions))"
-  },
-  {
-    "objectID": "Lösungen_Plague.html#lösung-2",
-    "href": "Lösungen_Plague.html#lösung-2",
-    "title": "6  Lösungen_Plague",
-    "section": "6.2 Lösung 2",
-    "text": "6.2 Lösung 2\n\n# Aufgabe 2\n\nsummary_data2 <- \n  Deaths %>% \n  group_by(sex, year) %>% \n  summarise(sum(deaths_millions))\n\n`summarise()` has grouped output by 'sex'. You can override using the `.groups`\nargument."
-  },
-  {
-    "objectID": "Lösungen_Plague.html#lösung-3",
-    "href": "Lösungen_Plague.html#lösung-3",
-    "title": "6  Lösungen_Plague",
-    "section": "6.3 Lösung 3",
-    "text": "6.3 Lösung 3\n\n# Aufgabe 3 \n\nsummary_data3 <- \n  Deaths %>% \n  group_by(year, cause) %>% \n  summarise(total_per_cause = sum(deaths_millions))\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument."
-  },
-  {
-    "objectID": "Lösungen_Plague.html#lösung-4",
-    "href": "Lösungen_Plague.html#lösung-4",
-    "title": "6  Lösungen_Plague",
-    "section": "6.4 Lösung 4",
-    "text": "6.4 Lösung 4\n\n# Aufgabe 4\n\nsummary_data4 <- Deaths %>%\n  summarise(Gesamt = sum(deaths_millions))\n\n\nsummary_data5 <- Deaths %>%\n  group_by(cause)%>%\n  summarise(total_per_cause = sum(deaths_millions)) %>% \n  mutate(InProzent = total_per_cause/359.85)"
-  },
-  {
-    "objectID": "versuch.html",
-    "href": "versuch.html",
+    "objectID": "versuch1.html",
+    "href": "versuch1.html",
     "title": "5  Untitled",
     "section": "",
-    "text": "jonwas geht du voll cooler typ"
+    "text": "mal gucken obs jetzt funktioniert"
   }
 ]
