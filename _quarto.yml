@@ -15,7 +15,11 @@ book:
       chapters: 
         - Aufgaben_Dinos.qmd
         - Lösungen_Dinos.qmd
+<<<<<<< HEAD
         - versuch1.qmd
+=======
+        - versuch.qmd
+>>>>>>> 808ac3f7d59d2898082b7a19cd204dbb9ca67c6c
     - references.qmd
 
 bibliography: references.bib
