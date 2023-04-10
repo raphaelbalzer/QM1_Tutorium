@@ -15,7 +15,8 @@ book:
       chapters: 
         - Aufgaben_Dinos.qmd
         - Lösungen_Dinos.qmd
-        - versuch1.qmd
+        - Aufgaben_plague.qmd
+        - Lösungen_plague.qmd
     - references.qmd
 
 bibliography: references.bib

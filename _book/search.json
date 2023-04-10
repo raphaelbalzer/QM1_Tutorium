@@ -81,7 +81,7 @@
     "href": "Aufgaben_Dinos.html#aufgabe-1",
     "title": "3  Dinojudo",
     "section": "3.1 Aufgabe 1",
-    "text": "3.1 Aufgabe 1\nImportiere den Datensatz “Jurassic_Park”\nLass dir die obersten zehn Reihen des Datensatzes in der Konsole anzeigen\nLass dir die unterstens zehn Reihen des Datensatzes in der Konsole anzeigen"
+    "text": "3.1 Aufgabe 1\nImportiere den Datensatz “Jurassic_Park” (https://raw.githubusercontent.com/raphaelbalzer/Tutorium_QM1_SoSe23/main/Jurassic_Park.csv)\nLass dir die obersten zehn Reihen des Datensatzes in der Konsole anzeigen\nLass dir die unterstens zehn Reihen des Datensatzes in der Konsole anzeigen"
   },
   {
     "objectID": "Aufgaben_Dinos.html#aufgabe-2",
@@ -116,7 +116,7 @@
     "href": "Lösungen_Dinos.html#lösung-1",
     "title": "4  Lösungen Dinojudo",
     "section": "4.1 Lösung 1",
-    "text": "4.1 Lösung 1\n\n# Aufgabe 1 \n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n#1.1\nlibrary(readr)\nJurassic_Park <- read_csv(\"Jurassic_Park.csv\")\n\nNew names:\nRows: 291 Columns: 11\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(9): name, diet, period, lived_in, type, taxonomy, named_by, species, link dbl\n(2): ...1, Length\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -> `...1`\n\n#1.2\nhead(Jurassic_Park, n = 10)\n\n# A tibble: 10 × 11\n    ...1 name    diet  period lived…¹ type  Length taxon…² named…³ species link \n   <dbl> <chr>   <chr> <chr>  <chr>   <chr>  <dbl> <chr>   <chr>   <chr>   <chr>\n 1    19 confuc… carn… Early… China   smal…   0.25 Dinosa… Hou Zh… sanctus http…\n 2    20 shanag  carn… Early… Mongol… smal…   0.45 Dinosa… Turner… ashile  http…\n 3    21 archae… carn… Late … Germany smal…   0.5  Dinosa… Mayer … lithog… http…\n 4    22 microc… herb… Late … Mongol… cera…   0.5  Dinosa… Bohlin… gobien… http…\n 5    23 compso… carn… Late … Germany smal…   0.65 Dinosa… Wagner… longip… http…\n 6    24 microp… herb… Late … China   cera…   0.6  Dinosa… Dong (… hongtu… http…\n 7    25 shuvuu… omni… Late … Mongol… smal…   0.6  Dinosa… Chiapp… deserti http…\n 8    26 gaspar… herb… Late … Argent… euor…   0.8  Dinosa… Coria … cincos… http…\n 9    27 jurave… carn… Late … Germany smal…   0.8  Dinosa… Göhlic… starki  http…\n10    28 micror… carn… Early… China   smal…   0.8  Dinosa… Xu Zho… zhaoia… http…\n# … with abbreviated variable names ¹​lived_in, ²​taxonomy, ³​named_by\n\n#1.3\ntail(Jurassic_Park, n = 10)\n\n# A tibble: 10 × 11\n    ...1 name    diet  period lived…¹ type  Length taxon…² named…³ species link \n   <dbl> <chr>   <chr> <chr>  <chr>   <chr>  <dbl> <chr>   <chr>   <chr>   <chr>\n 1   300 lurdus… herb… Early… Niger   euor…      9 Dinosa… Taquet… arenat… http…\n 2   301 maiasa… herb… Late … USA     euor…      9 Dinosa… Horner… peeble… http…\n 3   302 malawi… herb… Early… Malawi  saur…      9 Dinosa… Haught… dixeyi  http…\n 4   303 megalo… carn… Mid J… United… larg…      9 Dinosa… Ritgen… buckla… http…\n 5   304 poekil… carn… Mid J… France  larg…      9 Dinosa… Eudes-… buckla… http…\n 6   305 saurol… herb… Late … Mongol… euor…      9 Dinosa… Brown … osborni http…\n 7   306 sonido… herb… Late … China   saur…      9 Dinosa… Xu Zha… saihan… http…\n 8   307 stegos… herb… Late … USA     armo…      9 Dinosa… Marsh … armatus http…\n 9   308 tricer… herb… Late … USA     cera…      9 Dinosa… Marsh … horrid… http…\n10   309 yimeno… herb… Early… China   saur…      9 Dinosa… Bai Ya… youngi  http…\n# … with abbreviated variable names ¹​lived_in, ²​taxonomy, ³​named_by"
+    "text": "4.1 Lösung 1\n\n# Aufgabe 1 \n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n#1.1\nlibrary(readr)\nJurassic_Park <- read_csv(\"https://raw.githubusercontent.com/raphaelbalzer/Tutorium_QM1_SoSe23/main/Jurassic_Park.csv\")\n\nNew names:\nRows: 291 Columns: 11\n── Column specification\n──────────────────────────────────────────────────────── Delimiter: \",\" chr\n(9): name, diet, period, lived_in, type, taxonomy, named_by, species, link dbl\n(2): ...1, Length\nℹ Use `spec()` to retrieve the full column specification for this data. ℹ\nSpecify the column types or set `show_col_types = FALSE` to quiet this message.\n• `` -> `...1`\n\n#1.2\nhead(Jurassic_Park, n = 10)\n\n# A tibble: 10 × 11\n    ...1 name    diet  period lived…¹ type  Length taxon…² named…³ species link \n   <dbl> <chr>   <chr> <chr>  <chr>   <chr>  <dbl> <chr>   <chr>   <chr>   <chr>\n 1    19 confuc… carn… Early… China   smal…   0.25 Dinosa… Hou Zh… sanctus http…\n 2    20 shanag  carn… Early… Mongol… smal…   0.45 Dinosa… Turner… ashile  http…\n 3    21 archae… carn… Late … Germany smal…   0.5  Dinosa… Mayer … lithog… http…\n 4    22 microc… herb… Late … Mongol… cera…   0.5  Dinosa… Bohlin… gobien… http…\n 5    23 compso… carn… Late … Germany smal…   0.65 Dinosa… Wagner… longip… http…\n 6    24 microp… herb… Late … China   cera…   0.6  Dinosa… Dong (… hongtu… http…\n 7    25 shuvuu… omni… Late … Mongol… smal…   0.6  Dinosa… Chiapp… deserti http…\n 8    26 gaspar… herb… Late … Argent… euor…   0.8  Dinosa… Coria … cincos… http…\n 9    27 jurave… carn… Late … Germany smal…   0.8  Dinosa… Göhlic… starki  http…\n10    28 micror… carn… Early… China   smal…   0.8  Dinosa… Xu Zho… zhaoia… http…\n# … with abbreviated variable names ¹​lived_in, ²​taxonomy, ³​named_by\n\n#1.3\ntail(Jurassic_Park, n = 10)\n\n# A tibble: 10 × 11\n    ...1 name    diet  period lived…¹ type  Length taxon…² named…³ species link \n   <dbl> <chr>   <chr> <chr>  <chr>   <chr>  <dbl> <chr>   <chr>   <chr>   <chr>\n 1   300 lurdus… herb… Early… Niger   euor…      9 Dinosa… Taquet… arenat… http…\n 2   301 maiasa… herb… Late … USA     euor…      9 Dinosa… Horner… peeble… http…\n 3   302 malawi… herb… Early… Malawi  saur…      9 Dinosa… Haught… dixeyi  http…\n 4   303 megalo… carn… Mid J… United… larg…      9 Dinosa… Ritgen… buckla… http…\n 5   304 poekil… carn… Mid J… France  larg…      9 Dinosa… Eudes-… buckla… http…\n 6   305 saurol… herb… Late … Mongol… euor…      9 Dinosa… Brown … osborni http…\n 7   306 sonido… herb… Late … China   saur…      9 Dinosa… Xu Zha… saihan… http…\n 8   307 stegos… herb… Late … USA     armo…      9 Dinosa… Marsh … armatus http…\n 9   308 tricer… herb… Late … USA     cera…      9 Dinosa… Marsh … horrid… http…\n10   309 yimeno… herb… Early… China   saur…      9 Dinosa… Bai Ya… youngi  http…\n# … with abbreviated variable names ¹​lived_in, ²​taxonomy, ³​named_by"
   },
   {
     "objectID": "Lösungen_Dinos.html#lösung-2",
@@ -147,10 +147,59 @@
     "text": "4.5 Lösung 5\n\n# Dino1\nJurassic_Park %>% \n  select(type, diet, lived_in, Length) %>% \n  filter(lived_in == \"North Africa\",\n         type == \"large theropod\",\n         diet == \"carnivorous\") %>%\n  summarise(mean(Length))\n\n# A tibble: 1 × 1\n  `mean(Length)`\n           <dbl>\n1             15\n\n# Dino2\nJurassic_Park %>% \n  select(type, diet, lived_in, Length) %>% \n  filter(lived_in == \"China\",\n         type == \"sauropod\",\n         diet == \"herbivorous\") %>%\n  summarise(mean(Length))\n\n# A tibble: 1 × 1\n  `mean(Length)`\n           <dbl>\n1           11.6"
   },
   {
-    "objectID": "versuch1.html",
-    "href": "versuch1.html",
-    "title": "5  Untitled",
-    "section": "",
-    "text": "mal gucken obs jetzt funktioniert"
+    "objectID": "Aufgaben_plague.html#aufgabe-1",
+    "href": "Aufgaben_plague.html#aufgabe-1",
+    "title": "5  Aufgaben Plague",
+    "section": "5.1 Aufgabe 1",
+    "text": "5.1 Aufgabe 1\nImportiere den Datensatz (https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv) und gib an, in welchem Jahr es die meisten Tode gab"
+  },
+  {
+    "objectID": "Aufgaben_plague.html#aufgabe-2",
+    "href": "Aufgaben_plague.html#aufgabe-2",
+    "title": "5  Aufgaben Plague",
+    "section": "5.2 Aufgabe 2",
+    "text": "5.2 Aufgabe 2\nGab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?"
+  },
+  {
+    "objectID": "Aufgaben_plague.html#aufgabe-3",
+    "href": "Aufgaben_plague.html#aufgabe-3",
+    "title": "5  Aufgaben Plague",
+    "section": "5.3 Aufgabe 3",
+    "text": "5.3 Aufgabe 3\nGib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind"
+  },
+  {
+    "objectID": "Aufgaben_plague.html#aufgabe-4",
+    "href": "Aufgaben_plague.html#aufgabe-4",
+    "title": "5  Aufgaben Plague",
+    "section": "5.4 Aufgabe 4",
+    "text": "5.4 Aufgabe 4\nWie viel Prozent der Todesfälle sind über den gesamten Zeitraum hinweg auf die verschiedenen Ursachen zurück zu führen?"
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-1",
+    "href": "Lösungen_plague.html#lösung-1",
+    "title": "6  Lösungen Plague",
+    "section": "6.1 Lösung 1",
+    "text": "6.1 Lösung 1\n\n#Aufgabe 1 \n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nDeaths <- read.csv(\"https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv\")\n\nsummary_data1 <- \n  Deaths%>% \n  group_by(year) %>% \n  summarise(total_per_year = sum(deaths_millions))"
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-2",
+    "href": "Lösungen_plague.html#lösung-2",
+    "title": "6  Lösungen Plague",
+    "section": "6.2 Lösung 2",
+    "text": "6.2 Lösung 2\n\n# Aufgabe 2\n\nsummary_data2 <- \n  Deaths %>% \n  group_by(sex, year) %>% \n  summarise(sum(deaths_millions))\n\n`summarise()` has grouped output by 'sex'. You can override using the `.groups`\nargument."
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-3",
+    "href": "Lösungen_plague.html#lösung-3",
+    "title": "6  Lösungen Plague",
+    "section": "6.3 Lösung 3",
+    "text": "6.3 Lösung 3\n\n# Aufgabe 3 \n\nsummary_data3 <- \n  Deaths %>% \n  group_by(year, cause) %>% \n  summarise(total_per_cause = sum(deaths_millions))\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument."
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-4",
+    "href": "Lösungen_plague.html#lösung-4",
+    "title": "6  Lösungen Plague",
+    "section": "6.4 Lösung 4",
+    "text": "6.4 Lösung 4\n\n# Aufgabe 4\n\nsummary_data4 <- Deaths %>%\n  summarise(Gesamt = sum(deaths_millions))\n\n\nsummary_data5 <- Deaths %>%\n  group_by(cause)%>%\n  summarise(total_per_cause = sum(deaths_millions)) %>% \n  mutate(InProzent = total_per_cause/359.85)"
   }
 ]
