@@ -15,8 +15,8 @@ book:
       chapters: 
         - Aufgaben_Dinos.qmd
         - Lösungen_Dinos.qmd
-        - Aufgaben_Plague.qmd
-        - Lösungen_Plague.qmd
+        - Aufgaben_Deseases.qmd
+        - Lösungen_Deseases.qmd
     - references.qmd
 
 bibliography: references.bib
