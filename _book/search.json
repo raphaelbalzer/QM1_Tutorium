@@ -257,5 +257,12 @@
     "title": "6  Lösungen_Plague",
     "section": "6.4 Lösung 4",
     "text": "6.4 Lösung 4\n\n# Aufgabe 4\n\nsummary_data4 <- Deaths %>%\n  summarise(Gesamt = sum(deaths_millions))\n\n\nsummary_data5 <- Deaths %>%\n  group_by(cause)%>%\n  summarise(total_per_cause = sum(deaths_millions)) %>% \n  mutate(InProzent = total_per_cause/359.85)"
+  },
+  {
+    "objectID": "versuch.html",
+    "href": "versuch.html",
+    "title": "5  Untitled",
+    "section": "",
+    "text": "jonwas geht du voll cooler typ"
   }
 ]

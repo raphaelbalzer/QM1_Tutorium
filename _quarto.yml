@@ -15,8 +15,7 @@ book:
       chapters: 
         - Aufgaben_Dinos.qmd
         - Lösungen_Dinos.qmd
-        - Aufgaben_Deseases.qmd
-        - Lösungen_Deseases.qmd
+        - versuch.qmd
     - references.qmd
 
 bibliography: references.bib
