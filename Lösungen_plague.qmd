@@ -1,6 +1,6 @@
 # Lösungen Plague
 
-## Lösung 1 
+## Lösung 1
 ```{r}
 #Aufgabe 1 
 
@@ -15,27 +15,65 @@ summary_data1 <-
 
 ```
 
-## Lösung 2 
+## Lösung 2.1
 ```{r}
-# Aufgabe 2
+# Aufgabe 2.1
 
 summary_data2 <- 
   Deaths %>% 
   group_by(sex, year) %>% 
   summarise(sum(deaths_millions))
 ```
+## Lösung 2.2 
+```{r}
+# Aufgabe 2.2
+Deaths %>% 
+  select(deaths_millions, income, sex) %>% 
+  filter(sex == "Male") %>% 
+  filter(income == "High")%>% 
+  summarise(Tode = sum(deaths_millions))
 
-## Lösung 3
+Deaths %>% 
+  select(deaths_millions, income, sex) %>% 
+  filter(sex == "Female")%>% 
+  filter(income == "Low") %>% 
+  summarise(Tode = sum(deaths_millions))
+```
+
+## Lösung 2.3 
+```{r}
+# Aufgabe 2.3
+
+Deaths %>%
+  group_by(cause) %>% 
+  filter(year >= 2005,
+         sex == "Male",
+         income == "Low") %>% 
+  summarise(Total = sum(deaths_millions), 
+            durchschnittliche = mean(deaths_millions))
+```
+
+## Lösung 3.1
 
 ```{r}
-# Aufgabe 3 
+# Aufgabe 3.1 
 
 summary_data3 <- 
   Deaths %>% 
   group_by(year, cause) %>% 
   summarise(total_per_cause = sum(deaths_millions))
 ```
+## Lösung 3.2 
+```{r}
+# Aufgabe 3.2
 
+Deaths %>%
+  group_by(income) %>% 
+  summarise(Total = sum(deaths_millions))
+
+Deaths %>% 
+  summarise(sum(deaths_millions))
+```
 ## Lösung 4
 
 ```{r}

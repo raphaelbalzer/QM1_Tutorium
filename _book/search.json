@@ -158,14 +158,14 @@
     "href": "Aufgaben_plague.html#aufgabe-2",
     "title": "5  Aufgaben Plague",
     "section": "5.2 Aufgabe 2",
-    "text": "5.2 Aufgabe 2\nGab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?"
+    "text": "5.2 Aufgabe 2\n2.1 Gab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?\n2.2 Sind über den gesamten Zeitraum hinweg mehr wohlhabende (High) Männer als arme (Low) Frauen gestorben?\n2.3 Gib für jede Todesursache ab den Jahren 2005 von Männern mit niedrigem Einkommen die durchschnittliche Anzahl der Tode und die gesamte Anzahl an"
   },
   {
     "objectID": "Aufgaben_plague.html#aufgabe-3",
     "href": "Aufgaben_plague.html#aufgabe-3",
     "title": "5  Aufgaben Plague",
     "section": "5.3 Aufgabe 3",
-    "text": "5.3 Aufgabe 3\nGib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind"
+    "text": "5.3 Aufgabe 3\n3.1 Gib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind\n3.2 In welcher Einkommensgruppe gab es die meisten Tode über die gesamte Zeit hinweg?"
   },
   {
     "objectID": "Aufgaben_plague.html#aufgabe-4",
@@ -182,24 +182,45 @@
     "text": "6.1 Lösung 1\n\n#Aufgabe 1 \n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.3     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nDeaths <- read.csv(\"https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv\")\n\nsummary_data1 <- \n  Deaths%>% \n  group_by(year) %>% \n  summarise(total_per_year = sum(deaths_millions))"
   },
   {
-    "objectID": "Lösungen_plague.html#lösung-2",
-    "href": "Lösungen_plague.html#lösung-2",
+    "objectID": "Lösungen_plague.html#lösung-2.1",
+    "href": "Lösungen_plague.html#lösung-2.1",
     "title": "6  Lösungen Plague",
-    "section": "6.2 Lösung 2",
-    "text": "6.2 Lösung 2\n\n# Aufgabe 2\n\nsummary_data2 <- \n  Deaths %>% \n  group_by(sex, year) %>% \n  summarise(sum(deaths_millions))\n\n`summarise()` has grouped output by 'sex'. You can override using the `.groups`\nargument."
+    "section": "6.2 Lösung 2.1",
+    "text": "6.2 Lösung 2.1\n\n# Aufgabe 2.1\n\nsummary_data2 <- \n  Deaths %>% \n  group_by(sex, year) %>% \n  summarise(sum(deaths_millions))\n\n`summarise()` has grouped output by 'sex'. You can override using the `.groups`\nargument."
   },
   {
-    "objectID": "Lösungen_plague.html#lösung-3",
-    "href": "Lösungen_plague.html#lösung-3",
+    "objectID": "Lösungen_plague.html#lösung-2.2",
+    "href": "Lösungen_plague.html#lösung-2.2",
     "title": "6  Lösungen Plague",
-    "section": "6.3 Lösung 3",
-    "text": "6.3 Lösung 3\n\n# Aufgabe 3 \n\nsummary_data3 <- \n  Deaths %>% \n  group_by(year, cause) %>% \n  summarise(total_per_cause = sum(deaths_millions))\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument."
+    "section": "6.3 Lösung 2.2",
+    "text": "6.3 Lösung 2.2\n\n# Aufgabe 2.2\nDeaths %>% \n  select(deaths_millions, income, sex) %>% \n  filter(sex == \"Male\") %>% \n  filter(income == \"High\")%>% \n  summarise(Tode = sum(deaths_millions))\n\n   Tode\n1 33.53\n\nDeaths %>% \n  select(deaths_millions, income, sex) %>% \n  filter(sex == \"Female\")%>% \n  filter(income == \"Low\") %>% \n  summarise(Tode = sum(deaths_millions))\n\n   Tode\n1 16.93"
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-2.3",
+    "href": "Lösungen_plague.html#lösung-2.3",
+    "title": "6  Lösungen Plague",
+    "section": "6.4 Lösung 2.3",
+    "text": "6.4 Lösung 2.3\n\n# Aufgabe 2.3\n\nDeaths %>%\n  group_by(cause) %>% \n  filter(year >= 2005,\n         sex == \"Male\",\n         income == \"Low\") %>% \n  summarise(Total = sum(deaths_millions), \n            durchschnittliche = mean(deaths_millions))\n\n# A tibble: 3 × 3\n  cause                     Total durchschnittliche\n  <chr>                     <dbl>             <dbl>\n1 Communicable diseases      6.24             1.56 \n2 Injuries                   1.14             0.285\n3 Non-communicable diseases  3.62             0.905"
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-3.1",
+    "href": "Lösungen_plague.html#lösung-3.1",
+    "title": "6  Lösungen Plague",
+    "section": "6.5 Lösung 3.1",
+    "text": "6.5 Lösung 3.1\n\n# Aufgabe 3.1 \n\nsummary_data3 <- \n  Deaths %>% \n  group_by(year, cause) %>% \n  summarise(total_per_cause = sum(deaths_millions))\n\n`summarise()` has grouped output by 'year'. You can override using the\n`.groups` argument."
+  },
+  {
+    "objectID": "Lösungen_plague.html#lösung-3.2",
+    "href": "Lösungen_plague.html#lösung-3.2",
+    "title": "6  Lösungen Plague",
+    "section": "6.6 Lösung 3.2",
+    "text": "6.6 Lösung 3.2\n\n# Aufgabe 3.2\n\nDeaths %>%\n  group_by(income) %>% \n  summarise(Total = sum(deaths_millions))\n\n# A tibble: 4 × 2\n  income       Total\n  <chr>        <dbl>\n1 High          65.7\n2 Low           36.3\n3 Lower-Middle 140. \n4 Upper-Middle 118. \n\nDeaths %>% \n  summarise(sum(deaths_millions))\n\n  sum(deaths_millions)\n1               359.85"
   },
   {
     "objectID": "Lösungen_plague.html#lösung-4",
     "href": "Lösungen_plague.html#lösung-4",
     "title": "6  Lösungen Plague",
-    "section": "6.4 Lösung 4",
-    "text": "6.4 Lösung 4\n\n# Aufgabe 4\n\nsummary_data4 <- Deaths %>%\n  summarise(Gesamt = sum(deaths_millions))\n\n\nsummary_data5 <- Deaths %>%\n  group_by(cause)%>%\n  summarise(total_per_cause = sum(deaths_millions)) %>% \n  mutate(InProzent = total_per_cause/359.85)"
+    "section": "6.7 Lösung 4",
+    "text": "6.7 Lösung 4\n\n# Aufgabe 4\n\nsummary_data4 <- Deaths %>%\n  summarise(Gesamt = sum(deaths_millions))\n\n\nsummary_data5 <- Deaths %>%\n  group_by(cause)%>%\n  summarise(total_per_cause = sum(deaths_millions)) %>% \n  mutate(InProzent = total_per_cause/359.85)"
   }
 ]

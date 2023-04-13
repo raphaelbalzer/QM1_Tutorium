@@ -7,15 +7,19 @@ knitr::include_graphics("https://bgr.com/wp-content/uploads/2018/11/plague.png")
 
 Importiere den Datensatz (https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv) und gib an, in welchem Jahr es die meisten Tode gab
 
-
 ## Aufgabe 2 
 
-Gab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?
+2.1 Gab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?
 
+2.2 Sind über den gesamten Zeitraum hinweg mehr wohlhabende (High) Männer als arme (Low) Frauen gestorben?
+
+2.3 Gib für jede Todesursache ab den Jahren 2005 von Männern mit niedrigem Einkommen die durchschnittliche Anzahl der Tode und die gesamte Anzahl an
 
 ## Aufgabe 3 
 
-Gib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind
+3.1 Gib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind
+
+3.2 In welcher Einkommensgruppe gab es die meisten Tode über die gesamte Zeit hinweg?
 
 
 ## Aufgabe 4 
