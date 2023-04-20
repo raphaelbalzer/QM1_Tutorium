@@ -20,6 +20,8 @@ book:
     - part: "Fallstudien"
       chapters: 
         - QM1_Tutorium_Fallstudie_IRIS.qmd
+        - QM1_Tut_Fallstudie_Penguins_Aufg.qmd
+        - QM1_Tut_Fallstudie_Penguins_Loes.qmd
     - references.qmd
 
 bibliography: references.bib

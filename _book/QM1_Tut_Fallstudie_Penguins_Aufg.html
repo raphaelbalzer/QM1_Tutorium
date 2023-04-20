@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QM1-Tutorium SoSe23 - 5&nbsp; Aufgaben Plague</title>
+<title>QM1-Tutorium SoSe23 - 8&nbsp; Fallstudie zur EDA mit Penguins</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Lösungen_plague.html" rel="next">
-<link href="./Lösungen_Dinos.html" rel="prev">
+<link href="./QM1_Tut_Fallstudie_Penguins_Loes.html" rel="next">
+<link href="./QM1_Tutorium_Fallstudie_IRIS.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aufgaben Plague</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Aufgaben_plague.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aufgaben Plague</span></a>
+  <a href="./Aufgaben_plague.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aufgaben Plague</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></a>
+  <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -187,10 +187,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1"><span class="toc-section-number">5.1</span>  Aufgabe 1</a></li>
-  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2"><span class="toc-section-number">5.2</span>  Aufgabe 2</a></li>
-  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3"><span class="toc-section-number">5.3</span>  Aufgabe 3</a></li>
-  <li><a href="#aufgabe-4" id="toc-aufgabe-4" class="nav-link" data-scroll-target="#aufgabe-4"><span class="toc-section-number">5.4</span>  Aufgabe 4</a></li>
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link active" data-scroll-target="#pakete-laden"><span class="toc-section-number">8.1</span>  Pakete laden</a></li>
+  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="toc-section-number">8.2</span>  Datenimport</a></li>
+  <li><a href="#datenjudo" id="toc-datenjudo" class="nav-link" data-scroll-target="#datenjudo"><span class="toc-section-number">8.3</span>  Datenjudo</a></li>
+  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="toc-section-number">8.4</span>  Datenvisualisierung</a></li>
   </ul>
 </nav>
     </div>
@@ -199,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aufgaben Plague</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></h1>
 </div>
 
 
@@ -214,29 +214,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="https://bgr.com/wp-content/uploads/2018/11/plague.png" class="img-fluid" style="width:65.0%"></p>
-</div>
-</div>
-<section id="aufgabe-1" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="aufgabe-1"><span class="header-section-number">5.1</span> Aufgabe 1</h2>
-<p>Importiere den Datensatz (https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv) und gib an, in welchem Jahr es die meisten Tode gab</p>
+<p>Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen Datensatz anzuwenden. Beschreibt in eurer Lösung am besten die einzelnen Schritte, die ihr ausführt, mit #Erklärungstext über dem Code. So ist euer Code nachvollziehbarer und in der Prüfung solltet ihr das genauso machen.</p>
+<p><img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" class="img-fluid"></p>
+<section id="pakete-laden" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">8.1</span> Pakete laden</h2>
+<p>Lade die erforderlichen Pakte (tidyverse, visdat)</p>
 </section>
-<section id="aufgabe-2" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="aufgabe-2"><span class="header-section-number">5.2</span> Aufgabe 2</h2>
-<p>2.1 Gab es ein Jahr, in dem mehr Frauen als Männer gestorben sind?</p>
-<p>2.2 Sind über den gesamten Zeitraum hinweg mehr wohlhabende (High) Männer als arme (Low) Frauen gestorben?</p>
-<p>2.3 Gib für jede Todesursache ab den Jahren 2005 von Männern mit niedrigem Einkommen die durchschnittliche Anzahl der Tode und die gesamte Anzahl an</p>
+<section id="datenimport" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">8.2</span> Datenimport</h2>
+<p>Importiere den penguins Datensatz:</p>
+<p>https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv”</p>
 </section>
-<section id="aufgabe-3" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="aufgabe-3"><span class="header-section-number">5.3</span> Aufgabe 3</h2>
-<p>3.1 Gib an, wie viele Menschen insgesamt in den verschiedenen Jahren durch welche Ursachen gestorben sind</p>
-<p>3.2 In welcher Einkommensgruppe gab es die meisten Tode über die gesamte Zeit hinweg?</p>
+<section id="datenjudo" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">8.3</span> Datenjudo</h2>
+<p>Lass dir die obersten Zeilen ausgeben</p>
+<p>Verschaffe dir einen Überblick über die Variablentypen</p>
+<p>Prüfe auf fehlende Werte</p>
+<p>Prüfe die Variablen auf Ausreißer/Extremwerte</p>
 </section>
-<section id="aufgabe-4" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="aufgabe-4"><span class="header-section-number">5.4</span> Aufgabe 4</h2>
-<p>Wie viel Prozent der Todesfälle sind über den gesamten Zeitraum hinweg auf die verschiedenen Ursachen zurück zu führen?</p>
+<section id="datenvisualisierung" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">8.4</span> Datenvisualisierung</h2>
+<p>Sieh dir die Verteilung von <code>flipper_length_mm</code> an</p>
+<p>Sieh dir die Verteilung von <code>flipper_length_mm</code> in Abhängigkeit von der Spezies an</p>
+<p>Sieh dir die Verteilung der verschiedenen Spezies auf die unterschiedlichen Inseln an</p>
+<p>Sieh dir die Verteilung der Geschlechter unter den verschiedenen Spezies an</p>
+<p>Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit der Spezies an und hebe, falls vorhanden, einen linearen Trend hervor</p>
+<p>Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit des Geschlechts für jede Spezies an</p>
 
 
 </section>
@@ -377,13 +380,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lösungen_Dinos.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lösungen Dinojudo</span></span>
+      <a href="./QM1_Tutorium_Fallstudie_IRIS.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse andhand des Iris-Datensatzes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Lösungen_plague.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Lösungen Plague</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,39 @@
+# Fallstudie zur EDA mit Penguins
+
+Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen Datensatz anzuwenden. Beschreibt in eurer Lösung am besten die einzelnen Schritte, die ihr ausführt, mit #Erklärungstext über dem Code. So ist euer Code nachvollziehbarer und in der Prüfung solltet ihr das genauso machen.
+
+![](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+
+## Pakete laden
+
+Lade die erforderlichen Pakte (tidyverse, visdat)
+
+## Datenimport 
+
+Importiere den penguins Datensatz:
+
+https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"
+
+## Datenjudo 
+
+Lass dir die obersten Zeilen ausgeben
+
+Verschaffe dir einen Überblick über die Variablentypen 
+
+Prüfe auf fehlende Werte
+
+Prüfe die Variablen auf Ausreißer/Extremwerte
+
+## Datenvisualisierung
+
+Sieh dir die Verteilung von `flipper_length_mm` an
+
+Sieh dir die Verteilung von `flipper_length_mm` in Abhängigkeit von der Spezies an
+
+Sieh dir die Verteilung der verschiedenen Spezies auf die unterschiedlichen Inseln an
+
+Sieh dir die Verteilung der Geschlechter unter den verschiedenen Spezies an
+
+Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit der Spezies an und hebe, falls vorhanden, einen linearen Trend hervor
+
+Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit des Geschlechts für jede Spezies an

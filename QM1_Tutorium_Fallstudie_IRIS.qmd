@@ -181,6 +181,7 @@ ggplot(iris, aes(Sepal.Width)) +
   geom_boxplot()
 ```
 
+Generell ist es zum Überprüfen auf Extremwerte auch hilfreich, zunächst einmal Boxplots zu erstellen.
 
 ### Extremwerte in NA´s umwandeln
 
