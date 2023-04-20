@@ -1,4 +1,4 @@
-# Fallstudie zur explorativen Datenanalyse andhand des  Iris-Datensatzes
+# Fallstudie zur explorativen Datenanalyse anhand des  Iris-Datensatzes
 
 Diese Fallstudie soll als Einführung in die explorative Datenanalyse mit angewandtem Datenjudo und Datenvisualisierung dienen. Es geht darum, sich einen Überblick über den Datensatz zu verschaffen und gegebenenfalls einige Umformungen vorzunehmen, um später vernünftig damit arbeiten zu können. Der Datensatz enthält Messungen der Länge und Breite der Blüten-(`Sepal`) und Kelchblätter(`Petal`) von drei verschiedenen Spezies der Iris.
 
@@ -174,7 +174,7 @@ Jetzt wissen wir, dass es vier Extremwerte gibt.
 
 ### Boxplot erstellen
 
-Diese können wir uns auch in anhand eines Boxplots anzeigen lassen:
+Diese können wir uns auch anhand eines Boxplots anzeigen lassen. Das ist immer praktisch, um überhaupt erst einmal zu überprüfen, ob es denn Extremwerte für eine Variable gibt.
 
 ```{r}
 ggplot(iris, aes(Sepal.Width)) +
