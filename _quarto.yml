@@ -17,6 +17,9 @@ book:
         - Lösungen_Dinos.qmd
         - Aufgaben_plague.qmd
         - Lösungen_plague.qmd
+    - part: "Fallstudien"
+      chapters: 
+        - QM1_Tutorium_Fallstudie_IRIS.qmd
     - references.qmd
 
 bibliography: references.bib
