@@ -17,7 +17,7 @@ library(fastDummies)
 
 Ob aufgrund von technischen Problemen, Messfehlern oder Nachlässigkeit beim Eintragen, fehlende Werte können grundsätzlich in jedem Datensatz vorkommen. Wendet man Befehle wie `summarise()` auf Spalten mit NAs an, kann der Befehl nicht ausgeführt werden. Deshalb sieht man oft am Ende von Code-Chunks so etwas wie `drop_na()`, was dazu dient, alle Zeilen, die NAs enthalten, für die Operation rauszuschmeißen. Das ist aber keine endgültige Lösung, denn NAs können die Aussagekraft des Datensatzes stark beeinträchtigen.
 
-### Auf fehlende prüfen
+### Auf fehlende Werte prüfen
 
 Im ersten Teil der EDA haben wir ja die Extremwerte bestimmt und in NA umgewandelt:
 
