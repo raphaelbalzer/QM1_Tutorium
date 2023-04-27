@@ -259,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="toc-section-number">8.2</span>  Fehlende Werte</a>
   <ul class="collapse">
   <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="toc-section-number">8.2.1</span>  Definition</a></li>
-  <li><a href="#auf-fehlende-prüfen" id="toc-auf-fehlende-prüfen" class="nav-link" data-scroll-target="#auf-fehlende-prüfen"><span class="toc-section-number">8.2.2</span>  Auf fehlende prüfen</a></li>
+  <li><a href="#auf-fehlende-werte-prüfen" id="toc-auf-fehlende-werte-prüfen" class="nav-link" data-scroll-target="#auf-fehlende-werte-prüfen"><span class="toc-section-number">8.2.2</span>  Auf fehlende Werte prüfen</a></li>
   <li><a href="#umgang-mit-fehlenden-werten" id="toc-umgang-mit-fehlenden-werten" class="nav-link" data-scroll-target="#umgang-mit-fehlenden-werten"><span class="toc-section-number">8.2.3</span>  Umgang mit fehlenden Werten</a></li>
   </ul></li>
   <li><a href="#korrelation" id="toc-korrelation" class="nav-link" data-scroll-target="#korrelation"><span class="toc-section-number">8.3</span>  Korrelation</a>
@@ -325,8 +325,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">8.2.1</span> Definition</h3>
 <p>Ob aufgrund von technischen Problemen, Messfehlern oder Nachlässigkeit beim Eintragen, fehlende Werte können grundsätzlich in jedem Datensatz vorkommen. Wendet man Befehle wie <code>summarise()</code> auf Spalten mit NAs an, kann der Befehl nicht ausgeführt werden. Deshalb sieht man oft am Ende von Code-Chunks so etwas wie <code>drop_na()</code>, was dazu dient, alle Zeilen, die NAs enthalten, für die Operation rauszuschmeißen. Das ist aber keine endgültige Lösung, denn NAs können die Aussagekraft des Datensatzes stark beeinträchtigen.</p>
 </section>
-<section id="auf-fehlende-prüfen" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="auf-fehlende-prüfen"><span class="header-section-number">8.2.2</span> Auf fehlende prüfen</h3>
+<section id="auf-fehlende-werte-prüfen" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="auf-fehlende-werte-prüfen"><span class="header-section-number">8.2.2</span> Auf fehlende Werte prüfen</h3>
 <p>Im ersten Teil der EDA haben wir ja die Extremwerte bestimmt und in NA umgewandelt:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
