@@ -1,22 +1,24 @@
-# Fallstudie zur EDA mit Penguins
+# Fallstudie Penguins Aufgaben
 
 Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen Datensatz anzuwenden. Beschreibt in eurer Lösung am besten die einzelnen Schritte, die ihr ausführt, mit #Erklärungstext über dem Code. So ist euer Code nachvollziehbarer und in der Prüfung solltet ihr das genauso machen.
 
 ![](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
 
-## Teil 1
+## Explorative Datenanalyse
 
-### Pakete laden
+### Teil 1
+
+#### Pakete laden
 
 Lade die erforderlichen Pakte (tidyverse, visdat)
 
-### Datenimport
+#### Datenimport
 
 Importiere den penguins Datensatz:
 
 https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"
 
-### Datenjudo
+#### Datenjudo
 
 Lass dir die obersten Zeilen ausgeben
 
@@ -26,7 +28,7 @@ Prüfe auf fehlende Werte
 
 Prüfe die Variablen auf Ausreißer/Extremwerte
 
-### Datenvisualisierung
+#### Datenvisualisierung
 
 Sieh dir die Verteilung von `flipper_length_mm` an
 
@@ -40,9 +42,9 @@ Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit d
 
 Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit des Geschlechts für jede Spezies an
 
-## Teil 2
+### Teil 2
 
-### Datenjudo
+#### Datenjudo
 
 Wandle Ausreißer in NA um
 
@@ -52,6 +54,13 @@ Erstelle eine Korrelationsmatrix mit allen Variablen
 
 Im Folgenden soll Flipper_Length als AV betrachtet werden. Lass dir nur die Korrelationen mit dieser Variable ausgeben
 
-### Datenvisualisierung
+#### Datenvisualisierung
 
 Erstelle einen Korrelationsplot
+
+## Vorhersagemodellierung
+
+### Einfaches lineares Modell
+
+Erstelle ein lineares Modell, das `flipper_length_mm` mit Hilfe von einem Prädiktor vorhersagt.  
+Lass dir außerdem die Modellgüte ausgeben und plotte das Modell.

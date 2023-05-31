@@ -1,0 +1,44 @@
+# Fallstudie Vorhersagemodellierung Iris
+
+Jetzt, da wir unsere Daten in der EDA aufbereitet und Anomalien beseitigt haben, können wir uns an einer Vorhersage versuchen. Hierzu bedienen wir uns an einem linearen Modell, das heißt, wir legen eine Gerade über die Punktewolke unserer AV und versuchen, die Abstände von den Punkten, also den echten Werten zu der Gerade, welche die vorhergesagten Werte darstellt, zu minimieren. Um ein lineares Modell zu erstellen, benutzen wir einfach den Befehl `lm()`.
+
+```{r}
+library(tidyverse)
+library(ggcorrplot)
+data(iris)
+```
+
+Wenn wir jetzt im Iris Datensatz Sepal.Length vorhersagen wollen, müssen wir zuerst überlegen, welche Variablen uns dabei als Prädiktoren dienen könnten. Ein Anhaltspunkt ist der Korrelationsplot, den wir im letzten Kapitel erstellt haben.
+
+```{r}
+iris %>% 
+  select(where(is.numeric)) %>% 
+  cor() %>% 
+  ggcorrplot(method = "circle", 
+             type = "lower",
+             colors = c("violet", "grey", "blue"))
+```
+
+Hier können wir deutlich sehen, dass sowohl `Petal.Length` als auch `Petal.Width`, einen starken Zusammenhang mit `Sepal.Length` aufweisen. Anders gesagt: Je länger und breiter das Kelchblatt einer Blüte ist, desto länger ist das Blütenblatt. Der Einfachheit halber nehmen wir erstmal nur einen Prädiktor, nämlich `Sepal.Length`:
+
+```{r}
+lm1 <- lm(Sepal.Length ~ Petal.Length, 
+   data = iris)
+```
+
+Mit nur einem Prädiktor lässt sich das Modell auch noch leicht visualisieren:
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) +
+  geom_point() +
+  geom_smooth(method = lm)
+```
+
+Wenn wir jetzt wissen wollen, wie gut unser Modell ist, können wir uns mit `summary()`eine Zusammenfassung aller Kennwerte des Modells ausgeben lassen:
+
+```{r}
+summary(lm1)
+```
+
+Fürs Erste schauen wir uns nur den Wert für das Adjusted R-squared an. Dieser sagt uns, dass rund 76% der Varianz von Petal.Length durch Sepal.Length erklärt werden kann. Zur Vertiefung von R\^2 ist folgendes Video gut geeignet:\
+[StatQuest: Linear Models](https://www.youtube.com/watch?v=nk2CQITm_eo&list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU&index=2)

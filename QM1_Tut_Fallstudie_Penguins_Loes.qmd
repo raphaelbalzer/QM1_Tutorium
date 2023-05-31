@@ -1,4 +1,4 @@
-# Fallstudie zur EDA mit Penguins
+# Fallstudie Penguins Lösungen
 
 Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen Datensatz anzuwenden. Beschreibt in eurer Lösung am besten die einzelnen Schritte, die ihr ausführt, mit #Erklärungstext über dem Code. So ist euer Code nachvollziehbarer und in der Prüfung solltet ihr das genauso machen.
 
@@ -13,8 +13,7 @@ library(tidyverse)
 library(visdat)
 ```
 
-
-## Datenimport 
+## Datenimport
 
 Importiere den penguins Datensatz:
 

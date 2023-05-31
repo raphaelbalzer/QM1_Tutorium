@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QM1-Tutorium SoSe23 - 9&nbsp; Fallstudie zur EDA mit Penguins</title>
+<title>QM1-Tutorium SoSe23 - 9&nbsp; Fallstudie Penguins Aufgaben</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -168,12 +168,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></a>
+  <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></a>
+  <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></a>
   </div>
 </li>
       </ul>
@@ -192,17 +192,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#teil-1" id="toc-teil-1" class="nav-link active" data-scroll-target="#teil-1"><span class="toc-section-number">9.1</span>  Teil 1</a>
+  <li><a href="#explorative-datenanalyse" id="toc-explorative-datenanalyse" class="nav-link active" data-scroll-target="#explorative-datenanalyse"><span class="toc-section-number">9.1</span>  Explorative Datenanalyse</a>
   <ul class="collapse">
-  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link" data-scroll-target="#pakete-laden"><span class="toc-section-number">9.1.1</span>  Pakete laden</a></li>
-  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="toc-section-number">9.1.2</span>  Datenimport</a></li>
-  <li><a href="#datenjudo" id="toc-datenjudo" class="nav-link" data-scroll-target="#datenjudo"><span class="toc-section-number">9.1.3</span>  Datenjudo</a></li>
-  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="toc-section-number">9.1.4</span>  Datenvisualisierung</a></li>
+  <li><a href="#teil-1" id="toc-teil-1" class="nav-link" data-scroll-target="#teil-1"><span class="toc-section-number">9.1.1</span>  Teil 1</a></li>
+  <li><a href="#teil-2" id="toc-teil-2" class="nav-link" data-scroll-target="#teil-2"><span class="toc-section-number">9.1.2</span>  Teil 2</a></li>
   </ul></li>
-  <li><a href="#teil-2" id="toc-teil-2" class="nav-link" data-scroll-target="#teil-2"><span class="toc-section-number">9.2</span>  Teil 2</a>
+  <li><a href="#vorhersagemodellierung" id="toc-vorhersagemodellierung" class="nav-link" data-scroll-target="#vorhersagemodellierung"><span class="toc-section-number">9.2</span>  Vorhersagemodellierung</a>
   <ul class="collapse">
-  <li><a href="#datenjudo-1" id="toc-datenjudo-1" class="nav-link" data-scroll-target="#datenjudo-1"><span class="toc-section-number">9.2.1</span>  Datenjudo</a></li>
-  <li><a href="#datenvisualisierung-1" id="toc-datenvisualisierung-1" class="nav-link" data-scroll-target="#datenvisualisierung-1"><span class="toc-section-number">9.2.2</span>  Datenvisualisierung</a></li>
+  <li><a href="#einfaches-lineares-modell" id="toc-einfaches-lineares-modell" class="nav-link" data-scroll-target="#einfaches-lineares-modell"><span class="toc-section-number">9.2.1</span>  Einfaches lineares Modell</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -212,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></h1>
 </div>
 
 
@@ -229,26 +226,28 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen Datensatz anzuwenden. Beschreibt in eurer Lösung am besten die einzelnen Schritte, die ihr ausführt, mit #Erklärungstext über dem Code. So ist euer Code nachvollziehbarer und in der Prüfung solltet ihr das genauso machen.</p>
 <p><img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" class="img-fluid"></p>
-<section id="teil-1" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="teil-1"><span class="header-section-number">9.1</span> Teil 1</h2>
-<section id="pakete-laden" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">9.1.1</span> Pakete laden</h3>
+<section id="explorative-datenanalyse" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="explorative-datenanalyse"><span class="header-section-number">9.1</span> Explorative Datenanalyse</h2>
+<section id="teil-1" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="teil-1"><span class="header-section-number">9.1.1</span> Teil 1</h3>
+<section id="pakete-laden" class="level4" data-number="9.1.1.1">
+<h4 data-number="9.1.1.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">9.1.1.1</span> Pakete laden</h4>
 <p>Lade die erforderlichen Pakte (tidyverse, visdat)</p>
 </section>
-<section id="datenimport" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">9.1.2</span> Datenimport</h3>
+<section id="datenimport" class="level4" data-number="9.1.1.2">
+<h4 data-number="9.1.1.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">9.1.1.2</span> Datenimport</h4>
 <p>Importiere den penguins Datensatz:</p>
 <p>https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv”</p>
 </section>
-<section id="datenjudo" class="level3" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">9.1.3</span> Datenjudo</h3>
+<section id="datenjudo" class="level4" data-number="9.1.1.3">
+<h4 data-number="9.1.1.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">9.1.1.3</span> Datenjudo</h4>
 <p>Lass dir die obersten Zeilen ausgeben</p>
 <p>Verschaffe dir einen Überblick über die Variablentypen</p>
 <p>Prüfe auf fehlende Werte</p>
 <p>Prüfe die Variablen auf Ausreißer/Extremwerte</p>
 </section>
-<section id="datenvisualisierung" class="level3" data-number="9.1.4">
-<h3 data-number="9.1.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">9.1.4</span> Datenvisualisierung</h3>
+<section id="datenvisualisierung" class="level4" data-number="9.1.1.4">
+<h4 data-number="9.1.1.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">9.1.1.4</span> Datenvisualisierung</h4>
 <p>Sieh dir die Verteilung von <code>flipper_length_mm</code> an</p>
 <p>Sieh dir die Verteilung von <code>flipper_length_mm</code> in Abhängigkeit von der Spezies an</p>
 <p>Sieh dir die Verteilung der verschiedenen Spezies auf die unterschiedlichen Inseln an</p>
@@ -257,18 +256,27 @@ ul.task-list li input[type="checkbox"] {
 <p>Sieh dir das Verhältnis von body_mass_g zu filpper_length_mm in Abhängigkeit des Geschlechts für jede Spezies an</p>
 </section>
 </section>
-<section id="teil-2" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="teil-2"><span class="header-section-number">9.2</span> Teil 2</h2>
-<section id="datenjudo-1" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="datenjudo-1"><span class="header-section-number">9.2.1</span> Datenjudo</h3>
+<section id="teil-2" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="teil-2"><span class="header-section-number">9.1.2</span> Teil 2</h3>
+<section id="datenjudo-1" class="level4" data-number="9.1.2.1">
+<h4 data-number="9.1.2.1" class="anchored" data-anchor-id="datenjudo-1"><span class="header-section-number">9.1.2.1</span> Datenjudo</h4>
 <p>Wandle Ausreißer in NA um</p>
 <p>Ersetze alle NAs mit einem repräsentativen Wert</p>
 <p>Erstelle eine Korrelationsmatrix mit allen Variablen</p>
 <p>Im Folgenden soll Flipper_Length als AV betrachtet werden. Lass dir nur die Korrelationen mit dieser Variable ausgeben</p>
 </section>
-<section id="datenvisualisierung-1" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="datenvisualisierung-1"><span class="header-section-number">9.2.2</span> Datenvisualisierung</h3>
+<section id="datenvisualisierung-1" class="level4" data-number="9.1.2.2">
+<h4 data-number="9.1.2.2" class="anchored" data-anchor-id="datenvisualisierung-1"><span class="header-section-number">9.1.2.2</span> Datenvisualisierung</h4>
 <p>Erstelle einen Korrelationsplot</p>
+</section>
+</section>
+</section>
+<section id="vorhersagemodellierung" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="vorhersagemodellierung"><span class="header-section-number">9.2</span> Vorhersagemodellierung</h2>
+<section id="einfaches-lineares-modell" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="einfaches-lineares-modell"><span class="header-section-number">9.2.1</span> Einfaches lineares Modell</h3>
+<p>Erstelle ein lineares Modell, das <code>flipper_length_mm</code> mit Hilfe von einem Prädiktor vorhersagt.<br>
+Lass dir außerdem die Modellgüte ausgeben und plotte das Modell.</p>
 
 
 </section>
@@ -416,7 +424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie zur EDA mit Penguins</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
