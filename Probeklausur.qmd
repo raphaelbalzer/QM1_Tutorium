@@ -1,0 +1,430 @@
+# Probeklausur Lösungsansatz
+
+## Pakete und Datenladen
+
+```{r}
+library(tidyverse)
+library(corrr)
+library(fastDummies)
+library(corrplot)
+library(Metrics)
+```
+
+```{r}
+library(readr)
+d_test <- read.csv("C:/Users/rapha/OneDrive/Desktop/d_test.csv")
+View(d_test)
+
+d_train <- read.csv("C:/Users/rapha/OneDrive/Desktop/d_train.csv")
+View(d_train)
+```
+
+## Datenjudo
+
+```{r}
+d_train %>% 
+  summarise((across(everything(),~sum(is.na(.x)))))
+```
+
+```{r}
+d_train %>% 
+  select(body_mass_g) %>% 
+  summarise(preis_avg=mean(body_mass_g),
+            preis_md = median(body_mass_g),
+            preis_sd = sd(body_mass_g),
+            preis_iqr = IQR(body_mass_g))
+```
+
+```{r}
+ggplot(d_train, aes(x=body_mass_g))+
+  geom_histogram()
+```
+
+```{r}
+ggplot(d_train, aes(x=body_mass_g))+
+  geom_density()
+```
+
+```{r}
+ggplot(data = d_train)+
+  geom_point(mapping = aes(x = body_mass_g, y = bill_length_mm))+
+  geom_smooth(mapping = aes(x = body_mass_g, y = bill_length_mm))
+```
+
+```{r}
+ggplot(data = d_train)+
+  geom_point(mapping = aes(x = body_mass_g, y = bill_depth_mm))+
+  geom_smooth(mapping = aes(x = body_mass_g, y = bill_depth_mm))
+```
+
+```{r}
+ggplot(data = d_train)+
+  geom_point(mapping = aes(x = body_mass_g, y = flipper_length_mm))+
+  geom_smooth(mapping = aes(x = body_mass_g, y = flipper_length_mm))
+```
+
+```{r}
+d_train %>% 
+  mutate(across(where(is.integer), as.numeric)) %>% 
+  select(where(is.numeric)) %>% 
+  pivot_longer(everything(), names_to = "variable") %>% 
+  ggplot(aes(x = value)) +
+  geom_histogram() +
+  facet_wrap(~ variable, scales = "free")
+```
+
+```{r}
+d_train %>% 
+  sapply(class)
+```
+
+```{r}
+visdat::vis_dat(d_train)
+```
+
+```{r}
+d_train %>% 
+  select(where(is.numeric)) %>% 
+  summarise(across(
+    .cols = everything(),
+    .fns = ~cor(.,d_train$body_mass_g, use = "complete.obs")
+  )) %>% 
+  pivot_longer(everything()) %>% 
+  arrange(-abs(value))
+```
+
+```{r}
+d_train %>% 
+  summarise(q75=quantile(body_mass_g,
+                         prob = .75,
+                         na.rm = TRUE),
+            q25=quantile(body_mass_g,
+                         prob = .25,
+                         na.rm = TRUE))
+```
+
+```{r}
+d_train %>%
+  summarise(body_mass_g_iqr = IQR(body_mass_g,na.rm = TRUE))
+```
+
+```{r}
+body_mass_g_grenzwerte <- c(4750 + 1.5 * 1200, 3550 - 1.5 * 1200)
+```
+
+```{r}
+d_train %>% 
+  summarise(q75=quantile(bill_length_mm,
+                         prob = .75,
+                         na.rm = TRUE),
+            q25=quantile(bill_length_mm,
+                         prob = .25,
+                         na.rm = TRUE))
+```
+
+```{r}
+d_train %>%
+  summarise(bill_length_mm_iqr = IQR(bill_length_mm,na.rm = TRUE))
+```
+
+```{r}
+bill_length_mm_grenzwerte <- c(48.775 + 1.5 * 9.1, 39.675 - 1.5 * 9.1)
+```
+
+```{r}
+d_train %>% 
+  summarise(q75=quantile(bill_depth_mm,
+                         prob = .75,
+                         na.rm = TRUE),
+            q25=quantile(bill_depth_mm,
+                         prob = .25,
+                         na.rm = TRUE))
+```
+
+```{r}
+d_train %>%
+  summarise(bill_depth_mm_iqr = IQR(bill_depth_mm,na.rm = TRUE))
+```
+
+```{r}
+bill_depth_mm_grenzwerte <- c(18.8 + 1.5 * 3.5, 15.3 - 1.5 * 3.5)
+```
+
+```{r}
+d_train %>% 
+  summarise(q75=quantile(flipper_length_mm,
+                         prob = .75,
+                         na.rm = TRUE),
+            q25=quantile(flipper_length_mm,
+                         prob = .25,
+                         na.rm = TRUE))
+```
+
+```{r}
+d_train %>%
+  summarise(flipper_length_mm_iqr = IQR(flipper_length_mm,na.rm = TRUE))
+```
+
+```{r}
+flipper_length_mm_grenzwerte <- c(214 + 1.5 * 24, 190 - 1.5 * 24)
+```
+
+```{r}
+d_train %>%
+  count(bill_depth_mm > 24.1)
+```
+
+```{r}
+d_train %>%
+  count(bill_depth_mm < 10.1)
+```
+
+```{r}
+d_train %>%
+  count(bill_length_mm > 62.4)
+```
+
+```{r}
+d_train %>%
+  count(bill_length_mm < 26)
+```
+
+```{r}
+d_train %>%
+  count(body_mass_g > 6550)
+```
+
+```{r}
+d_train %>%
+  count(body_mass_g < 1750)
+```
+
+```{r}
+d_train %>%
+  count(flipper_length_mm > 250)
+```
+
+```{r}
+d_train %>%
+  count(flipper_length_mm < 154)
+```
+
+```{r}
+d_train %>% 
+  summarise((across(everything(),~sum(is.na(.x)))))
+```
+
+```{r}
+d_train_ohneNA <- d_train %>%
+  replace_na(replace = list(bill_length_mm = mean(.$bill_length_mm, na.rm = TRUE))) %>%
+  replace_na(replace = list(bill_depth_mm = mean(.$bill_depth_mm, na.rm = TRUE)))
+```
+```{r}
+d_train_ohneNA <- d_train_ohneNA %>%
+  replace_na(list(flipper_length_mm = 0))
+```
+
+
+```{r}
+d_train_ohneNA %>% 
+  summarise((across(everything(),~sum(is.na(.x)))))
+```
+
+```{r}
+d_train %>% 
+  ggplot() +
+  aes(x = body_mass_g, y = bill_length_mm) +
+  geom_boxplot()
+```
+
+```{r}
+d_train %>% 
+  ggplot() +
+  aes(x = body_mass_g, y = bill_depth_mm) +
+  geom_boxplot()
+```
+
+```{r}
+d_train %>% 
+  ggplot() +
+  aes(x = body_mass_g, y = flipper_length_mm) +
+  geom_boxplot()
+```
+
+```{r}
+d_train %>% 
+  ggplot() +
+  aes(x = body_mass_g, y = bill_length_mm) +
+  geom_point()
+```
+
+```{r}
+d_train %>% 
+  ggplot() +
+  aes(x = body_mass_g, y = bill_depth_mm) +
+  geom_point()
+```
+
+```{r}
+
+d_train %>% 
+  ggplot() +
+  aes(x = body_mass_g, y = flipper_length_mm) +
+  geom_point()
+```
+
+```{r}
+subset_cor <- subset(d_train_ohneNA, select = c(body_mass_g,bill_depth_mm, flipper_length_mm, bill_length_mm ))
+```
+
+```{r}
+Korr_tab <- cor(subset_cor)
+
+Korr_tab
+```
+
+```{r}
+d_train_ohneNA %>% 
+  mutate(species = factor(species)) %>% 
+  ggplot(aes(x= body_mass_g, y= bill_depth_mm, color = species))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+d_train_ohneNA %>% 
+  mutate(species = factor(species)) %>% 
+  ggplot(aes(x= body_mass_g, y= flipper_length_mm, color = species))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+d_train_ohneNA %>% 
+  mutate(species = factor(species)) %>% 
+  ggplot(aes(x= body_mass_g, y= bill_length_mm, color = species))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+```
+
+```{r}
+d_train_ohneNA %>% 
+  mutate(island = factor(island)) %>% 
+  ggplot(aes(x= body_mass_g, y= bill_depth_mm, color = island))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+d_train_ohneNA %>% 
+  mutate(island = factor(island)) %>% 
+  ggplot(aes(x= body_mass_g, y= flipper_length_mm, color = island))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+d_train_ohneNA %>% 
+  mutate(species = factor(island)) %>% 
+  ggplot(aes(x= body_mass_g, y= bill_length_mm, color = island))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+
+d_train_ohneNA %>% 
+  mutate(sex = factor(sex)) %>% 
+  ggplot(aes(x= body_mass_g, y= bill_depth_mm, color = sex))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+
+d_train_ohneNA %>% 
+  mutate(sex = factor(sex)) %>% 
+  ggplot(aes(x= body_mass_g, y= flipper_length_mm, color = sex))+
+  geom_point()+
+  geom_smooth(method = "lm")
+```
+
+```{r}
+
+d_train_ohneNA %>% 
+  mutate(sex = factor(sex)) %>% 
+  ggplot(aes(x= body_mass_g, y= bill_length_mm, color = sex))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+```
+
+## Modellierung
+
+```{r}
+lm1_all_in <- lm(body_mass_g~., data = d_train_ohneNA)
+summary(lm1_all_in)
+
+```
+
+```{r}
+sqrt(mean(lm1_all_in$residuals^2))
+```
+
+```{r}
+lm2 <- lm(body_mass_g~species + flipper_length_mm + sex + year, data = d_train_ohneNA )
+summary(lm2)
+```
+
+```{r}
+sqrt(mean(lm2$residuals^2))
+
+```
+
+```{r}
+lm3 <- lm(body_mass_g~ flipper_length_mm:species + island:bill_depth_mm + island:bill_length_mm + bill_length_mm:sex +species + flipper_length_mm + sex + year, data = d_train_ohneNA)
+summary(lm3)
+
+```
+
+```{r}
+sqrt(mean(lm3$residuals^2))
+```
+
+```{r}
+lm4 <- lm(body_mass_g ~ flipper_length_mm + sex + island:bill_length_mm + year, data = d_train_ohneNA )
+summary(lm4)
+
+```
+
+```{r}
+sqrt(mean(lm4$residuals^2))
+```
+
+```{r}
+lm5 <- lm(body_mass_g ~ .+flipper_length_mm:species + island:bill_depth_mm + island:bill_length_mm + bill_length_mm:sex, data = d_train_ohneNA )
+summary(lm5)
+
+```
+
+```{r}
+sqrt(mean(lm5$residuals^2))
+```
+
+```{r}
+lm6 <- lm(body_mass_g ~ species + island + bill_length_mm + bill_depth_mm + flipper_length_mm + sex + year + species:flipper_length_mm  + island:bill_depth_mm + island:bill_length_mm + bill_length_mm:sex, data = d_train_ohneNA)
+summary(lm6)
+```
+
+```{r}
+sqrt(mean(lm6$residuals^2))
+```
+
+## Nützliche Links
+
+[Linear Regression Summary in R](https://www.youtube.com/watch?v=7WPfuHLCn_k&pp=ygURc3VtbWFyeSBsbSBvdXRwdXQ%3D)
+
+[Linear Regression, Clearly Explained!!!](https://www.youtube.com/watch?v=nk2CQITm_eo&pp=ygURbGluZWFyIHJlZ3Jlc3Npb24%3D)
+
+[youtube.com/sebastiansauerstatistics](https://www.youtube.com/@sebastiansauerstatistics)

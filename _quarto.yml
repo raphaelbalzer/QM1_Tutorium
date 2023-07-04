@@ -24,6 +24,7 @@ book:
         - iris_lm.qmd
         - QM1_Tut_Fallstudie_Penguins_Aufg.qmd
         - QM1_Tut_Fallstudie_Penguins_Loes.qmd
+        - Probeklausur.qmd
     - references.qmd
 
 bibliography: references.bib
