@@ -82,7 +82,7 @@ Sind zwei Merkmale vollständig miteinander korreliert (d. h.\|r\|=1), so liegen
 
 Je näher der Betrag von r bei 0 liegt, desto kleiner der lineare Zusammenhang. Für r = 0 kann der statistische Zusammenhang zwischen den Messwerten nicht mehr durch eine eindeutig steigende oder sinkende Gerade dargestellt werden. Dies ist z. B. der Fall, wenn die Messwerte rotationssymmetrisch um den Mittelpunkt verteilt sind. Dennoch kann dann ein nichtlinearer statistischer Zusammenhang zwischen den Merkmalen gegeben sein. Umgekehrt gilt jedoch: Wenn die Merkmale statistisch unabhängig sind, nimmt der Korrelationskoeffizient stets den Wert 0 an.
 
-![Hier ein paar Scatterplots zur Verdeutlichung](https://statistik1.netlify.app/verbildlichen_files/figure-html/fig-cors-1.png)
+![Hier ein paar Scatterplots zur Verdeutlichung](https://otexts.com/fpp2/fpp_files/figure-html/corr-1.png)
 
 ### Korrelationsmatrix
 

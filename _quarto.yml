@@ -5,6 +5,8 @@ book:
   title: "QM1-Tutorium SoSe23"
   author: "Raphael Balzer, Finn Weber"
   date: "3/28/2023"
+  sidebar: 
+    logo: QM1-Tutorium_logo.png
   chapters:
     - index.qmd
     - part: "R kennenlernen"
@@ -17,14 +19,18 @@ book:
         - Lösungen_Dinos.qmd
         - Aufgaben_plague.qmd
         - Lösungen_plague.qmd
-    - part: "Fallstudien"
+    - part: "Fallstudien EDA"
       chapters: 
         - QM1_Tutorium_Fallstudie_IRIS.qmd
         - Iris_eda_teil2.qmd
+    - part: "Fallstudien Modellierung"
+      chapters:
         - iris_lm.qmd
+        - Probeklausur.qmd
+    - part: "Fallstudien Aufgaben"
+      chapters:
         - QM1_Tut_Fallstudie_Penguins_Aufg.qmd
         - QM1_Tut_Fallstudie_Penguins_Loes.qmd
-        - Probeklausur.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -32,8 +38,8 @@ bibliography: references.bib
 format:
   html:
     theme:
-      light: litera
-      dark: slate
+      light: cosmo
+      dark: vapor
     df-print: paged
   pdf:
     documentclass: scrreprt

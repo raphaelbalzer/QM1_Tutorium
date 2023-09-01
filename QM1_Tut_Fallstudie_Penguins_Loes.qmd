@@ -111,6 +111,5 @@ Sieh dir das Verhältnis von `body_mass_g` zu `flipper_length_mm` in Abhängigke
 ggplot(penguins, aes(x = flipper_length_mm,
                      y = body_mass_g)) +
   geom_point(aes(color = sex)) +
-  scale_color_manual(values = c("darkorange","cyan4")) +
   facet_wrap(~species)
 ```
