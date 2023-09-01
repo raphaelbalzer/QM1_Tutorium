@@ -13,11 +13,13 @@ book:
     border: false
   navbar:
     left:
-      - text: "start: bayes!"
-        href: https://start-bayes.netlify.app/
       - text: "statistik1"
         href: https://statistik1.netlify.app/
+      - text: "start: bayes!"
+        href: https://start-bayes.netlify.app/
       - text: "QM1-Tutorium"
+        href: https://qm1-tutorium.netlify.app/
+      - text: "QM2-Tutorium"
         href: https://qm1-tutorium.netlify.app/
   chapters:
     - index.qmd
