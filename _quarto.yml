@@ -7,6 +7,12 @@ book:
   date: "3/28/2023"
   sidebar: 
     logo: QM1-Tutorium_logo.png
+  navbar: 
+    right: 
+      - text: "start: bayes!"
+        href: https://start-bayes.netlify.app/
+      - text: "statistik1"
+        href: https://statistik1.netlify.app/
   chapters:
     - index.qmd
     - part: "R kennenlernen"
