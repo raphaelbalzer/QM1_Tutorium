@@ -5,14 +5,20 @@ book:
   title: "QM1-Tutorium SoSe23"
   author: "Raphael Balzer, Finn Weber"
   date: "3/28/2023"
+  search:
+    location: sidebar
+    type: textbox
   sidebar: 
     logo: QM1-Tutorium_logo.png
-  navbar: 
-    right: 
+    border: false
+  navbar:
+    left:
       - text: "start: bayes!"
         href: https://start-bayes.netlify.app/
       - text: "statistik1"
         href: https://statistik1.netlify.app/
+      - text: "QM1-Tutorium"
+        href: https://qm1-tutorium.netlify.app/
   chapters:
     - index.qmd
     - part: "R kennenlernen"
