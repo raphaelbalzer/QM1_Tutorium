@@ -5,6 +5,9 @@ In diesem Kapitel erklären wir zwei weitere wichtige Themen für die Vorverarbe
 ## Pakete laden
 
 ```{r}
+#| output: false
+
+
 library(tidyverse)
 library(ggcorrplot)
 library(corrr)

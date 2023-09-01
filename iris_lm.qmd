@@ -5,9 +5,15 @@
 Jetzt, da wir unsere Daten in der EDA aufbereitet und Anomalien beseitigt haben, können wir uns an einer Vorhersage versuchen. Hierzu bedienen wir uns an einem linearen Modell, das heißt, wir legen eine Gerade über die Punktewolke unserer AV und versuchen, die Abstände von den Punkten, also den echten Werten zu der Gerade, welche die vorhergesagten Werte darstellt, zu minimieren. Um ein lineares Modell zu erstellen, benutzen wir einfach den Befehl `lm()`.
 
 ```{r}
+#| output: false
+
+
 library(tidyverse)
 library(tidymodels)
 library(ggcorrplot)
+```
+
+```{r}
 data(iris)
 #Aufteilen der Daten in train und test sample, Erstellen einer ID-Spalte (Für die Klausur irrelevant:)
 iris <- iris %>% 
@@ -18,6 +24,7 @@ train_test_split <- initial_split(iris, prop = 0.7)
 iris_train <- training(train_test_split)
 iris_test <- testing(train_test_split)
 ```
+
 ## Erstellen eines einfachen linearen Modells
 
 ### Variablenauswahl
@@ -33,7 +40,7 @@ iris_train %>%
              colors = c("violet", "grey", "blue"))
 ```
 
-Hier können wir deutlich sehen, dass sowohl `Petal.Length` als auch `Petal.Width`, einen starken Zusammenhang mit `Sepal.Length` aufweisen. Anders gesagt: Je länger und breiter das Kelchblatt einer Blüte ist, desto länger ist das Blütenblatt. 
+Hier können wir deutlich sehen, dass sowohl `Petal.Length` als auch `Petal.Width`, einen starken Zusammenhang mit `Sepal.Length` aufweisen. Anders gesagt: Je länger und breiter das Kelchblatt einer Blüte ist, desto länger ist das Blütenblatt.
 
 ### Erstellen des Modells
 
@@ -59,6 +66,7 @@ Wenn wir jetzt wissen wollen, wie gut unser Modell ist, können wir uns mit `sum
 ```{r}
 summary(lm1)
 ```
+
 Fürs Erste schauen wir uns nur den Wert für das Adjusted R-squared an. Dieser sagt uns, dass rund 76% der Varianz von Petal.Length durch Sepal.Length erklärt werden kann. Zur Vertiefung von R^2^ ist folgendes Video gut geeignet:\
 [StatQuest: Linear Models](https://www.youtube.com/watch?v=nk2CQITm_eo&list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU&index=2)
 
@@ -68,7 +76,6 @@ Fürs Erste schauen wir uns nur den Wert für das Adjusted R-squared an. Dieser 
 lm2 <- lm(Sepal.Length ~ Petal.Length + Petal.Width,
           data = iris_train)
 ```
-
 
 ```{r}
 summary(lm2)
@@ -80,23 +87,20 @@ Das adj R^2^ ist nur minimal gestiegen. Zum Glück gibt es noch andere Methoden,
 
 ### Logarithmieren
 
-Erkennt man bleim Plotten der Daten, dass sich ein Großteil dieser in einem kleinen Bereich befindet, so kann es durchaus Sinn ergeben, den Bereich genauer zu betrachten. 
-Wir "strecken" also den Bereich, indem wir die Daten logarithmieren.  
+Erkennt man bleim Plotten der Daten, dass sich ein Großteil dieser in einem kleinen Bereich befindet, so kann es durchaus Sinn ergeben, den Bereich genauer zu betrachten. Wir "strecken" also den Bereich, indem wir die Daten logarithmieren.\
 Zum Überprüfen, ob sich ein logarithmieren lohnt, kann man `geom_point()` und `geom_histogram()` benutzen. Erkennt man z.B. in einem Histogramm, dass eine Verteilung schief ist, so lohnt sich das Logarithmieren.
 
 ```{r}
-iris_long <- iris_train %>% 
+iris_train %>% 
   select(where(is.numeric)) %>% 
   select(-id) %>% 
-  pivot_longer(everything())
-
-iris_long %>% 
-  ggplot(aes(x = value)) +
+  pivot_longer(everything()) %>% 
+  ggplot(., aes(x = value)) +
   geom_histogram() +
-  facet_wrap(~ name)
+  facet_wrap(~ name, scales = "free_x")
 ```
-Hier bietet sich das Logarithmieren nicht unbedingt an. Man könnte höchstens Petal.Width logarithmieren, wenn man das möchte.
-Das Logarithmieren geht so:
+
+Hier bietet sich das Logarithmieren nicht unbedingt an. Man könnte höchstens Petal.Width logarithmieren, wenn man das möchte. Das Logarithmieren geht so:
 
 ```{r}
 iris_train <- iris_train %>% 
@@ -107,18 +111,15 @@ Warnung: Logarithmiert man die Zahl 0, so kommt -Inf heraus. Das ist keine Zahl 
 
 ### Interaktionseffekt
 
-Hängt die Steigung einer Regressionsgeraden ab von der 
-Ausprägung eines anderen Prädiktors, so liegt ein 
-Interaktionseffekt vor. Mit „abhängen“ ist gemeint, dass die Veränderung in Y nicht gleich ist für alle Werte des Prädiktors X1, sondern 
-sich je nach Wert eines anderen Prädiktors X2 unterscheidet.
-Um herauszufinden, ob zwischen Variablen ein Interaktionseffekt vorliegt, können wir folgenden Plot erstellen:
+Hängt die Steigung einer Regressionsgeraden ab von der Ausprägung eines anderen Prädiktors, so liegt ein Interaktionseffekt vor. Mit „abhängen" ist gemeint, dass die Veränderung in Y nicht gleich ist für alle Werte des Prädiktors X1, sondern sich je nach Wert eines anderen Prädiktors X2 unterscheidet. Um herauszufinden, ob zwischen Variablen ein Interaktionseffekt vorliegt, können wir folgenden Plot erstellen:
 
 ```{r}
 ggplot(iris_train, aes(x = Sepal.Length, y = Petal.Length, color = Species)) +
   geom_point() +
   geom_smooth(method = lm)
 ```
-Wenn wir uns diesen Plot ansehen, erkennen wir, dass der Effekt von `Petal.Length` (X1) auf `Sepal.Length` (Y) abhängig ist von der Blütenart (X2), also von `Species`. Eine Steigerung von `Petal.Length` der Spezies `Setosa` führt zu einer geringeren Steigerung von `Sepal.Length` als bei den anderen Spezies. Es liegt hier also ein Interaktionseffekt zwischen den Prädiktoren `Sepal.Length` und `Species` vor, da die Geraden je nach Ausprägung von `Species`eine unterschiedliche Steigung haben.  
+
+Wenn wir uns diesen Plot ansehen, erkennen wir, dass der Effekt von `Petal.Length` (X1) auf `Sepal.Length` (Y) abhängig ist von der Blütenart (X2), also von `Species`. Eine Steigerung von `Petal.Length` der Spezies `Setosa` führt zu einer geringeren Steigerung von `Sepal.Length` als bei den anderen Spezies. Es liegt hier also ein Interaktionseffekt zwischen den Prädiktoren `Sepal.Length` und `Species` vor, da die Geraden je nach Ausprägung von `Species`eine unterschiedliche Steigung haben.\
 Im Modell bezieht man den Interaktionsefekt folgendermaßen mit ein:
 
 ```{r}
@@ -126,6 +127,7 @@ lm3 <- lm(Sepal.Length ~ Petal.Length + Petal.Width + Petal.Length:Species,
           data = iris_train)
 summary(lm3)
 ```
+
 Wir sehen: Das Modell ist gleich deutlich besser als davor.
 
 ## Vorhersage

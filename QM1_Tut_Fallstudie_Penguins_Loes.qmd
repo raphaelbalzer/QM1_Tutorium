@@ -9,6 +9,9 @@ Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen
 Lade die erforderlichen Pakte (tidyverse, visdat)
 
 ```{r}
+#| output: false
+
+
 library(tidyverse)
 library(visdat)
 ```

@@ -3,6 +3,9 @@
 ## Pakete und Datenladen
 
 ```{r}
+#| output: false
+
+
 library(tidyverse)
 library(corrr)
 library(fastDummies)
@@ -12,10 +15,9 @@ library(Metrics)
 
 ```{r}
 library(readr)
-d_test <- read.csv("C:/Users/rapha/OneDrive/Desktop/d_test.csv")
-View(d_test)
+d_train <- read_csv("d_train.csv")
 
-d_train <- read.csv("C:/Users/rapha/OneDrive/Desktop/d_train.csv")
+d_test <- read_csv("d_test.csv")
 View(d_train)
 ```
 

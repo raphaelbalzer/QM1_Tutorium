@@ -1,4 +1,4 @@
-# Fallstudie zur explorativen Datenanalyse anhand des  Iris-Datensatzes
+# Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes
 
 Diese Fallstudie soll als Einführung in die explorative Datenanalyse mit angewandtem Datenjudo und Datenvisualisierung dienen. Es geht darum, sich einen Überblick über den Datensatz zu verschaffen und gegebenenfalls einige Umformungen vorzunehmen, um später vernünftig damit arbeiten zu können. Der Datensatz enthält Messungen der Länge und Breite der Blüten-(`Sepal`) und Kelchblätter(`Petal`) von drei verschiedenen Spezies der Iris.
 
@@ -7,6 +7,9 @@ Diese Fallstudie soll als Einführung in die explorative Datenanalyse mit angewa
 ## Packages laden
 
 ```{r}
+#| output: false
+
+
 library(tidyverse)
 library(datasets)
 library(visdat)
@@ -20,7 +23,9 @@ view(iris)
 ```
 
 ```{r}
-knitr::kable(iris[1:5, ], )
+#| echo: false
+
+iris
 ```
 
 ## Datenjudo
@@ -134,7 +139,7 @@ Diese Extremwerte wollen wir nun ausmachen und aus dem Datensatz entfernen.
 
 Gängig ist es, dass man Extremwerte mit der Boxplot Methode ausmacht. Diese besagt, dass jeder Wert der über dem Ergebnis der Formel:
 
-75 Quantile + 1.5 * IQR | 25 Quantile - 1.5 * IQR
+75 Quantile + 1.5 \* IQR \| 25 Quantile - 1.5 \* IQR
 
 liegt als Extremwert zu sehen ist. Wir werden hier diese Grenzwerte mal für die Variable `Sepal.Width` bestimmen:
 
@@ -149,6 +154,7 @@ iris %>%
                          prob = .25,
                          na.rm = TRUE))
 ```
+
 Bestimmung des IQRs:
 
 ```{r}
@@ -170,6 +176,7 @@ Schauen wir mal, wie viele es davon gibt:
 iris %>% 
   count(Sepal.Width > 4.05 | Sepal.Width < 2.05)
 ```
+
 Jetzt wissen wir, dass es vier Extremwerte gibt.
 
 ### Boxplot erstellen
@@ -207,7 +214,6 @@ Um zu überprüfen, ob alles funktioniert hat, checken wir nochmal, wie viele fe
 iris.we %>% 
   summarise((across(everything(),~sum(is.na(.x)))))
 ```
-
 
 ```{r}
 # Werte über dem Grenzwert? 
