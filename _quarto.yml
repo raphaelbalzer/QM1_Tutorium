@@ -52,7 +52,7 @@ bibliography: references.bib
 format:
   html:
     theme:
-      light: cosmo
+      light: minty
       dark: vapor
     df-print: paged
   pdf:
