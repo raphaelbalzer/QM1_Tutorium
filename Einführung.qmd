@@ -1,0 +1,57 @@
+# Einführung
+
+## Willkommen!
+
+Herzlich Willkommen zum QM1-Tutorium! In diesem Semester lernt ihr alles rund um's Thema Machine Learning, insbesondere lineare Regression. Auf dieser Seite findet ihr hier sämtliche Lehrmaterialien wie Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.
+
+Wir wünschen euch viel Erfolg!
+
+Liebe Grüße,
+
+Emilia und Raphael
+
+## Lernziele
+
+Vielleicht habt ihr euch auch schon die Frage gestellt? Was lernt man in QM1? Und wozu brauct man das?
+
+Stellt euch vor wir wollen etwas bauen. Wir haben also ein Endprodukt, wobei wir Bauteile und Werkzeug brauchen, um dies zu bauen.
+
+**Vorhersagemodellierung**: Das ist am unser Endprodukt. Doch was ist das überhaupt?\
+Wir wollen bestimmte Kennwerte vorhersagen, also z.B. aufgrund von gewissen Daten, die wir zu Immobilien haben (Größe, Zimmeranzahl, Garten, Garage etc.), vorhersagen, wie viel die Immobilie kosten wird. Klingt logisch oder?
+
+![](Vorhersagemodellierung.jpeg)\
+➝ Doch was für Bauteile brauchen wir dazu?
+
+-   **Explorative Datenanalyse (EDA)**: hier werden Daten bereinigt (z.B. fehlende Werte gelöscht oder ersetzt), analysiert (was haben wir überhaupt an Daten?) und visualisiert (wie sind die Daten verteilt?), um Einblicke zu gewinnen und fundierte Entscheidungen zu treffen (eine solche Entscheidung könnte z.B. sein, welche Prädiktoren, also Variablen, die unsere gesuchte Variable vorhersagen, in dem Fall der Immobilienwert, wichtig sind und welche nicht)\
+    ![](EDA.jpeg)
+
+-   **Lineare Modelle**: helfen uns Muster in Daten zu finden, indem sie annehmen, dass die Beziehung zwischen Variablen geradlinig ist\
+
+```{r echo=FALSE, message=FALSE}
+kung <- read.csv("https://raw.githubusercontent.com/sebastiansauer/Lehre/main/data/Howell1a.csv") %>% 
+  filter(age > 18) %>%  
+  mutate(weight_c = center(weight))
+
+lm_model_c <- lm(height ~ weight_c, data = kung)
+
+ggplot(kung, aes(x = weight_c, y = height)) +
+  geom_point(alpha = .7) +
+  geom_abline(intercept = coef(lm_model_c)[1], slope = coef(lm_model_c)[2], color = "#6fb899", linewidth = 1) +
+  theme_minimal()
+```
+
+➝ Welche Werkzeuge brauchen wir dazu?
+
+![](Werkzeugkasten.jpeg)
+
+-   Unser Werkzeugkasten ist das Programm R, darin haben wir alles, was wir brauchen, um mit den Bauteilen unser Endprodukt zu bauen. Innerhalb unseres Werkzeugskasten haben wir natürlich verschiedene Werkzeuge, die hier Pakete heißen. Mit jedem Paket können wir andere Sachen machen.
+
+## R Setup
+
+Ihr braucht 2 Programme auf eurem Rechner:
+
+-   **R**: ist das Programm und gleichzeitig eine Programmiersprache, das im Hintergrung alle Berechnungen durchführt und ohne das ihr nichts machen könnt
+
+-   **R Studio**: Interface, um R bequem verwenden zu können. Das wird eure Arbeitsoberfläche sein, denn im Programm R direkt zu arbeiten, ist nicht sehr bequem.
+
+> ➝ Ihr könnt es euch so vorstellen: R ist der Motor und R Studio das Lenkrad
