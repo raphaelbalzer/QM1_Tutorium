@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Raphael Balzer, Emilia Braun, Finn Weber">
-<meta name="dcterms.date" content="2023-03-28">
 
-<title>QM1-Tutorium</title>
+<title>QM1-Tutorium - 7&nbsp; Lösungen Plague</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Aufgaben1.html" rel="next">
+<link href="./QM1_Tutorium_Fallstudie_IRIS.html" rel="next">
+<link href="./Aufgaben_plague.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Aufgaben_Dinos.html">Data Wrangling</a></li><li class="breadcrumb-item"><a href="./Lösungen_plague.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lösungen Plague</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
   </div>
 </li>
@@ -197,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lösungen_plague.html" class="sidebar-item-text sidebar-link">
+  <a href="./Lösungen_plague.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lösungen Plague</span></span></a>
   </div>
 </li>
@@ -288,12 +321,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung"><span class="header-section-number">1</span> Einführung</a>
-  <ul class="collapse">
-  <li><a href="#willkommen" id="toc-willkommen" class="nav-link" data-scroll-target="#willkommen"><span class="header-section-number">1.1</span> Willkommen!</a></li>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele"><span class="header-section-number">1.2</span> Lernziele</a></li>
-  <li><a href="#r-setup" id="toc-r-setup" class="nav-link" data-scroll-target="#r-setup"><span class="header-section-number">1.3</span> R Setup</a></li>
-  </ul></li>
+  <li><a href="#lösung-1" id="toc-lösung-1" class="nav-link active" data-scroll-target="#lösung-1"><span class="header-section-number">7.1</span> Lösung 1</a></li>
+  <li><a href="#lösung-2.1" id="toc-lösung-2.1" class="nav-link" data-scroll-target="#lösung-2.1"><span class="header-section-number">7.2</span> Lösung 2.1</a></li>
+  <li><a href="#lösung-2.2" id="toc-lösung-2.2" class="nav-link" data-scroll-target="#lösung-2.2"><span class="header-section-number">7.3</span> Lösung 2.2</a></li>
+  <li><a href="#lösung-2.3" id="toc-lösung-2.3" class="nav-link" data-scroll-target="#lösung-2.3"><span class="header-section-number">7.4</span> Lösung 2.3</a></li>
+  <li><a href="#lösung-3.1" id="toc-lösung-3.1" class="nav-link" data-scroll-target="#lösung-3.1"><span class="header-section-number">7.5</span> Lösung 3.1</a></li>
+  <li><a href="#lösung-3.2" id="toc-lösung-3.2" class="nav-link" data-scroll-target="#lösung-3.2"><span class="header-section-number">7.6</span> Lösung 3.2</a></li>
+  <li><a href="#lösung-4" id="toc-lösung-4" class="nav-link" data-scroll-target="#lösung-4"><span class="header-section-number">7.7</span> Lösung 4</a></li>
   </ul>
 </nav>
     </div>
@@ -302,26 +336,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">QM1-Tutorium</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lösungen Plague</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Raphael Balzer, Emilia Braun, Finn Weber </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 28, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -329,30 +351,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="einführung" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Einführung</h1>
-<section id="willkommen" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="willkommen"><span class="header-section-number">1.1</span> Willkommen!</h2>
-<p>Herzlich Willkommen zum QM1-Tutorium! In diesem Semester lernt ihr die Basics zum Thema Datenanalyse und Vorhersagemodellierung, insbesondere lineare Regression. Auf dieser Seite findet ihr hier sämtliche Lehrmaterialien wie Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.</p>
-<p>Wir wünschen euch viel Erfolg!</p>
-<p>Liebe Grüße</p>
-<p>Emilia und Raphael</p>
-</section>
-<section id="lernziele" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="lernziele"><span class="header-section-number">1.2</span> Lernziele</h2>
-<p>Vielleicht habt ihr euch auch schon die Fragen gestellt: “Was lernt man in QM1? Und wozu braucht man das?”</p>
-<p>Stellt euch vor, wir wollen etwas bauen. Wir haben also ein Endprodukt, wobei wir Bauteile und Werkzeug brauchen, um dies zu bauen.</p>
-<p><strong>Vorhersagemodellierung</strong>: Das ist unser Endprodukt. Doch was ist das überhaupt?<br>
-Wir wollen bestimmte Kennwerte vorhersagen, also z.B. aufgrund von gewissen Daten, die wir zu Immobilien haben (Größe, Zimmeranzahl, Garten, Garage etc.), vorhersagen, wie viel die Immobilie kosten wird. Klingt logisch oder?</p>
-<p><img src="Vorhersagemodellierung.jpeg" class="img-fluid"><br>
-➝ Doch was für Bauteile brauchen wir dazu?</p>
-<ul>
-<li><p><strong>Explorative Datenanalyse (EDA)</strong>: Hier werden Daten bereinigt (z.B. fehlende Werte gelöscht oder ersetzt), analysiert (was haben wir überhaupt an Daten und was sagen sie aus?) und visualisiert (wie sind die Daten verteilt? Gibt es Muster? Welche Beziehungen haben die Variablen untereinander?), um Einblicke zu gewinnen und fundierte Entscheidungen zu treffen (eine solche Entscheidung könnte z.B. sein, welche Prädiktoren, also Variablen, die unsere gesuchte Variable vorhersagen, in dem Fall der Immobilienwert, wichtig sind und welche nicht).<br>
-<img src="EDA.jpeg" class="img-fluid"></p></li>
-<li><p><strong>Lineare Modelle</strong>: Helfen uns, Vorhersagen für unbekannte Daten zu machen, indem sie annehmen, dass die Beziehung zwischen Variablen linear ist (z.B. wenn die Wohnfläche größer ist, dann steigt auch der Immobilienpreis ➝ Das lineare Modell würde also für größere Häuser einen höheren Preis vorhersagen).<br>
-</p></li>
-</ul>
+<section id="lösung-1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="lösung-1"><span class="header-section-number">7.1</span> Lösung 1</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Aufgabe 1 </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'tidyverse' was built under R version 4.2.3</code></pre>
 </div>
@@ -381,31 +385,153 @@ Wir wollen bestimmte Kennwerte vorhersagen, also z.B. aufgrund von gewissen Date
 <pre><code>Warning: package 'lubridate' was built under R version 4.2.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'easystats' was built under R version 4.2.3</code></pre>
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Deaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/SurgicalInformatics/healthyr_book/master/data/global_burden_disease_cause-year-sex-income.csv"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>summary_data1 <span class="ot">&lt;-</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  Deaths<span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_per_year =</span> <span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lösung-2.1" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="lösung-2.1"><span class="header-section-number">7.2</span> Lösung 2.1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 2.1</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>summary_data2 <span class="ot">&lt;-</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  Deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+</div>
+</section>
+<section id="lösung-2.2" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="lösung-2.2"><span class="header-section-number">7.3</span> Lösung 2.2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 2.2</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(deaths_millions, income, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Male"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(income <span class="sc">==</span> <span class="st">"High"</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Tode =</span> <span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Tode"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"33.53"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
-<p>➝ Welche Werkzeuge brauchen wir dazu?</p>
-<p><img src="Werkzeugkasten.jpeg" class="img-fluid"></p>
-<ul>
-<li>Unser Werkzeugkasten ist das Programm R, darin haben wir alles, was wir brauchen, um mit den Bauteilen unser Endprodukt zu bauen. Innerhalb unseres Werkzeugkasten haben wir natürlich verschiedene Werkzeuge, die in R Pakete heißen. Mit jedem Paket können wir andere Sachen machen (zum Beispiel Daten visualisieren mit dem Paket `ggplot`.</li>
-</ul>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(deaths_millions, income, sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Female"</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(income <span class="sc">==</span> <span class="st">"Low"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Tode =</span> <span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Tode"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"16.93"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
 </section>
-<section id="r-setup" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="r-setup"><span class="header-section-number">1.3</span> R Setup</h2>
-<p>Ihr braucht 2 Programme auf eurem Rechner:</p>
-<ul>
-<li><p><strong>R</strong>: ist die Programmiersprache, die im Hintergrung alle Berechnungen durchführt und ohne die ihr nichts machen könnt.</p></li>
-<li><p><strong>R Studio</strong>: Grafische Benutzeroberfläche, um R bequem verwenden zu können. Das wird eure Arbeitsumgebung sein, denn mit R ohne Interface zu arbeiten, ist sehr unbequem.</p></li>
-</ul>
-<blockquote class="blockquote">
-<p>➝ Ihr könnt es euch so vorstellen: R ist der Motor und R Studio das Lenkrad!</p>
-</blockquote>
+<section id="lösung-2.3" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="lösung-2.3"><span class="header-section-number">7.4</span> Lösung 2.3</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 2.3</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Deaths <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cause) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2005</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>         sex <span class="sc">==</span> <span class="st">"Male"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>         income <span class="sc">==</span> <span class="st">"Low"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(deaths_millions), </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">durchschnittliche =</span> <span class="fu">mean</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cause"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Total"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["durchschnittliche"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Communicable diseases","2":"6.24","3":"1.560"},{"1":"Injuries","2":"1.14","3":"0.285"},{"1":"Non-communicable diseases","2":"3.62","3":"0.905"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="lösung-3.1" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="lösung-3.1"><span class="header-section-number">7.5</span> Lösung 3.1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 3.1 </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>summary_data3 <span class="ot">&lt;-</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  Deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, cause) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_per_cause =</span> <span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'year'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+</div>
+</section>
+<section id="lösung-3.2" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="lösung-3.2"><span class="header-section-number">7.6</span> Lösung 3.2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 3.2</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Deaths <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(income) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["income"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Total"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"High","2":"65.69"},{"1":"Low","2":"36.34"},{"1":"Lower-Middle","2":"139.94"},{"1":"Upper-Middle","2":"117.88"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">sum</span>(deaths_millions))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["sum(deaths_millions)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"359.85"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="lösung-4" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="lösung-4"><span class="header-section-number">7.7</span> Lösung 4</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 4</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>summary_data4 <span class="ot">&lt;-</span> Deaths <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Gesamt =</span> <span class="fu">sum</span>(deaths_millions))</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>summary_data5 <span class="ot">&lt;-</span> Deaths <span class="sc">%&gt;%</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cause)<span class="sc">%&gt;%</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_per_cause =</span> <span class="fu">sum</span>(deaths_millions)) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">InProzent =</span> total_per_cause<span class="sc">/</span><span class="fl">359.85</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -759,10 +885,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Aufgaben_plague.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aufgaben Plague</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Aufgaben1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aufgaben</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./QM1_Tutorium_Fallstudie_IRIS.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

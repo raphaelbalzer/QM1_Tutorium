@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Raphael Balzer, Emilia Braun, Finn Weber">
-<meta name="dcterms.date" content="2023-03-28">
 
-<title>QM1-Tutorium</title>
+<title>QM1-Tutorium - 4&nbsp; Dinojudo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Aufgaben1.html" rel="next">
+<link href="./Lösungen_Dinos.html" rel="next">
+<link href="./Lösungen1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Aufgaben_Dinos.html">Data Wrangling</a></li><li class="breadcrumb-item"><a href="./Aufgaben_Dinos.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dinojudo</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Einführung</span></span></a>
   </div>
 </li>
@@ -179,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Aufgaben_Dinos.html" class="sidebar-item-text sidebar-link">
+  <a href="./Aufgaben_Dinos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dinojudo</span></span></a>
   </div>
 </li>
@@ -288,12 +287,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung"><span class="header-section-number">1</span> Einführung</a>
-  <ul class="collapse">
-  <li><a href="#willkommen" id="toc-willkommen" class="nav-link" data-scroll-target="#willkommen"><span class="header-section-number">1.1</span> Willkommen!</a></li>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele"><span class="header-section-number">1.2</span> Lernziele</a></li>
-  <li><a href="#r-setup" id="toc-r-setup" class="nav-link" data-scroll-target="#r-setup"><span class="header-section-number">1.3</span> R Setup</a></li>
-  </ul></li>
+  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1"><span class="header-section-number">4.1</span> Aufgabe 1</a></li>
+  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2"><span class="header-section-number">4.2</span> Aufgabe 2</a></li>
+  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3"><span class="header-section-number">4.3</span> Aufgabe 3</a></li>
+  <li><a href="#aufgabe-4" id="toc-aufgabe-4" class="nav-link" data-scroll-target="#aufgabe-4"><span class="header-section-number">4.4</span> Aufgabe 4</a></li>
+  <li><a href="#aufgabe-5" id="toc-aufgabe-5" class="nav-link" data-scroll-target="#aufgabe-5"><span class="header-section-number">4.5</span> Aufgabe 5</a></li>
   </ul>
 </nav>
     </div>
@@ -302,26 +300,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">QM1-Tutorium</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dinojudo</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Raphael Balzer, Emilia Braun, Finn Weber </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 28, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -329,83 +315,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="einführung" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Einführung</h1>
-<section id="willkommen" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="willkommen"><span class="header-section-number">1.1</span> Willkommen!</h2>
-<p>Herzlich Willkommen zum QM1-Tutorium! In diesem Semester lernt ihr die Basics zum Thema Datenanalyse und Vorhersagemodellierung, insbesondere lineare Regression. Auf dieser Seite findet ihr hier sämtliche Lehrmaterialien wie Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.</p>
-<p>Wir wünschen euch viel Erfolg!</p>
-<p>Liebe Grüße</p>
-<p>Emilia und Raphael</p>
-</section>
-<section id="lernziele" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="lernziele"><span class="header-section-number">1.2</span> Lernziele</h2>
-<p>Vielleicht habt ihr euch auch schon die Fragen gestellt: “Was lernt man in QM1? Und wozu braucht man das?”</p>
-<p>Stellt euch vor, wir wollen etwas bauen. Wir haben also ein Endprodukt, wobei wir Bauteile und Werkzeug brauchen, um dies zu bauen.</p>
-<p><strong>Vorhersagemodellierung</strong>: Das ist unser Endprodukt. Doch was ist das überhaupt?<br>
-Wir wollen bestimmte Kennwerte vorhersagen, also z.B. aufgrund von gewissen Daten, die wir zu Immobilien haben (Größe, Zimmeranzahl, Garten, Garage etc.), vorhersagen, wie viel die Immobilie kosten wird. Klingt logisch oder?</p>
-<p><img src="Vorhersagemodellierung.jpeg" class="img-fluid"><br>
-➝ Doch was für Bauteile brauchen wir dazu?</p>
-<ul>
-<li><p><strong>Explorative Datenanalyse (EDA)</strong>: Hier werden Daten bereinigt (z.B. fehlende Werte gelöscht oder ersetzt), analysiert (was haben wir überhaupt an Daten und was sagen sie aus?) und visualisiert (wie sind die Daten verteilt? Gibt es Muster? Welche Beziehungen haben die Variablen untereinander?), um Einblicke zu gewinnen und fundierte Entscheidungen zu treffen (eine solche Entscheidung könnte z.B. sein, welche Prädiktoren, also Variablen, die unsere gesuchte Variable vorhersagen, in dem Fall der Immobilienwert, wichtig sind und welche nicht).<br>
-<img src="EDA.jpeg" class="img-fluid"></p></li>
-<li><p><strong>Lineare Modelle</strong>: Helfen uns, Vorhersagen für unbekannte Daten zu machen, indem sie annehmen, dass die Beziehung zwischen Variablen linear ist (z.B. wenn die Wohnfläche größer ist, dann steigt auch der Immobilienpreis ➝ Das lineare Modell würde also für größere Häuser einen höheren Preis vorhersagen).<br>
-</p></li>
-</ul>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyverse' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'forcats' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'lubridate' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'easystats' was built under R version 4.2.3</code></pre>
-</div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://img.freepik.com/free-vector/smiling-dinosaur-in-nature-cartoon-illustration_1284-58115.jpg?size=626&amp;ext=jpg" class="img-fluid" style="width:60.0%"></p>
 </div>
 </div>
-<p>➝ Welche Werkzeuge brauchen wir dazu?</p>
-<p><img src="Werkzeugkasten.jpeg" class="img-fluid"></p>
-<ul>
-<li>Unser Werkzeugkasten ist das Programm R, darin haben wir alles, was wir brauchen, um mit den Bauteilen unser Endprodukt zu bauen. Innerhalb unseres Werkzeugkasten haben wir natürlich verschiedene Werkzeuge, die in R Pakete heißen. Mit jedem Paket können wir andere Sachen machen (zum Beispiel Daten visualisieren mit dem Paket `ggplot`.</li>
-</ul>
+<section id="aufgabe-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="aufgabe-1"><span class="header-section-number">4.1</span> Aufgabe 1</h2>
+<p>Importiere den Datensatz “Jurassic_Park” (https://raw.githubusercontent.com/raphaelbalzer/Tutorium_QM1_SoSe23/main/Jurassic_Park.csv)</p>
+<p>Lass dir die obersten zehn Reihen des Datensatzes in der Konsole anzeigen</p>
+<p>Lass dir die unterstens zehn Reihen des Datensatzes in der Konsole anzeigen</p>
 </section>
-<section id="r-setup" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="r-setup"><span class="header-section-number">1.3</span> R Setup</h2>
-<p>Ihr braucht 2 Programme auf eurem Rechner:</p>
-<ul>
-<li><p><strong>R</strong>: ist die Programmiersprache, die im Hintergrung alle Berechnungen durchführt und ohne die ihr nichts machen könnt.</p></li>
-<li><p><strong>R Studio</strong>: Grafische Benutzeroberfläche, um R bequem verwenden zu können. Das wird eure Arbeitsumgebung sein, denn mit R ohne Interface zu arbeiten, ist sehr unbequem.</p></li>
-</ul>
-<blockquote class="blockquote">
-<p>➝ Ihr könnt es euch so vorstellen: R ist der Motor und R Studio das Lenkrad!</p>
-</blockquote>
+<section id="aufgabe-2" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="aufgabe-2"><span class="header-section-number">4.2</span> Aufgabe 2</h2>
+<p>Erstelle eine zweiten Datensatz “Jurassic_Park2” ohne die Spalten “link”, “taxonomy” und “period”</p>
+<p>Ordne den Datensatz jetzt so an, dass die Dinos mit der größten Länge zuerst angezeigt werden</p>
+<p>Wie viele Dinos gibt es, die länger als 7.5 Meter sind?</p>
+</section>
+<section id="aufgabe-3" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="aufgabe-3"><span class="header-section-number">4.3</span> Aufgabe 3</h2>
+<p>Wie lang ist der durchschnittliche Dino?</p>
+<p>Gibt es in dem Datensatz mehr Fleischfresser oder Pflanzenfresser?</p>
+<p>Wer hat den Dino “gobisaurus” benannt?</p>
+</section>
+<section id="aufgabe-4" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="aufgabe-4"><span class="header-section-number">4.4</span> Aufgabe 4</h2>
+<p>Hat die Ernährung der Dinos einen großen Einfluss auf deren größe?</p>
+<p>Wo lebten die meisten “armoured dinosaur”?</p>
+<p>Was war die kleinste Länge eines “small theropod”?</p>
+<p>Was haben die meisten Dinos in den USA damals gegessen?</p>
+</section>
+<section id="aufgabe-5" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="aufgabe-5"><span class="header-section-number">4.5</span> Aufgabe 5</h2>
+<p>Wie lang war der durchschnittliche “large theropod” der in “North Africa” lebte und sich von Fleisch ernärte im Vergleich zu der durschnittlichen Länge eines “sauropod”, der sich von Pflanzen ernährte und in “China” lebte?</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -759,10 +703,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Lösungen1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lösungen</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Aufgaben1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aufgaben</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Lösungen_Dinos.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lösungen Dinojudo</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

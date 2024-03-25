@@ -1,3 +1,60 @@
-# Allgemeines {.unnumbered}
+# Einführung
 
-Zur besseren Organisation der Lehrmaterialien des Tutoriums haben wir für euch dieses Buch erstellt. Hier findet ihr alle Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.
+## Willkommen!
+
+Herzlich Willkommen zum QM1-Tutorium! In diesem Semester lernt ihr die Basics zum Thema Datenanalyse und Vorhersagemodellierung, insbesondere lineare Regression. Auf dieser Seite findet ihr hier sämtliche Lehrmaterialien wie Aufgaben samt Lösungen, Fallstudien, wichtige Befehle und nützliche Links.
+
+Wir wünschen euch viel Erfolg!
+
+Liebe Grüße
+
+Emilia und Raphael
+
+## Lernziele
+
+Vielleicht habt ihr euch auch schon die Fragen gestellt: "Was lernt man in QM1? Und wozu braucht man das?"
+
+Stellt euch vor, wir wollen etwas bauen. Wir haben also ein Endprodukt, wobei wir Bauteile und Werkzeug brauchen, um dies zu bauen.
+
+**Vorhersagemodellierung**: Das ist unser Endprodukt. Doch was ist das überhaupt?\
+Wir wollen bestimmte Kennwerte vorhersagen, also z.B. aufgrund von gewissen Daten, die wir zu Immobilien haben (Größe, Zimmeranzahl, Garten, Garage etc.), vorhersagen, wie viel die Immobilie kosten wird. Klingt logisch oder?
+
+![](Vorhersagemodellierung.jpeg)\
+➝ Doch was für Bauteile brauchen wir dazu?
+
+-   **Explorative Datenanalyse (EDA)**: Hier werden Daten bereinigt (z.B. fehlende Werte gelöscht oder ersetzt), analysiert (was haben wir überhaupt an Daten und was sagen sie aus?) und visualisiert (wie sind die Daten verteilt? Gibt es Muster? Welche Beziehungen haben die Variablen untereinander?), um Einblicke zu gewinnen und fundierte Entscheidungen zu treffen (eine solche Entscheidung könnte z.B. sein, welche Prädiktoren, also Variablen, die unsere gesuchte Variable vorhersagen, in dem Fall der Immobilienwert, wichtig sind und welche nicht).\
+    ![](EDA.jpeg)
+
+-   **Lineare Modelle**: Helfen uns, Vorhersagen für unbekannte Daten zu machen, indem sie annehmen, dass die Beziehung zwischen Variablen linear ist (z.B. wenn die Wohnfläche größer ist, dann steigt auch der Immobilienpreis ➝ Das lineare Modell würde also für größere Häuser einen höheren Preis vorhersagen). \
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+library(easystats)
+
+kung <- read.csv("https://raw.githubusercontent.com/sebastiansauer/Lehre/main/data/Howell1a.csv") %>% 
+  filter(age > 18) %>%  
+  mutate(weight_c = center(weight))
+
+lm_model_c <- lm(height ~ weight_c, data = kung)
+
+ggplot(kung, aes(x = weight_c, y = height)) +
+  geom_point(alpha = .7) +
+  geom_abline(intercept = coef(lm_model_c)[1], slope = coef(lm_model_c)[2], color = "#6fb899", linewidth = 1) +
+  theme_minimal()
+```
+
+➝ Welche Werkzeuge brauchen wir dazu?
+
+![](Werkzeugkasten.jpeg)
+
+-   Unser Werkzeugkasten ist das Programm R, darin haben wir alles, was wir brauchen, um mit den Bauteilen unser Endprodukt zu bauen. Innerhalb unseres Werkzeugkasten haben wir natürlich verschiedene Werkzeuge, die in R Pakete heißen. Mit jedem Paket können wir andere Sachen machen (zum Beispiel Daten visualisieren mit dem Paket \`ggplot\`.
+
+## R Setup
+
+Ihr braucht 2 Programme auf eurem Rechner:
+
+-   **R**: ist die Programmiersprache, die im Hintergrung alle Berechnungen durchführt und ohne die ihr nichts machen könnt.
+
+-   **R Studio**: Grafische Benutzeroberfläche, um R bequem verwenden zu können. Das wird eure Arbeitsumgebung sein, denn mit R ohne Interface zu arbeiten, ist sehr unbequem.
+
+> ➝ Ihr könnt es euch so vorstellen: R ist der Motor und R Studio das Lenkrad!
