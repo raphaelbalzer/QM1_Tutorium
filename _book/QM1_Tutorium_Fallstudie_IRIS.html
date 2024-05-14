@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QM1-Tutorium - 8&nbsp; Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</title>
+<title>QM1-Tutorium - 9&nbsp; Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Iris_eda_teil2.html" rel="next">
-<link href="./Lösungen_plague.html" rel="prev">
+<link href="./Fallstudie_Smartphone.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,13 +97,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 
 </head>
@@ -107,9 +115,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">QM1-Tutorium</span>
     </a>
@@ -120,37 +128,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://statistik1.netlify.app/" rel="" target="">
- <span class="menu-text">statistik1</span></a>
+    <a class="nav-link" href="https://statistik1.netlify.app/"> 
+<span class="menu-text">statistik1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://start-bayes.netlify.app/" rel="" target="">
- <span class="menu-text">start: bayes!</span></a>
+    <a class="nav-link" href="https://start-bayes.netlify.app/"> 
+<span class="menu-text">start: bayes!</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://qm1-tutorium.netlify.app/" rel="" target="">
- <span class="menu-text">QM1-Tutorium</span></a>
+    <a class="nav-link" href="https://qm1-tutorium.netlify.app/"> 
+<span class="menu-text">QM1-Tutorium</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://qm2-tutorium.netlify.app/" rel="" target="">
- <span class="menu-text">QM2-Tutorium</span></a>
+    <a class="nav-link" href="https://qm2-tutorium.netlify.app/"> 
+<span class="menu-text">QM2-Tutorium</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QM1_Tutorium_Fallstudie_IRIS.html">Fallstudien EDA</a></li><li class="breadcrumb-item"><a href="./QM1_Tutorium_Fallstudie_IRIS.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Fallstudie_Smartphone.html">Fallstudien EDA</a></li><li class="breadcrumb-item"><a href="./QM1_Tutorium_Fallstudie_IRIS.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -159,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./QM1-Tutorium_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -247,14 +255,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Fallstudie_Smartphone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie Smartphone</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./QM1_Tutorium_Fallstudie_IRIS.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Iris_eda_teil2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,13 +285,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./iris_lm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Probeklausur.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span></a>
   </div>
 </li>
       </ul>
@@ -294,13 +308,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span></a>
   </div>
 </li>
       </ul>
@@ -314,43 +328,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#packages-laden" id="toc-packages-laden" class="nav-link active" data-scroll-target="#packages-laden"><span class="header-section-number">8.1</span> Packages laden</a></li>
-  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="header-section-number">8.2</span> Datenimport</a></li>
-  <li><a href="#datenjudo" id="toc-datenjudo" class="nav-link" data-scroll-target="#datenjudo"><span class="header-section-number">8.3</span> Datenjudo</a>
+  <li><a href="#packages-laden" id="toc-packages-laden" class="nav-link active" data-scroll-target="#packages-laden"><span class="header-section-number">9.1</span> Packages laden</a></li>
+  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="header-section-number">9.2</span> Datenimport</a></li>
+  <li><a href="#datenjudo" id="toc-datenjudo" class="nav-link" data-scroll-target="#datenjudo"><span class="header-section-number">9.3</span> Datenjudo</a>
   <ul class="collapse">
-  <li><a href="#datensatz-auf-fehlende-daten-prüfen" id="toc-datensatz-auf-fehlende-daten-prüfen" class="nav-link" data-scroll-target="#datensatz-auf-fehlende-daten-prüfen"><span class="header-section-number">8.3.1</span> Datensatz auf fehlende Daten prüfen</a></li>
-  <li><a href="#überblick-über-die-variablentypen" id="toc-überblick-über-die-variablentypen" class="nav-link" data-scroll-target="#überblick-über-die-variablentypen"><span class="header-section-number">8.3.2</span> Überblick über die Variablentypen</a></li>
+  <li><a href="#datensatz-auf-fehlende-daten-prüfen" id="toc-datensatz-auf-fehlende-daten-prüfen" class="nav-link" data-scroll-target="#datensatz-auf-fehlende-daten-prüfen"><span class="header-section-number">9.3.1</span> Datensatz auf fehlende Daten prüfen</a></li>
+  <li><a href="#überblick-über-die-variablentypen" id="toc-überblick-über-die-variablentypen" class="nav-link" data-scroll-target="#überblick-über-die-variablentypen"><span class="header-section-number">9.3.2</span> Überblick über die Variablentypen</a></li>
   </ul></li>
-  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="header-section-number">8.4</span> Datenvisualisierung</a>
+  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="header-section-number">9.4</span> Datenvisualisierung</a>
   <ul class="collapse">
-  <li><a href="#überblick-über-die-variablentypen-1" id="toc-überblick-über-die-variablentypen-1" class="nav-link" data-scroll-target="#überblick-über-die-variablentypen-1"><span class="header-section-number">8.4.1</span> Überblick über die Variablentypen</a></li>
-  <li><a href="#verteilungen" id="toc-verteilungen" class="nav-link" data-scroll-target="#verteilungen"><span class="header-section-number">8.4.2</span> Verteilungen</a></li>
-  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots"><span class="header-section-number">8.4.3</span> Scatterplots</a></li>
-  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots"><span class="header-section-number">8.4.4</span> Boxplots</a></li>
+  <li><a href="#überblick-über-die-variablentypen-1" id="toc-überblick-über-die-variablentypen-1" class="nav-link" data-scroll-target="#überblick-über-die-variablentypen-1"><span class="header-section-number">9.4.1</span> Überblick über die Variablentypen</a></li>
+  <li><a href="#verteilungen" id="toc-verteilungen" class="nav-link" data-scroll-target="#verteilungen"><span class="header-section-number">9.4.2</span> Verteilungen</a></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots"><span class="header-section-number">9.4.3</span> Scatterplots</a></li>
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots"><span class="header-section-number">9.4.4</span> Boxplots</a></li>
   </ul></li>
-  <li><a href="#daten-umformen" id="toc-daten-umformen" class="nav-link" data-scroll-target="#daten-umformen"><span class="header-section-number">8.5</span> Daten umformen</a>
+  <li><a href="#daten-umformen" id="toc-daten-umformen" class="nav-link" data-scroll-target="#daten-umformen"><span class="header-section-number">9.5</span> Daten umformen</a>
   <ul class="collapse">
-  <li><a href="#die-boxplot-methode" id="toc-die-boxplot-methode" class="nav-link" data-scroll-target="#die-boxplot-methode"><span class="header-section-number">8.5.1</span> Die Boxplot Methode</a></li>
-  <li><a href="#boxplot-erstellen" id="toc-boxplot-erstellen" class="nav-link" data-scroll-target="#boxplot-erstellen"><span class="header-section-number">8.5.2</span> Boxplot erstellen</a></li>
-  <li><a href="#extremwerte-in-nas-umwandeln" id="toc-extremwerte-in-nas-umwandeln" class="nav-link" data-scroll-target="#extremwerte-in-nas-umwandeln"><span class="header-section-number">8.5.3</span> Extremwerte in NA´s umwandeln</a></li>
+  <li><a href="#die-boxplot-methode" id="toc-die-boxplot-methode" class="nav-link" data-scroll-target="#die-boxplot-methode"><span class="header-section-number">9.5.1</span> Die Boxplot Methode</a></li>
+  <li><a href="#boxplot-erstellen" id="toc-boxplot-erstellen" class="nav-link" data-scroll-target="#boxplot-erstellen"><span class="header-section-number">9.5.2</span> Boxplot erstellen</a></li>
+  <li><a href="#extremwerte-in-nas-umwandeln" id="toc-extremwerte-in-nas-umwandeln" class="nav-link" data-scroll-target="#extremwerte-in-nas-umwandeln"><span class="header-section-number">9.5.3</span> Extremwerte in NA´s umwandeln</a></li>
   </ul></li>
-  <li><a href="#abschluss" id="toc-abschluss" class="nav-link" data-scroll-target="#abschluss"><span class="header-section-number">8.6</span> Abschluss</a></li>
+  <li><a href="#abschluss" id="toc-abschluss" class="nav-link" data-scroll-target="#abschluss"><span class="header-section-number">9.6</span> Abschluss</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Fallstudie_Smartphone.html">Fallstudien EDA</a></li><li class="breadcrumb-item"><a href="./QM1_Tutorium_Fallstudie_IRIS.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></h1>
 </div>
 
 
@@ -363,32 +377,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>Diese Fallstudie soll als Einführung in die explorative Datenanalyse mit angewandtem Datenjudo und Datenvisualisierung dienen. Es geht darum, sich einen Überblick über den Datensatz zu verschaffen und gegebenenfalls einige Umformungen vorzunehmen, um später vernünftig damit arbeiten zu können. Der Datensatz enthält Messungen der Länge und Breite der Blüten-(<code>Sepal</code>) und Kelchblätter(<code>Petal</code>) von drei verschiedenen Spezies der Iris.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Machine+Learning+R/iris-machinelearning.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hier sehen wir die Blumen, um die es geht</figcaption>
+<figcaption>Hier sehen wir die Blumen, um die es geht</figcaption>
 </figure>
 </div>
-<section id="packages-laden" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="packages-laden"><span class="header-section-number">8.1</span> Packages laden</h2>
+<section id="packages-laden" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="packages-laden"><span class="header-section-number">9.1</span> Packages laden</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="datenimport" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">8.2</span> Datenimport</h2>
+<section id="datenimport" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">9.2</span> Datenimport</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">view</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fct"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.0","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.7","2":"3.2","3":"1.3","4":"0.2","5":"setosa"},{"1":"4.6","2":"3.1","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa"},{"1":"4.6","2":"3.4","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.0","2":"3.4","3":"1.5","4":"0.2","5":"setosa"},{"1":"4.4","2":"2.9","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.1","5":"setosa"},{"1":"5.4","2":"3.7","3":"1.5","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.4","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.0","3":"1.4","4":"0.1","5":"setosa"},{"1":"4.3","2":"3.0","3":"1.1","4":"0.1","5":"setosa"},{"1":"5.8","2":"4.0","3":"1.2","4":"0.2","5":"setosa"},{"1":"5.7","2":"4.4","3":"1.5","4":"0.4","5":"setosa"},{"1":"5.4","2":"3.9","3":"1.3","4":"0.4","5":"setosa"},{"1":"5.1","2":"3.5","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.7","2":"3.8","3":"1.7","4":"0.3","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.5","4":"0.3","5":"setosa"},{"1":"5.4","2":"3.4","3":"1.7","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.7","3":"1.5","4":"0.4","5":"setosa"},{"1":"4.6","2":"3.6","3":"1.0","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.3","3":"1.7","4":"0.5","5":"setosa"},{"1":"4.8","2":"3.4","3":"1.9","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.0","3":"1.6","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.4","3":"1.6","4":"0.4","5":"setosa"},{"1":"5.2","2":"3.5","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.2","2":"3.4","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.7","2":"3.2","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.8","2":"3.1","3":"1.6","4":"0.2","5":"setosa"},{"1":"5.4","2":"3.4","3":"1.5","4":"0.4","5":"setosa"},{"1":"5.2","2":"4.1","3":"1.5","4":"0.1","5":"setosa"},{"1":"5.5","2":"4.2","3":"1.4","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.1","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.2","3":"1.2","4":"0.2","5":"setosa"},{"1":"5.5","2":"3.5","3":"1.3","4":"0.2","5":"setosa"},{"1":"4.9","2":"3.6","3":"1.4","4":"0.1","5":"setosa"},{"1":"4.4","2":"3.0","3":"1.3","4":"0.2","5":"setosa"},{"1":"5.1","2":"3.4","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.5","3":"1.3","4":"0.3","5":"setosa"},{"1":"4.5","2":"2.3","3":"1.3","4":"0.3","5":"setosa"},{"1":"4.4","2":"3.2","3":"1.3","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.5","3":"1.6","4":"0.6","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.9","4":"0.4","5":"setosa"},{"1":"4.8","2":"3.0","3":"1.4","4":"0.3","5":"setosa"},{"1":"5.1","2":"3.8","3":"1.6","4":"0.2","5":"setosa"},{"1":"4.6","2":"3.2","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.3","2":"3.7","3":"1.5","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.3","3":"1.4","4":"0.2","5":"setosa"},{"1":"7.0","2":"3.2","3":"4.7","4":"1.4","5":"versicolor"},{"1":"6.4","2":"3.2","3":"4.5","4":"1.5","5":"versicolor"},{"1":"6.9","2":"3.1","3":"4.9","4":"1.5","5":"versicolor"},{"1":"5.5","2":"2.3","3":"4.0","4":"1.3","5":"versicolor"},{"1":"6.5","2":"2.8","3":"4.6","4":"1.5","5":"versicolor"},{"1":"5.7","2":"2.8","3":"4.5","4":"1.3","5":"versicolor"},{"1":"6.3","2":"3.3","3":"4.7","4":"1.6","5":"versicolor"},{"1":"4.9","2":"2.4","3":"3.3","4":"1.0","5":"versicolor"},{"1":"6.6","2":"2.9","3":"4.6","4":"1.3","5":"versicolor"},{"1":"5.2","2":"2.7","3":"3.9","4":"1.4","5":"versicolor"},{"1":"5.0","2":"2.0","3":"3.5","4":"1.0","5":"versicolor"},{"1":"5.9","2":"3.0","3":"4.2","4":"1.5","5":"versicolor"},{"1":"6.0","2":"2.2","3":"4.0","4":"1.0","5":"versicolor"},{"1":"6.1","2":"2.9","3":"4.7","4":"1.4","5":"versicolor"},{"1":"5.6","2":"2.9","3":"3.6","4":"1.3","5":"versicolor"},{"1":"6.7","2":"3.1","3":"4.4","4":"1.4","5":"versicolor"},{"1":"5.6","2":"3.0","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.8","2":"2.7","3":"4.1","4":"1.0","5":"versicolor"},{"1":"6.2","2":"2.2","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.6","2":"2.5","3":"3.9","4":"1.1","5":"versicolor"},{"1":"5.9","2":"3.2","3":"4.8","4":"1.8","5":"versicolor"},{"1":"6.1","2":"2.8","3":"4.0","4":"1.3","5":"versicolor"},{"1":"6.3","2":"2.5","3":"4.9","4":"1.5","5":"versicolor"},{"1":"6.1","2":"2.8","3":"4.7","4":"1.2","5":"versicolor"},{"1":"6.4","2":"2.9","3":"4.3","4":"1.3","5":"versicolor"},{"1":"6.6","2":"3.0","3":"4.4","4":"1.4","5":"versicolor"},{"1":"6.8","2":"2.8","3":"4.8","4":"1.4","5":"versicolor"},{"1":"6.7","2":"3.0","3":"5.0","4":"1.7","5":"versicolor"},{"1":"6.0","2":"2.9","3":"4.5","4":"1.5","5":"versicolor"},{"1":"5.7","2":"2.6","3":"3.5","4":"1.0","5":"versicolor"},{"1":"5.5","2":"2.4","3":"3.8","4":"1.1","5":"versicolor"},{"1":"5.5","2":"2.4","3":"3.7","4":"1.0","5":"versicolor"},{"1":"5.8","2":"2.7","3":"3.9","4":"1.2","5":"versicolor"},{"1":"6.0","2":"2.7","3":"5.1","4":"1.6","5":"versicolor"},{"1":"5.4","2":"3.0","3":"4.5","4":"1.5","5":"versicolor"},{"1":"6.0","2":"3.4","3":"4.5","4":"1.6","5":"versicolor"},{"1":"6.7","2":"3.1","3":"4.7","4":"1.5","5":"versicolor"},{"1":"6.3","2":"2.3","3":"4.4","4":"1.3","5":"versicolor"},{"1":"5.6","2":"3.0","3":"4.1","4":"1.3","5":"versicolor"},{"1":"5.5","2":"2.5","3":"4.0","4":"1.3","5":"versicolor"},{"1":"5.5","2":"2.6","3":"4.4","4":"1.2","5":"versicolor"},{"1":"6.1","2":"3.0","3":"4.6","4":"1.4","5":"versicolor"},{"1":"5.8","2":"2.6","3":"4.0","4":"1.2","5":"versicolor"},{"1":"5.0","2":"2.3","3":"3.3","4":"1.0","5":"versicolor"},{"1":"5.6","2":"2.7","3":"4.2","4":"1.3","5":"versicolor"},{"1":"5.7","2":"3.0","3":"4.2","4":"1.2","5":"versicolor"},{"1":"5.7","2":"2.9","3":"4.2","4":"1.3","5":"versicolor"},{"1":"6.2","2":"2.9","3":"4.3","4":"1.3","5":"versicolor"},{"1":"5.1","2":"2.5","3":"3.0","4":"1.1","5":"versicolor"},{"1":"5.7","2":"2.8","3":"4.1","4":"1.3","5":"versicolor"},{"1":"6.3","2":"3.3","3":"6.0","4":"2.5","5":"virginica"},{"1":"5.8","2":"2.7","3":"5.1","4":"1.9","5":"virginica"},{"1":"7.1","2":"3.0","3":"5.9","4":"2.1","5":"virginica"},{"1":"6.3","2":"2.9","3":"5.6","4":"1.8","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.8","4":"2.2","5":"virginica"},{"1":"7.6","2":"3.0","3":"6.6","4":"2.1","5":"virginica"},{"1":"4.9","2":"2.5","3":"4.5","4":"1.7","5":"virginica"},{"1":"7.3","2":"2.9","3":"6.3","4":"1.8","5":"virginica"},{"1":"6.7","2":"2.5","3":"5.8","4":"1.8","5":"virginica"},{"1":"7.2","2":"3.6","3":"6.1","4":"2.5","5":"virginica"},{"1":"6.5","2":"3.2","3":"5.1","4":"2.0","5":"virginica"},{"1":"6.4","2":"2.7","3":"5.3","4":"1.9","5":"virginica"},{"1":"6.8","2":"3.0","3":"5.5","4":"2.1","5":"virginica"},{"1":"5.7","2":"2.5","3":"5.0","4":"2.0","5":"virginica"},{"1":"5.8","2":"2.8","3":"5.1","4":"2.4","5":"virginica"},{"1":"6.4","2":"3.2","3":"5.3","4":"2.3","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.5","4":"1.8","5":"virginica"},{"1":"7.7","2":"3.8","3":"6.7","4":"2.2","5":"virginica"},{"1":"7.7","2":"2.6","3":"6.9","4":"2.3","5":"virginica"},{"1":"6.0","2":"2.2","3":"5.0","4":"1.5","5":"virginica"},{"1":"6.9","2":"3.2","3":"5.7","4":"2.3","5":"virginica"},{"1":"5.6","2":"2.8","3":"4.9","4":"2.0","5":"virginica"},{"1":"7.7","2":"2.8","3":"6.7","4":"2.0","5":"virginica"},{"1":"6.3","2":"2.7","3":"4.9","4":"1.8","5":"virginica"},{"1":"6.7","2":"3.3","3":"5.7","4":"2.1","5":"virginica"},{"1":"7.2","2":"3.2","3":"6.0","4":"1.8","5":"virginica"},{"1":"6.2","2":"2.8","3":"4.8","4":"1.8","5":"virginica"},{"1":"6.1","2":"3.0","3":"4.9","4":"1.8","5":"virginica"},{"1":"6.4","2":"2.8","3":"5.6","4":"2.1","5":"virginica"},{"1":"7.2","2":"3.0","3":"5.8","4":"1.6","5":"virginica"},{"1":"7.4","2":"2.8","3":"6.1","4":"1.9","5":"virginica"},{"1":"7.9","2":"3.8","3":"6.4","4":"2.0","5":"virginica"},{"1":"6.4","2":"2.8","3":"5.6","4":"2.2","5":"virginica"},{"1":"6.3","2":"2.8","3":"5.1","4":"1.5","5":"virginica"},{"1":"6.1","2":"2.6","3":"5.6","4":"1.4","5":"virginica"},{"1":"7.7","2":"3.0","3":"6.1","4":"2.3","5":"virginica"},{"1":"6.3","2":"3.4","3":"5.6","4":"2.4","5":"virginica"},{"1":"6.4","2":"3.1","3":"5.5","4":"1.8","5":"virginica"},{"1":"6.0","2":"3.0","3":"4.8","4":"1.8","5":"virginica"},{"1":"6.9","2":"3.1","3":"5.4","4":"2.1","5":"virginica"},{"1":"6.7","2":"3.1","3":"5.6","4":"2.4","5":"virginica"},{"1":"6.9","2":"3.1","3":"5.1","4":"2.3","5":"virginica"},{"1":"5.8","2":"2.7","3":"5.1","4":"1.9","5":"virginica"},{"1":"6.8","2":"3.2","3":"5.9","4":"2.3","5":"virginica"},{"1":"6.7","2":"3.3","3":"5.7","4":"2.5","5":"virginica"},{"1":"6.7","2":"3.0","3":"5.2","4":"2.3","5":"virginica"},{"1":"6.3","2":"2.5","3":"5.0","4":"1.9","5":"virginica"},{"1":"6.5","2":"3.0","3":"5.2","4":"2.0","5":"virginica"},{"1":"6.2","2":"3.4","3":"5.4","4":"2.3","5":"virginica"},{"1":"5.9","2":"3.0","3":"5.1","4":"1.8","5":"virginica"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -397,15 +412,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="datenjudo" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">8.3</span> Datenjudo</h2>
-<section id="datensatz-auf-fehlende-daten-prüfen" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="datensatz-auf-fehlende-daten-prüfen"><span class="header-section-number">8.3.1</span> Datensatz auf fehlende Daten prüfen</h3>
+<section id="datenjudo" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">9.3</span> Datenjudo</h2>
+<section id="datensatz-auf-fehlende-daten-prüfen" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="datensatz-auf-fehlende-daten-prüfen"><span class="header-section-number">9.3.1</span> Datensatz auf fehlende Daten prüfen</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>((<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.x)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Length"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["int"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["int"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["int"],"align":["right"]},{"label":["Species"],"name":[5],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0","4":"0","5":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -415,8 +429,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Wir sehen: Es gibt in keiner Spalte fehlende Werte. Das heißt, wir brauchen uns darüber schon einmal keine Gedanken zu machen.</p>
 </section>
-<section id="überblick-über-die-variablentypen" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="überblick-über-die-variablentypen"><span class="header-section-number">8.3.2</span> Überblick über die Variablentypen</h3>
+<section id="überblick-über-die-variablentypen" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="überblick-über-die-variablentypen"><span class="header-section-number">9.3.2</span> Überblick über die Variablentypen</h3>
 <p>Wir können uns einen Überblick über die verschiedenen Variablentypen verschaffen, indem wir uns für jede Variable ihren Typ ausgeben lassen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
@@ -429,20 +443,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Wir sehen nun, dass alle Variablen numerisch skaliert sind, außer <code>Species</code>, welches eine Faktorvariable ist.</p>
 </section>
 </section>
-<section id="datenvisualisierung" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">8.4</span> Datenvisualisierung</h2>
-<section id="überblick-über-die-variablentypen-1" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="überblick-über-die-variablentypen-1"><span class="header-section-number">8.4.1</span> Überblick über die Variablentypen</h3>
+<section id="datenvisualisierung" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">9.4</span> Datenvisualisierung</h2>
+<section id="überblick-über-die-variablentypen-1" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="überblick-über-die-variablentypen-1"><span class="header-section-number">9.4.1</span> Überblick über die Variablentypen</h3>
 <p>Mit dem Befehl <code>vis_dat</code> können wir uns alternativ zu <code>sapply</code> auch noch einen graphischen Überblick über die Variablen verschaffen. Sollte es NA’s geben, wären diese auch ungefähr zu sehen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_dat</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="verteilungen" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="verteilungen"><span class="header-section-number">8.4.2</span> Verteilungen</h3>
+<section id="verteilungen" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="verteilungen"><span class="header-section-number">9.4.2</span> Verteilungen</h3>
 <p>Es kann sinnvoll sein, sich die Verteilungen der Variablen anzusehen, da je nach Verteilung weitere Aktionen notwendig sein können, um mit den Variablen sinnvoll zu arbeiten. Dazu aber bald mehr. Beispielsweise erstellen wir hier ein Histogramm für <code>Sepal.Width</code> mit ggplot, indem wir der x-Achse <code>Sepal.Width</code> zuweisen und den geomtyp mit <code>geom_histogram</code> festlegen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width)) <span class="sc">+</span></span>
@@ -451,7 +469,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Man sieht, dass diese Verteilung einer Normalverteilung recht nahe kommt. Mit diesem Plot haben wir uns jetzt die Blütenbreite aller Spezies insgesamt angeschaut. Wir können uns aber auch die Verteilung für jede Spezies separat anzeigen lassen. Das geht mit der Funktion <code>facet_wrap</code>.</p>
@@ -463,7 +485,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Jetzt sehen wir alle spezifischen Verteilungen nebeneinander in einer Reihe. Wenn wir die Diagramme auch noch unterschiedlich einfärben wollen, müssen wir innerhalb einer aes-Funktion noch die Spezies für die Füllung definieren. Das sieht dann folgendermaßen aus:</p>
@@ -475,18 +501,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="scatterplots" class="level3" data-number="8.4.3">
-<h3 data-number="8.4.3" class="anchored" data-anchor-id="scatterplots"><span class="header-section-number">8.4.3</span> Scatterplots</h3>
+<section id="scatterplots" class="level3" data-number="9.4.3">
+<h3 data-number="9.4.3" class="anchored" data-anchor-id="scatterplots"><span class="header-section-number">9.4.3</span> Scatterplots</h3>
 <p>Um zu sehen, wie die Werte zweier numerischer Variablen im Verhältnis zueinander aussehen, kann man Scatterplots erstellen. Hierzu legt man für die x und y-Achse die entsprechenden Variablen fest und definiert den geomtyp <code>geom_point</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Width)) <span class="sc">+</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Diesem Scatterplot können wir noch mehr Informationsgehalt verleihen, indem wir mehr Argumente hinzufügen. Beispielsweise wäre es interessant zu wissen, ob die verschiedenen Spezies unterschiedlich lange und breite Blütenblätter haben. Das können wir herausfinden, indem wir die Punkte, die die gleiche Spezies aufweisen auch mit der gleichen Farbe versehen. Wir fügen also wieder unseren aesthetics-Befehl ein, indem wir die Farbe der Punkte die Variable species zuweisen.</p>
@@ -494,7 +528,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Width)) <span class="sc">+</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Aha! Es ist nun ganz deutlich zu erkennen, dass die unterschiedlichen Spezies auch unterschiedlich lange und breite Blütenblätter haben. Dies können wir noch deutlicher hervorheben, wenn wir für jede Spezies auch eine andere Form wählen.</p>
@@ -503,7 +541,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species, </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">shape =</span> Species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Die Verteilung der Werte im Scatterplot legt nahe, dass ein Blütenblatt, dass ein kurzes Blütenblatt hat eher schmal ist und ein längeres Blütenblatt entsprechend breiter. Diese lineare Beziehung kann noch verdeutlicht werden, indem man eine Gerade über die Punktewolke legt, die dem generellen Trend folgt. Dazu fügt man noch die Funktion <code>geom_smooth</code> hinzu und spezifiziert mit <code>method = lm</code>, dass wir eine Gerade möchten.</p>
@@ -516,29 +558,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="boxplots" class="level3" data-number="8.4.4">
-<h3 data-number="8.4.4" class="anchored" data-anchor-id="boxplots"><span class="header-section-number">8.4.4</span> Boxplots</h3>
+<section id="boxplots" class="level3" data-number="9.4.4">
+<h3 data-number="9.4.4" class="anchored" data-anchor-id="boxplots"><span class="header-section-number">9.4.4</span> Boxplots</h3>
 <p>Den Fakt, dass die unterschiedlichen Spezies unterschiedlich große Blüten haben, können wir noch deutlicher visualisieren, indem wir Boxplots erstellen. Hier legen wir den geomtyp auf <code>geom_boxplot</code> fest und geben an, dass die Füllung sich an den Spezies orientieren soll.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 </section>
-<section id="daten-umformen" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="daten-umformen"><span class="header-section-number">8.5</span> Daten umformen</h2>
+<section id="daten-umformen" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="daten-umformen"><span class="header-section-number">9.5</span> Daten umformen</h2>
 <p>Mit den verschiedenen Plots konnten wir uns bis jetzt einen ganz guten Überblick über die Daten verschaffen. Nun widmen wir uns wieder den Daten und versuchen die weiterhin etwas zu optimieren.</p>
 <p>Bei Betrachtung einiger Plots kann man bereits erkennen, dass es in dem Datensatz vereinzelt Extremwerte bei den einzelnen Variablen gibt, die das Gesamtbild verfälschen.</p>
 <p>Diese Extremwerte wollen wir nun ausmachen und aus dem Datensatz entfernen.</p>
-<section id="die-boxplot-methode" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="die-boxplot-methode"><span class="header-section-number">8.5.1</span> Die Boxplot Methode</h3>
+<section id="die-boxplot-methode" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="die-boxplot-methode"><span class="header-section-number">9.5.1</span> Die Boxplot Methode</h3>
 <p>Gängig ist es, dass man Extremwerte mit der Boxplot Methode ausmacht. Diese besagt, dass jeder Wert der über dem Ergebnis der Formel:</p>
 <p>75 Quantile + 1.5 * IQR | 25 Quantile - 1.5 * IQR</p>
 <p>liegt als Extremwert zu sehen ist. Wir werden hier diese Grenzwerte mal für die Variable <code>Sepal.Width</code> bestimmen:</p>
@@ -552,7 +602,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prob =</span> .<span class="dv">25</span>,</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["q75"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["q25"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"3.3","2":"2.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -565,7 +614,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">IQR_SW =</span> <span class="fu">IQR</span>(Sepal.Width))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["IQR_SW"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -583,7 +631,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Sepal.Width <span class="sc">&gt;</span> <span class="fl">4.05</span> <span class="sc">|</span> Sepal.Width <span class="sc">&lt;</span> <span class="fl">2.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Width > 4.05 | Sepal.Width < 2.05"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"FALSE","2":"146"},{"1":"TRUE","2":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -593,20 +640,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Jetzt wissen wir, dass es vier Extremwerte gibt.</p>
 </section>
-<section id="boxplot-erstellen" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="boxplot-erstellen"><span class="header-section-number">8.5.2</span> Boxplot erstellen</h3>
+<section id="boxplot-erstellen" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="boxplot-erstellen"><span class="header-section-number">9.5.2</span> Boxplot erstellen</h3>
 <p>Diese können wir uns auch anhand eines Boxplots anzeigen lassen. Das ist immer praktisch, um überhaupt erst einmal zu überprüfen, ob es denn Extremwerte für eine Variable gibt.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Width)) <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="QM1_Tutorium_Fallstudie_IRIS_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Generell ist es zum Überprüfen auf Extremwerte auch hilfreich, zunächst einmal Boxplots zu erstellen.</p>
 </section>
-<section id="extremwerte-in-nas-umwandeln" class="level3" data-number="8.5.3">
-<h3 data-number="8.5.3" class="anchored" data-anchor-id="extremwerte-in-nas-umwandeln"><span class="header-section-number">8.5.3</span> Extremwerte in NA´s umwandeln</h3>
+<section id="extremwerte-in-nas-umwandeln" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="extremwerte-in-nas-umwandeln"><span class="header-section-number">9.5.3</span> Extremwerte in NA´s umwandeln</h3>
 <p>Immerhin 3 Extremwerte haben wir also. Diese löschen wir nun aus dem Datensatz, indem wir sie in NA´s umwandeln.</p>
 <p>Dies ist mit diesen Befehlen möglich:</p>
 <div class="cell">
@@ -623,7 +674,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>iris.we <span class="sc">%&gt;%</span> </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>((<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.x)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Length"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["int"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["int"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["int"],"align":["right"]},{"label":["Species"],"name":[5],"type":["int"],"align":["right"]},{"label":["Sepal.Width.we"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0","4":"0","5":"0","6":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -636,7 +686,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>iris.we <span class="sc">%&gt;%</span> </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Sepal.Width.we <span class="sc">&gt;</span> <span class="fl">4.05</span> <span class="sc">|</span> Sepal.Width.we <span class="sc">&lt;</span> <span class="fl">2.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Width.we > 4.05 | Sepal.Width.we < 2.05"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"FALSE","2":"146"},{"1":"NA","2":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -647,8 +696,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Wir sehen, dass alles funktioniert hat. In dem neuen Datensatz gibt es keine Werte mehr für die Variable, die wir vorher mit der Boxplot Methode als Extremwerte definiert haben.</p>
 </section>
 </section>
-<section id="abschluss" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="abschluss"><span class="header-section-number">8.6</span> Abschluss</h2>
+<section id="abschluss" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="abschluss"><span class="header-section-number">9.6</span> Abschluss</h2>
 <p>Nun haben wir einen ganz guten Eindruck vom iris-Datensatz bekommen und bereits erste Optimierungen am Datensatz vorgenommen. Einer weiteren Analyse steht nichts mehr im Weg.</p>
 
 
@@ -696,6 +745,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -764,13 +840,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -849,10 +927,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -862,8 +957,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -875,7 +979,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -919,6 +1146,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -944,6 +1172,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1005,17 +1259,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Lösungen_plague.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lösungen Plague</span></span>
+      <a href="./Fallstudie_Smartphone.html" class="pagination-link" aria-label="Fallstudie Smartphone">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie Smartphone</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Iris_eda_teil2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Iris_eda_teil2.html" class="pagination-link" aria-label="Fallstudie EDA Iris Teil 2">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

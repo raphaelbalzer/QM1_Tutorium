@@ -86,31 +86,7 @@ Je näher der Betrag von r bei 0 liegt, desto kleiner der lineare Zusammenhang. 
 
 ### Korrelationsmatrix
 
-Die Korrelationsmatrix gibt uns einen Überblick über alle Korrelationen unter den Variablen. Hier ist zu beachten, dass die Korrelation nur für numerische Variablen berechnet werden kann, weshalb mehrstufig-nominale Variablen in binäre Variablen, also in 1 und 0 umgewandelt werden müssen ("Dummysierung").
-
-```{r}
-iris %>%
-mutate(
-  speciesSETOSA = case_when(
-    Species == "setosa" ~ 1,
-    TRUE ~ 0),
-  SpeciesVIRGINICA = case_when(
-    Species == "virginica" ~ 1,
-    TRUE ~ 0)) %>% 
-  select(contains("Species")) %>% 
-  head()
-```
-
-Das Dummysieren kann man auch vom Paket "fastDummies" mit dem Befehl `dummy_cols()` erledigen lassen:
-
-```{r}
-iris %>% 
-  dummy_cols() %>% 
-  select(where(is.numeric)) %>% 
-  cor()
-```
-
-Wenn wir uns gezielt anschauen möchten, welche Variablen mit einer bestimmten AV korrelieren, geht das folgendermaßen:
+Die Korrelationsmatrix gibt uns einen Überblick über alle Korrelationen unter den Variablen. Hier ist zu beachten, dass die Korrelation nur für numerische Variablen berechnet werden kann. Wenn wir uns gezielt anschauen möchten, welche Variablen mit einer bestimmten AV korrelieren, geht das folgendermaßen:
 
 ```{r}
 iris %>% 

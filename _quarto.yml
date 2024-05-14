@@ -34,7 +34,8 @@ book:
         - Aufgaben_plague.qmd
         - Lösungen_plague.qmd
     - part: "Fallstudien EDA"
-      chapters: 
+      chapters:
+        - Fallstudie_Smartphone.qmd
         - QM1_Tutorium_Fallstudie_IRIS.qmd
         - Iris_eda_teil2.qmd
     - part: "Fallstudien Modellierung"

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QM1-Tutorium - 9&nbsp; Fallstudie EDA Iris Teil 2</title>
+<title>QM1-Tutorium - 10&nbsp; Fallstudie EDA Iris Teil 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -83,7 +83,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,13 +97,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 
 </head>
@@ -107,9 +115,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">QM1-Tutorium</span>
     </a>
@@ -120,37 +128,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://statistik1.netlify.app/" rel="" target="">
- <span class="menu-text">statistik1</span></a>
+    <a class="nav-link" href="https://statistik1.netlify.app/"> 
+<span class="menu-text">statistik1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://start-bayes.netlify.app/" rel="" target="">
- <span class="menu-text">start: bayes!</span></a>
+    <a class="nav-link" href="https://start-bayes.netlify.app/"> 
+<span class="menu-text">start: bayes!</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://qm1-tutorium.netlify.app/" rel="" target="">
- <span class="menu-text">QM1-Tutorium</span></a>
+    <a class="nav-link" href="https://qm1-tutorium.netlify.app/"> 
+<span class="menu-text">QM1-Tutorium</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://qm2-tutorium.netlify.app/" rel="" target="">
- <span class="menu-text">QM2-Tutorium</span></a>
+    <a class="nav-link" href="https://qm2-tutorium.netlify.app/"> 
+<span class="menu-text">QM2-Tutorium</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QM1_Tutorium_Fallstudie_IRIS.html">Fallstudien EDA</a></li><li class="breadcrumb-item"><a href="./Iris_eda_teil2.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Fallstudie_Smartphone.html">Fallstudien EDA</a></li><li class="breadcrumb-item"><a href="./Iris_eda_teil2.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -159,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./QM1-Tutorium_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -247,14 +255,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Fallstudie_Smartphone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie Smartphone</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./QM1_Tutorium_Fallstudie_IRIS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Iris_eda_teil2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></span></a>
   </div>
 </li>
       </ul>
@@ -271,13 +285,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./iris_lm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Probeklausur.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span></a>
   </div>
 </li>
       </ul>
@@ -294,13 +308,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span></a>
   </div>
 </li>
       </ul>
@@ -314,25 +328,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link active" data-scroll-target="#pakete-laden"><span class="header-section-number">9.1</span> Pakete laden</a></li>
-  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">9.2</span> Fehlende Werte</a>
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link active" data-scroll-target="#pakete-laden"><span class="header-section-number">10.1</span> Pakete laden</a></li>
+  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">10.2</span> Fehlende Werte</a>
   <ul class="collapse">
-  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">9.2.1</span> Definition</a></li>
-  <li><a href="#auf-fehlende-werte-prüfen" id="toc-auf-fehlende-werte-prüfen" class="nav-link" data-scroll-target="#auf-fehlende-werte-prüfen"><span class="header-section-number">9.2.2</span> Auf fehlende Werte prüfen</a></li>
-  <li><a href="#umgang-mit-fehlenden-werten" id="toc-umgang-mit-fehlenden-werten" class="nav-link" data-scroll-target="#umgang-mit-fehlenden-werten"><span class="header-section-number">9.2.3</span> Umgang mit fehlenden Werten</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition"><span class="header-section-number">10.2.1</span> Definition</a></li>
+  <li><a href="#auf-fehlende-werte-prüfen" id="toc-auf-fehlende-werte-prüfen" class="nav-link" data-scroll-target="#auf-fehlende-werte-prüfen"><span class="header-section-number">10.2.2</span> Auf fehlende Werte prüfen</a></li>
+  <li><a href="#umgang-mit-fehlenden-werten" id="toc-umgang-mit-fehlenden-werten" class="nav-link" data-scroll-target="#umgang-mit-fehlenden-werten"><span class="header-section-number">10.2.3</span> Umgang mit fehlenden Werten</a></li>
   </ul></li>
-  <li><a href="#korrelation" id="toc-korrelation" class="nav-link" data-scroll-target="#korrelation"><span class="header-section-number">9.3</span> Korrelation</a>
+  <li><a href="#korrelation" id="toc-korrelation" class="nav-link" data-scroll-target="#korrelation"><span class="header-section-number">10.3</span> Korrelation</a>
   <ul class="collapse">
-  <li><a href="#definition-1" id="toc-definition-1" class="nav-link" data-scroll-target="#definition-1"><span class="header-section-number">9.3.1</span> Definition</a></li>
-  <li><a href="#korrelationsmatrix" id="toc-korrelationsmatrix" class="nav-link" data-scroll-target="#korrelationsmatrix"><span class="header-section-number">9.3.2</span> Korrelationsmatrix</a></li>
-  <li><a href="#korrelationsplot" id="toc-korrelationsplot" class="nav-link" data-scroll-target="#korrelationsplot"><span class="header-section-number">9.3.3</span> Korrelationsplot</a></li>
+  <li><a href="#definition-1" id="toc-definition-1" class="nav-link" data-scroll-target="#definition-1"><span class="header-section-number">10.3.1</span> Definition</a></li>
+  <li><a href="#korrelationsmatrix" id="toc-korrelationsmatrix" class="nav-link" data-scroll-target="#korrelationsmatrix"><span class="header-section-number">10.3.2</span> Korrelationsmatrix</a></li>
+  <li><a href="#korrelationsplot" id="toc-korrelationsplot" class="nav-link" data-scroll-target="#korrelationsplot"><span class="header-section-number">10.3.3</span> Korrelationsplot</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -340,9 +354,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Fallstudie_Smartphone.html">Fallstudien EDA</a></li><li class="breadcrumb-item"><a href="./Iris_eda_teil2.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie EDA Iris Teil 2</span></h1>
 </div>
 
 
@@ -355,11 +369,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
+
 <p>In diesem Kapitel erklären wir zwei weitere wichtige Themen für die Vorverarbeitung der Daten, nämlich den Umgang mit NAs und den Korrelationskoeffizienten r.</p>
-<section id="pakete-laden" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">9.1</span> Pakete laden</h2>
+<section id="pakete-laden" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">10.1</span> Pakete laden</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
@@ -367,14 +383,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fastDummies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="fehlende-werte" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="fehlende-werte"><span class="header-section-number">9.2</span> Fehlende Werte</h2>
-<section id="definition" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">9.2.1</span> Definition</h3>
+<section id="fehlende-werte" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="fehlende-werte"><span class="header-section-number">10.2</span> Fehlende Werte</h2>
+<section id="definition" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">10.2.1</span> Definition</h3>
 <p>Ob aufgrund von technischen Problemen, Messfehlern oder Nachlässigkeit beim Eintragen, fehlende Werte können grundsätzlich in jedem Datensatz vorkommen. Wendet man Befehle wie <code>summarise()</code> auf Spalten mit NAs an, kann der Befehl nicht ausgeführt werden. Deshalb sieht man oft am Ende von Code-Chunks so etwas wie <code>drop_na()</code>, was dazu dient, alle Zeilen, die NAs enthalten, für die Operation rauszuschmeißen. Das ist aber keine endgültige Lösung, denn NAs können die Aussagekraft des Datensatzes stark beeinträchtigen.</p>
 </section>
-<section id="auf-fehlende-werte-prüfen" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="auf-fehlende-werte-prüfen"><span class="header-section-number">9.2.2</span> Auf fehlende Werte prüfen</h3>
+<section id="auf-fehlende-werte-prüfen" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="auf-fehlende-werte-prüfen"><span class="header-section-number">10.2.2</span> Auf fehlende Werte prüfen</h3>
 <p>Im ersten Teil der EDA haben wir ja die Extremwerte bestimmt und in NA umgewandelt:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
@@ -385,7 +401,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prob =</span> .<span class="dv">25</span>,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["q75"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["q25"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"3.3","2":"2.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -395,7 +410,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">IQR_SW =</span> <span class="fu">IQR</span>(Sepal.Width))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["IQR_SW"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -414,7 +428,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>iris.we <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>((<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.x)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Length"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["int"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["int"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["int"],"align":["right"]},{"label":["Species"],"name":[5],"type":["int"],"align":["right"]},{"label":["Sepal.Width.we"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0","4":"0","5":"0","6":"4"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -423,8 +436,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="umgang-mit-fehlenden-werten" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="umgang-mit-fehlenden-werten"><span class="header-section-number">9.2.3</span> Umgang mit fehlenden Werten</h3>
+<section id="umgang-mit-fehlenden-werten" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="umgang-mit-fehlenden-werten"><span class="header-section-number">10.2.3</span> Umgang mit fehlenden Werten</h3>
 <p>Aber wie geht man dann mit NAs um? Wenn es nicht viele Zeilen betrifft, kann man überlegen, die Zeilen, die NAs enthalten, mit <code>drop_na()</code> einfach zu entfernen. Wenn jedoch ein erheblicher Anteil der Zeilen betroffen sein sollte, dann wäre das Entfernen ein fataler Fehler, da dies zu einem riesigen Informationsverlust führen würde. Um das zu vermeiden, kann man alle NAs stattdessen mit einem mehr oder weniger repräsentativen Wert wie dem Mittelwert, Median oder dem Modus der entsprechenden Spalte ersetzen. Das macht unseren Datensatz zwar nicht viel aussagekräftiger, aber es ist allemal besser, als ganze Zeilen zu verlieren.</p>
 <p>Unsere NAs ersetzen wir nun mit dem Mittelwert:</p>
 <div class="cell">
@@ -436,7 +449,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iris.we <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>((<span class="fu">across</span>(<span class="fu">everything</span>(),<span class="sc">~</span><span class="fu">sum</span>(<span class="fu">is.na</span>(.x)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Sepal.Length"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["int"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["int"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["int"],"align":["right"]},{"label":["Species"],"name":[5],"type":["int"],"align":["right"]},{"label":["Sepal.Width.we"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0","4":"0","5":"0","6":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -447,82 +459,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Super, hat ja astrein funktioniert!</p>
 </section>
 </section>
-<section id="korrelation" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="korrelation"><span class="header-section-number">9.3</span> Korrelation</h2>
-<section id="definition-1" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="definition-1"><span class="header-section-number">9.3.1</span> Definition</h3>
+<section id="korrelation" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="korrelation"><span class="header-section-number">10.3</span> Korrelation</h2>
+<section id="definition-1" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="definition-1"><span class="header-section-number">10.3.1</span> Definition</h3>
 <p>Der Korrelationskoeffizient, auch Produkt-Moment-Korrelation,[1] ist ein Maß für den Grad des linearen Zusammenhangs zwischen zwei mindestens intervallskalierten Merkmalen, das nicht von den Maßeinheiten der Messung abhängt und somit dimensionslos ist. Er kann Werte zwischen -1 und +1annehmen. Bei einem Wert von +1 (bzw. -1) besteht ein vollständig positiver (bzw. negativer) linearer Zusammenhang zwischen den betrachteten Merkmalen. Wenn der Korrelationskoeffizient den Wert 0 aufweist, hängen die beiden Merkmale überhaupt nicht linear voneinander ab</p>
 <p>Sind zwei Merkmale vollständig miteinander korreliert (d.&nbsp;h.|r|=1), so liegen alle Messwerte in einem 2-dimensionalen Koordinatensystem auf einer Geraden. Bei einer perfekten positiven Korrelation (r=+1) steigt die Gerade. Wenn die Merkmale perfekt negativ miteinander korreliert sind (r=-1), sinkt die Gerade. Besteht zwischen zwei Merkmalen eine sehr hohe Korrelation, sagt man oft auch, sie erklären dasselbe.</p>
 <p>Je näher der Betrag von r bei 0 liegt, desto kleiner der lineare Zusammenhang. Für r = 0 kann der statistische Zusammenhang zwischen den Messwerten nicht mehr durch eine eindeutig steigende oder sinkende Gerade dargestellt werden. Dies ist z. B. der Fall, wenn die Messwerte rotationssymmetrisch um den Mittelpunkt verteilt sind. Dennoch kann dann ein nichtlinearer statistischer Zusammenhang zwischen den Merkmalen gegeben sein. Umgekehrt gilt jedoch: Wenn die Merkmale statistisch unabhängig sind, nimmt der Korrelationskoeffizient stets den Wert 0 an.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://otexts.com/fpp2/fpp_files/figure-html/corr-1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Hier ein paar Scatterplots zur Verdeutlichung</figcaption>
+<figcaption>Hier ein paar Scatterplots zur Verdeutlichung</figcaption>
 </figure>
 </div>
 </section>
-<section id="korrelationsmatrix" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="korrelationsmatrix"><span class="header-section-number">9.3.2</span> Korrelationsmatrix</h3>
-<p>Die Korrelationsmatrix gibt uns einen Überblick über alle Korrelationen unter den Variablen. Hier ist zu beachten, dass die Korrelation nur für numerische Variablen berechnet werden kann, weshalb mehrstufig-nominale Variablen in binäre Variablen, also in 1 und 0 umgewandelt werden müssen (“Dummysierung”).</p>
+<section id="korrelationsmatrix" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="korrelationsmatrix"><span class="header-section-number">10.3.2</span> Korrelationsmatrix</h3>
+<p>Die Korrelationsmatrix gibt uns einen Überblick über alle Korrelationen unter den Variablen. Hier ist zu beachten, dass die Korrelation nur für numerische Variablen berechnet werden kann. Wenn wir uns gezielt anschauen möchten, welche Variablen mit einer bestimmten AV korrelieren, geht das folgendermaßen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">speciesSETOSA =</span> <span class="fu">case_when</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    Species <span class="sc">==</span> <span class="st">"setosa"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">SpeciesVIRGINICA =</span> <span class="fu">case_when</span>(</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    Species <span class="sc">==</span> <span class="st">"virginica"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"Species"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["speciesSETOSA"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["SpeciesVIRGINICA"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"setosa","2":"1","3":"0","_rn_":"1"},{"1":"setosa","2":"1","3":"0","_rn_":"2"},{"1":"setosa","2":"1","3":"0","_rn_":"3"},{"1":"setosa","2":"1","3":"0","_rn_":"4"},{"1":"setosa","2":"1","3":"0","_rn_":"5"},{"1":"setosa","2":"1","3":"0","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-</div>
-<p>Das Dummysieren kann man auch vom Paket “fastDummies” mit dem Befehl <code>dummy_cols()</code> erledigen lassen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dummy_cols</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                   Sepal.Length Sepal.Width Petal.Length Petal.Width
-Sepal.Length         1.00000000  -0.1175698    0.8717538   0.8179411
-Sepal.Width         -0.11756978   1.0000000   -0.4284401  -0.3661259
-Petal.Length         0.87175378  -0.4284401    1.0000000   0.9628654
-Petal.Width          0.81794113  -0.3661259    0.9628654   1.0000000
-Species_setosa      -0.71741567   0.6033478   -0.9227654  -0.8873437
-Species_versicolor   0.07939552  -0.4677031    0.2017545   0.1178988
-Species_virginica    0.63802014  -0.1356447    0.7210109   0.7694449
-                   Species_setosa Species_versicolor Species_virginica
-Sepal.Length           -0.7174157         0.07939552         0.6380201
-Sepal.Width             0.6033478        -0.46770308        -0.1356447
-Petal.Length           -0.9227654         0.20175445         0.7210109
-Petal.Width            -0.8873437         0.11789881         0.7694449
-Species_setosa          1.0000000        -0.50000000        -0.5000000
-Species_versicolor     -0.5000000         1.00000000        -0.5000000
-Species_virginica      -0.5000000        -0.50000000         1.0000000</code></pre>
-</div>
-</div>
-<p>Wenn wir uns gezielt anschauen möchten, welche Variablen mit einer bestimmten AV korrelieren, geht das folgendermaßen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span>  <span class="co"># alle metrischen Variablen, aber sonst keine</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>() <span class="sc">%&gt;%</span>   <span class="co"># korreliere, was du hast</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">focus</span>(Sepal.Length) <span class="sc">%&gt;%</span>  <span class="co"># beschränke (fokussiere) dich auf `dep_delay`</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span>  <span class="co"># alle metrischen Variablen, aber sonst keine</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>() <span class="sc">%&gt;%</span>   <span class="co"># korreliere, was du hast</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">focus</span>(Sepal.Length) <span class="sc">%&gt;%</span>  <span class="co"># beschränke (fokussiere) dich auf `dep_delay`</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>Sepal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Correlation computed with
 • Method: 'pearson'
 • Missing treated using: 'pairwise.complete.obs'</code></pre>
 </div>
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sepal.Length"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Petal.Length","2":"0.8717538"},{"1":"Petal.Width","2":"0.8179411"},{"1":"Sepal.Width","2":"-0.1175698"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -531,18 +496,22 @@ Species_virginica      -0.5000000        -0.50000000         1.0000000</code></p
 </div>
 </div>
 </section>
-<section id="korrelationsplot" class="level3" data-number="9.3.3">
-<h3 data-number="9.3.3" class="anchored" data-anchor-id="korrelationsplot"><span class="header-section-number">9.3.3</span> Korrelationsplot</h3>
+<section id="korrelationsplot" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="korrelationsplot"><span class="header-section-number">10.3.3</span> Korrelationsplot</h3>
 <p>Ein Korrelationsplot stellt die Korrelationen nochmal übersichtlicher dar.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggcorrplot</span>(<span class="at">method =</span> <span class="st">"circle"</span>, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">type =</span> <span class="st">"lower"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"violet"</span>, <span class="st">"grey"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggcorrplot</span>(<span class="at">method =</span> <span class="st">"circle"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">type =</span> <span class="st">"lower"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"violet"</span>, <span class="st">"grey"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Iris_eda_teil2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="Iris_eda_teil2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -592,6 +561,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -660,13 +656,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -745,10 +743,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -758,8 +773,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -771,7 +795,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -815,6 +962,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -840,6 +988,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -901,17 +1075,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./QM1_Tutorium_Fallstudie_IRIS.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span>
+      <a href="./QM1_Tutorium_Fallstudie_IRIS.html" class="pagination-link" aria-label="Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Fallstudie zur explorativen Datenanalyse anhand des Iris-Datensatzes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./iris_lm.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./iris_lm.html" class="pagination-link" aria-label="Fallstudie Vorhersagemodellierung Iris">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

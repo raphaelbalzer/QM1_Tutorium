@@ -1,0 +1,149 @@
+---
+title: "Fallstudie Smartphone"
+format: "docx"
+---
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(ggpubr)
+library(DataExplorer)
+library(rbthemes)
+```
+
+```{r}
+data <- read.csv("https://raw.githubusercontent.com/sebastiansauer/statistik1/main/daten/Smartphone-Nutzung%20(Responses)%20-%20Form%20responses%201.csv")
+```
+
+## Vorverarbeitung
+
+### Umbenennung der Spalten
+
+```{r}
+names(data)[15] <- "sex"
+names(data)[16] <- "age"
+names(data)[17] <- "os"
+names(data)[18] <- "price"
+
+item_labels_new <- paste0("item", 1:11)
+names(data)[3:13] <- item_labels_new
+```
+
+### Umgang mit fehlenden Werten
+
+Zunächst überprüfen wir, ob und wenn ja, in welchen Spalten es fehlende Werte gibt.
+```{r}
+data %>% 
+  summarise((across(everything(),~sum(is.na(.x)))))
+```
+Bei den Spalten `alter` und `preis` scheint es einige fehlende Werte zu geben. Wir ersetzen diese mit dem Mittelwert der Spalten, um die anderen ausgefüllten Spalten nicht zu verlieren. Hierzu müssen wir alle numerischen Spalten in das Format `double` umwandenln.
+
+```{r}
+data <- data %>%
+  mutate(across(where(is.numeric), as.double))
+
+data <- data %>%
+  mutate(across(where(is.numeric), ~replace_na(., mean(., na.rm = TRUE))))
+```
+
+
+
+```{r}
+data <- data %>% 
+  mutate(sex = factor(sex),
+         os = factor(os))
+
+data <- data %>% 
+  mutate(sex = case_when(sex == NA ~ "missing", 
+                                sex == "Mann" ~ "männlich",
+                                sex == "Frau" ~ "weiblich"))
+data <- data %>% 
+  mutate(os = case_when(os == NA ~ "missing", 
+                                os == "iOS" ~ "iOS",
+                                os == "Android" ~ "Android"))
+```
+
+## EDA
+
+Jetzt können wir uns die Daten genauer unter die Lupe nehmen.
+
+```{r}
+data %>% 
+  group_by(sex) %>% 
+  summarise(mean(price))
+```
+
+
+```{r}
+data %>% 
+  group_by(os) %>% 
+  summarise(mean(price))
+```
+
+### Berechnung des Smartphone-Addiction-Scores
+
+Zur Erstellung einer Spalte, die das allgemeine Maß der Smartphone-Abhängigkeit angibt, berechnen wir einfach den Mittelwert aller Items:
+
+```{r}
+data <- data %>% 
+  mutate(addiction_score = rowMeans(across(starts_with("item")))) %>% 
+  mutate(is_addicted =
+           case_when(addiction_score > 3.1 & sex == "männlich" ~ "addicted",
+                     addiction_score > 3.3 & sex == "weiblich" ~ "addicted",
+                     TRUE ~ "not-addicted"))
+```
+
+```{r}
+data %>%  
+  ggdensity(x = "addiction_score", 
+            color = "sex")
+```
+
+```{r}
+smartphone_count <- 
+data %>% 
+  group_by(sex) %>%  
+  count(is_addicted)
+```
+
+```{r}
+smartphone_count %>%
+  drop_na() %>% 
+  plot_bar(by = "sex")
+```
+
+## Modellierung
+
+Zunächst erstellen wir das Modell und bewerten die Modellgüte
+
+```{r}
+lm <- lm(addiction_score ~ 1, data = data)
+
+mae(lm)
+```
+
+Dann visualisieren wir das Modell:
+
+```{r}
+data %>% 
+  mutate(id = 1:n(),
+         mean_addiction_score = mean(addiction_score),
+         residual = addiction_score - mean_addiction_score) %>% 
+  ggplot(aes(x = id, y = addiction_score)) +
+  geom_point() +
+  geom_hline(aes(yintercept = mean_addiction_score), color = "#6388b4") +
+  geom_label(aes(x = 0, y = mean_addiction_score, label = "MW"), color = "#6388b4", fill = "white") +
+  geom_segment(aes(x = id, xend = id, y = addiction_score, yend = mean_addiction_score), alpha = 0.5, color = "grey") +
+  theme_minimal()
+```
+
+```{r}
+data %>% 
+  drop_na() %>% 
+  ggplot(aes(age,addiction_score, color = sex)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_pastel
+```
+
+
