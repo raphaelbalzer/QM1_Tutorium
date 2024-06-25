@@ -95,7 +95,7 @@ ggplot(data = d_train1, aes(x = pred, fill=sex)) +
 Zur Berechnung des RMSE kann auch die Funktion `rmse()` aus dem Paket `performance` verwendet werden. Hier wird manuell die Formel angewandt.
 
 ```{r}
-sqrt(mean((d_train1$pred - d_train$body_mass_g)^2))
+sqrt(mean((d_train1$pred - d_train1$body_mass_g)^2))
 ```
 
 Testen der Vorhersagegüte im eigenen Test-Sample:
