@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Raphael Balzer">
 
-<title>QM1-Tutorium - 3&nbsp; Lösungen</title>
+<title>QM1-Tutorium - 12&nbsp; Modellierung mit Aufteilung der Train-Daten</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Aufgaben_Dinos.html" rel="next">
-<link href="./Aufgaben1.html" rel="prev">
+<link href="./Probeklausur.html" rel="next">
+<link href="./iris_lm.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -155,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Aufgaben1.html">R kennenlernen</a></li><li class="breadcrumb-item"><a href="./Lösungen1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lösungen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./iris_lm.html">Fallstudien Modellierung</a></li><li class="breadcrumb-item"><a href="./QM1_Tut_Aufteilung.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Modellierung mit Aufteilung der Train-Daten</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -203,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Lösungen1.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Lösungen1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lösungen</span></span></a>
   </div>
 </li>
@@ -290,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./QM1_Tut_Aufteilung.html" class="sidebar-item-text sidebar-link">
+  <a href="./QM1_Tut_Aufteilung.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Modellierung mit Aufteilung der Train-Daten</span></span></a>
   </div>
 </li>
@@ -341,26 +342,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lösung-1" id="toc-lösung-1" class="nav-link active" data-scroll-target="#lösung-1"><span class="header-section-number">3.1</span> Lösung 1</a></li>
-  <li><a href="#lösung-2" id="toc-lösung-2" class="nav-link" data-scroll-target="#lösung-2"><span class="header-section-number">3.2</span> Lösung 2</a></li>
-  <li><a href="#lösung-3" id="toc-lösung-3" class="nav-link" data-scroll-target="#lösung-3"><span class="header-section-number">3.3</span> Lösung 3</a></li>
-  <li><a href="#lösung-4" id="toc-lösung-4" class="nav-link" data-scroll-target="#lösung-4"><span class="header-section-number">3.4</span> Lösung 4</a></li>
-  <li><a href="#lösung-5" id="toc-lösung-5" class="nav-link" data-scroll-target="#lösung-5"><span class="header-section-number">3.5</span> Lösung 5</a></li>
+  <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung"><span class="header-section-number">12.1</span> Einleitung</a></li>
+  <li><a href="#pakte-laden" id="toc-pakte-laden" class="nav-link" data-scroll-target="#pakte-laden"><span class="header-section-number">12.2</span> Pakte laden</a></li>
+  <li><a href="#daten-importieren-und-aufteilen" id="toc-daten-importieren-und-aufteilen" class="nav-link" data-scroll-target="#daten-importieren-und-aufteilen"><span class="header-section-number">12.3</span> Daten importieren und aufteilen</a></li>
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda"><span class="header-section-number">12.4</span> EDA</a></li>
+  <li><a href="#vorhersagemodellierung" id="toc-vorhersagemodellierung" class="nav-link" data-scroll-target="#vorhersagemodellierung"><span class="header-section-number">12.5</span> Vorhersagemodellierung</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Aufgaben1.html">R kennenlernen</a></li><li class="breadcrumb-item"><a href="./Lösungen1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lösungen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./iris_lm.html">Fallstudien Modellierung</a></li><li class="breadcrumb-item"><a href="./QM1_Tut_Aufteilung.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Modellierung mit Aufteilung der Train-Daten</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lösungen</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Modellierung mit Aufteilung der Train-Daten</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Raphael Balzer </p>
+          </div>
+  </div>
     
   
     
@@ -371,104 +378,290 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="lösung-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="lösung-1"><span class="header-section-number">3.1</span> Lösung 1</h2>
+<section id="einleitung" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="einleitung"><span class="header-section-number">12.1</span> Einleitung</h2>
+<p>Im Folgenden wird die Vorhersagemodellierung noch einmal genauer behandelt. Um Overfitting zu vermeiden wird der Train-Datensatz aufgeteilt.</p>
+</section>
+<section id="pakte-laden" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="pakte-laden"><span class="header-section-number">12.2</span> Pakte laden</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aufgabe 1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rbthemes)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels) <span class="co">#für Auteilung der Daten reicht es, das Paket rsample zu laden</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code># Attaching packages: easystats 0.7.1 (red = needs update)
-✔ bayestestR  0.13.2    ✖ correlation 0.8.4  
-✖ datawizard  0.10.0    ✖ effectsize  0.8.7  
-✖ insight     0.19.10   ✖ modelbased  0.8.7  
-✖ performance 0.11.0    ✖ parameters  0.21.6 
-✔ report      0.5.8     ✔ see         0.8.4  
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.5      ✔ recipes      1.0.10
+✔ dials        1.2.1      ✔ rsample      1.2.1 
+✔ dplyr        1.1.4      ✔ tibble       3.2.1 
+✔ ggplot2      3.5.1      ✔ tidyr        1.3.1 
+✔ infer        1.0.7      ✔ tune         1.2.1 
+✔ modeldata    1.3.0      ✔ workflows    1.1.4 
+✔ parsnip      1.2.1      ✔ workflowsets 1.1.0 
+✔ purrr        1.0.2      ✔ yardstick    1.3.1 </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::discard() masks scales::discard()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ recipes::step()  masks stats::step()
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.5
+✔ lubridate 1.9.3     ✔ stringr   1.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ readr::col_factor() masks scales::col_factor()
+✖ purrr::discard()    masks scales::discard()
+✖ dplyr::filter()     masks stats::filter()
+✖ stringr::fixed()    masks recipes::fixed()
+✖ dplyr::lag()        masks stats::lag()
+✖ readr::spec()       masks yardstick::spec()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attache Paket: 'palmerpenguins'
 
-Restart the R-Session and update packages with `easystats::easystats_update()`.</code></pre>
+Das folgende Objekt ist maskiert 'package:modeldata':
+
+    penguins</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1.1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>V1 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#1.2</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>V1 <span class="sc">-</span> V2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1.3</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>V3 <span class="ot">&lt;-</span> V1<span class="sc">-</span>V2</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>V3 <span class="sc">==</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins_data <span class="ot">&lt;-</span> penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="lösung-2" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="lösung-2"><span class="header-section-number">3.2</span> Lösung 2</h2>
+<section id="daten-importieren-und-aufteilen" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="daten-importieren-und-aufteilen"><span class="header-section-number">12.3</span> Daten importieren und aufteilen</h2>
+<p>Die folgende Aufteilung wird im Vorhinein vom Dozenten vorgenommen. In der Prüfung bekommt ihr <code>d_train</code> und <code>d_test</code> als Resultat des folgenden Codes:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Aufgabe 2</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#2.1</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>V4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#2.2</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(V4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.5</code></pre>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penguins_data <span class="ot">&lt;-</span> penguins_data <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, <span class="fu">everything</span>())</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>train_test_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(penguins_data, <span class="at">prop =</span> <span class="fl">0.7</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>d_train <span class="ot">&lt;-</span> <span class="fu">training</span>(train_test_split)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>d_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(train_test_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2.3</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(V4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.5</code></pre>
+<p>Hier wird die Aufteilung des Train-Samples vorgenommen. Auf <code>d_train1</code> werden Modelle trainiert, um dann auf <code>d_train_test</code> angewandt zu werden. So kann man sicherstellen, dass das Modell nicht nur die Daten, die es kennt, gut vorhersagt, sondern auch unbekannte Daten. Es gilt zu beachten, dass am Ende ein Modell abgegeben werden sollte, das auf dem kompletten ursprünglichen Train-Sample trainiert wurde.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dtrain_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(d_train, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>d_train1 <span class="ot">&lt;-</span> <span class="fu">training</span>(dtrain_split)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>d_train_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(dtrain_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2.4</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(V4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.91608</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2.5</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_distribution</span>(V4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="eda" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="eda"><span class="header-section-number">12.4</span> EDA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>d_train <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["Mean"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["SD"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["IQR"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Min"],"name":[4],"type":["int"],"align":["right"]},{"label":["Max"],"name":[5],"type":["int"],"align":["right"]},{"label":["Skewness"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Kurtosis"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[8],"type":["int"],"align":["right"]},{"label":["n_Missing"],"name":[9],"type":["int"],"align":["right"]}],"data":[{"1":"10.5","2":"5.91608","3":"10.5","4":"1","5":"20","6":"0","7":"-1.2","8":"20","9":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["sex"],"name":[1],"type":["fct"],"align":["left"]},{"label":["mean(body_mass_g)"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"female","2":"3875.210"},{"1":"male","2":"4564.912"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2.6</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
 </div>
 </section>
-<section id="lösung-3" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="lösung-3"><span class="header-section-number">3.3</span> Lösung 3</h2>
+<section id="vorhersagemodellierung" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="vorhersagemodellierung"><span class="header-section-number">12.5</span> Vorhersagemodellierung</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">5</span>, <span class="dv">27</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> <span class="fu">I</span>(bill_depth_mm<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> species <span class="sc">+</span> flipper_length_mm</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>         <span class="sc">+</span> bill_length_mm <span class="sc">+</span> sex, <span class="at">data =</span> d_train1)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 49</code></pre>
+<pre><code>
+Call:
+lm(formula = body_mass_g ~ I(bill_depth_mm^2) + species + flipper_length_mm + 
+    bill_length_mm + sex, data = d_train1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-783.22 -171.88  -31.76  180.76  726.45 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        -617.0111   710.7614  -0.868 0.386503    
+I(bill_depth_mm^2)    1.8207     0.7431   2.450 0.015245 *  
+speciesChinstrap   -351.9506   114.5383  -3.073 0.002452 ** 
+speciesGentoo       968.2548   167.9924   5.764 3.54e-08 ***
+flipper_length_mm    13.2436     3.8255   3.462 0.000671 ***
+bill_length_mm       26.2270    10.4342   2.514 0.012834 *  
+sexmale             395.7132    66.2268   5.975 1.21e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 292.3 on 179 degrees of freedom
+Multiple R-squared:  0.8696,    Adjusted R-squared:  0.8652 
+F-statistic: 198.9 on 6 and 179 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</section>
-<section id="lösung-4" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="lösung-4"><span class="header-section-number">3.4</span> Lösung 4</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> Y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> flipper_length_mm <span class="sc">+</span> bill_depth_mm <span class="sc">+</span> bill_length_mm <span class="sc">+</span> sex, <span class="at">data =</span> d_train1)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
+<pre><code>
+Call:
+lm(formula = body_mass_g ~ flipper_length_mm + bill_depth_mm + 
+    bill_length_mm + sex, data = d_train1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-921.34 -262.15    0.28  253.06  926.54 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -1543.865    883.423  -1.748   0.0822 .  
+flipper_length_mm    36.896      3.440  10.726  &lt; 2e-16 ***
+bill_depth_mm       -95.565     22.281  -4.289 2.91e-05 ***
+bill_length_mm       -7.090      7.042  -1.007   0.3154    
+sexmale             585.857     74.296   7.885 2.85e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 358.6 on 181 degrees of freedom
+Multiple R-squared:  0.8015,    Adjusted R-squared:  0.7972 
+F-statistic: 182.8 on 4 and 181 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</section>
-<section id="lösung-5" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="lösung-5"><span class="header-section-number">3.5</span> Lösung 5</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>loesung <span class="ot">&lt;-</span><span class="dv">42</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>loesung <span class="ot">=</span> <span class="dv">42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>d_train1 <span class="ot">&lt;-</span> d_train1 <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">predict</span>(lm1, <span class="at">newdata =</span> d_train1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> d_train1, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  theme_pastel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="QM1_Tut_Aufteilung_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> d_train1, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> pred)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> sex, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  theme_pastel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="QM1_Tut_Aufteilung_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> d_train1, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  theme_pastel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="QM1_Tut_Aufteilung_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> d_train1, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">fill=</span>sex)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  theme_pastel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="QM1_Tut_Aufteilung_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Zur Berechnung des RMSE kann auch die Funktion <code>rmse()</code> aus dem Paket <code>performance</code> verwendet werden. Hier wird manuell die Formel angewandt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>((d_train1<span class="sc">$</span>pred <span class="sc">-</span> d_train<span class="sc">$</span>body_mass_g)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in d_train1$pred - d_train$body_mass_g: Länge des längeren Objektes
+     ist kein Vielfaches der Länge des kürzeren Objektes</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1106.365</code></pre>
+</div>
+</div>
+<p>Testen der Vorhersagegüte im eigenen Test-Sample:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>d_train_test <span class="ot">&lt;-</span> d_train_test <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred =</span> <span class="fu">predict</span>(lm1, <span class="at">newdata =</span> d_train_test))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>((d_train_test<span class="sc">$</span>pred <span class="sc">-</span> d_train_test<span class="sc">$</span>body_mass_g)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 232.8436</code></pre>
+</div>
+</div>
+<p>Für die eigene Abgabe trainieren wir unser bestes Modell noch einmal auf dem ganzen Train-Datensatz:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> <span class="fu">I</span>(bill_depth_mm<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> species </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>         <span class="sc">+</span> flipper_length_mm</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>         <span class="sc">+</span> bill_length_mm <span class="sc">+</span> sex, <span class="at">data =</span> d_train)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = body_mass_g ~ I(bill_depth_mm^2) + species + flipper_length_mm + 
+    bill_length_mm + sex, data = d_train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-811.87 -155.90  -24.31  162.38  912.30 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        -938.6799   604.1940  -1.554 0.121677    
+I(bill_depth_mm^2)    2.0075     0.6394   3.140 0.001917 ** 
+speciesChinstrap   -322.7564    92.4227  -3.492 0.000576 ***
+speciesGentoo       968.6972   141.3086   6.855 6.71e-11 ***
+flipper_length_mm    14.6584     3.3034   4.437 1.42e-05 ***
+bill_length_mm       25.6652     8.4080   3.052 0.002541 ** 
+sexmale             391.6317    56.1159   6.979 3.26e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 280.4 on 226 degrees of freedom
+Multiple R-squared:  0.883, Adjusted R-squared:  0.8799 
+F-statistic: 284.2 on 6 and 226 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Berechnung der Note (für euch in der Klausur nicht möglich):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>d_test <span class="ot">&lt;-</span> d_test <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">preds =</span> <span class="fu">predict</span>(lm1, <span class="at">newdata =</span> d_test))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>((d_test<span class="sc">$</span>preds <span class="sc">-</span> d_test<span class="sc">$</span>body_mass_g)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 308.0294</code></pre>
+</div>
+</div>
+<p>Erstellung der Abgabe-Csv:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>abgabe <span class="ot">&lt;-</span> d_test <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, preds)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(abgabe, <span class="st">"abgabe_notebook.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -1030,13 +1223,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Aufgaben1.html" class="pagination-link" aria-label="Aufgaben">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aufgaben</span></span>
+      <a href="./iris_lm.html" class="pagination-link" aria-label="Fallstudie Vorhersagemodellierung Iris">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Fallstudie Vorhersagemodellierung Iris</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Aufgaben_Dinos.html" class="pagination-link" aria-label="Dinojudo">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Dinojudo</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Probeklausur.html" class="pagination-link" aria-label="Probeklausur Lösungsansatz">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

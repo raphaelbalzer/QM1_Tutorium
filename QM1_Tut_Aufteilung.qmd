@@ -1,0 +1,135 @@
+---
+title: "Modellierung mit Aufteilung der Train-Daten"
+author: "Raphael Balzer"
+format: html
+---
+
+## Einleitung
+
+Im Folgenden wird die Vorhersagemodellierung noch einmal genauer behandelt. Um Overfitting zu vermeiden wird der Train-Datensatz aufgeteilt.
+
+## Pakte laden
+
+```{r}
+library(rbthemes)
+library(tidymodels) #für Auteilung der Daten reicht es, das Paket rsample zu laden
+library(tidyverse)
+library(palmerpenguins)
+penguins_data <- penguins
+```
+
+
+## Daten importieren und aufteilen
+
+Die folgende Aufteilung wird im Vorhinein vom Dozenten vorgenommen. In der Prüfung bekommt ihr `d_train` und `d_test` als Resultat des folgenden Codes:
+
+```{r}
+penguins_data <- penguins_data %>% 
+  drop_na() %>% 
+  mutate(id = row_number()) %>% 
+  select(id, everything())
+
+set.seed(123)
+train_test_split <- initial_split(penguins_data, prop = 0.7)
+d_train <- training(train_test_split)
+d_test <- testing(train_test_split)
+```
+
+Hier wird die Aufteilung des Train-Samples vorgenommen. Auf `d_train1` werden Modelle trainiert, um dann auf `d_train_test` angewandt zu werden. So kann man sicherstellen, dass das Modell nicht nur die Daten, die es kennt, gut vorhersagt, sondern auch unbekannte Daten. Es gilt zu beachten, dass am Ende ein Modell abgegeben werden sollte, das auf dem kompletten ursprünglichen Train-Sample trainiert wurde.
+
+```{r}
+dtrain_split <- initial_split(d_train, prop = 0.8)
+d_train1 <- training(dtrain_split)
+d_train_test <- testing(dtrain_split)
+```
+
+## EDA
+
+```{r}
+d_train %>% 
+  group_by(sex) %>%
+  summarise(mean(body_mass_g))
+```
+
+## Vorhersagemodellierung
+
+```{r}
+lm1 <- lm(body_mass_g ~ I(bill_depth_mm^2) + species + flipper_length_mm
+         + bill_length_mm + sex, data = d_train1)
+summary(lm1)
+```
+
+```{r}
+lm2 <- lm(body_mass_g ~ flipper_length_mm + bill_depth_mm + bill_length_mm + sex, data = d_train1)
+summary(lm2)
+```
+
+```{r}
+d_train1 <- d_train1 %>%
+  mutate(pred = predict(lm1, newdata = d_train1))
+```
+
+```{r}
+ggplot(data = d_train1, aes(x = flipper_length_mm, y = body_mass_g, color = sex)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_pastel
+```
+
+
+```{r}
+ggplot(data = d_train1, aes(x = flipper_length_mm, y = pred)) +
+  geom_point(aes(color = sex, shape = species)) +
+  theme_pastel
+```
+
+```{r}
+ggplot(data = d_train1, aes(x = body_mass_g, fill = sex)) +
+  geom_histogram() +
+  theme_pastel
+ggplot(data = d_train1, aes(x = pred, fill=sex)) +
+  geom_histogram() +
+  theme_pastel
+```
+
+Zur Berechnung des RMSE kann auch die Funktion `rmse()` aus dem Paket `performance` verwendet werden. Hier wird manuell die Formel angewandt.
+
+```{r}
+sqrt(mean((d_train1$pred - d_train$body_mass_g)^2))
+```
+
+Testen der Vorhersagegüte im eigenen Test-Sample:
+
+```{r}
+d_train_test <- d_train_test %>%
+  mutate(pred = predict(lm1, newdata = d_train_test))
+
+sqrt(mean((d_train_test$pred - d_train_test$body_mass_g)^2))
+```
+
+Für die eigene Abgabe trainieren wir unser bestes Modell noch einmal auf dem ganzen Train-Datensatz:
+
+```{r}
+lm1 <- lm(body_mass_g ~ I(bill_depth_mm^2) + species 
+         + flipper_length_mm
+         + bill_length_mm + sex, data = d_train)
+summary(lm1)
+```
+
+Berechnung der Note (für euch in der Klausur nicht möglich):
+
+```{r}
+d_test <- d_test %>%
+  mutate(preds = predict(lm1, newdata = d_test))
+
+sqrt(mean((d_test$preds - d_test$body_mass_g)^2))
+```
+
+Erstellung der Abgabe-Csv:
+
+```{r}
+abgabe <- d_test %>% 
+  select(id, preds)
+write_csv(abgabe, "abgabe_notebook.csv")
+```
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>QM1-Tutorium - 14&nbsp; Fallstudie Penguins Lösungen</title>
+<title>QM1-Tutorium - 15&nbsp; Fallstudie Penguins Lösungen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html">Fallstudien Aufgaben</a></li><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Loes.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html">Fallstudien Aufgaben</a></li><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Loes.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -290,8 +290,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./QM1_Tut_Aufteilung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Modellierung mit Aufteilung der Train-Daten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Probeklausur.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probeklausur Lösungsansatz</span></span></a>
   </div>
 </li>
       </ul>
@@ -308,13 +314,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QM1_Tut_Fallstudie_Penguins_Loes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></span></a>
   </div>
 </li>
       </ul>
@@ -335,19 +341,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link active" data-scroll-target="#pakete-laden"><span class="header-section-number">14.1</span> Pakete laden</a></li>
-  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="header-section-number">14.2</span> Datenimport</a></li>
-  <li><a href="#datenjudo" id="toc-datenjudo" class="nav-link" data-scroll-target="#datenjudo"><span class="header-section-number">14.3</span> Datenjudo</a></li>
-  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="header-section-number">14.4</span> Datenvisualisierung</a></li>
+  <li><a href="#pakete-laden" id="toc-pakete-laden" class="nav-link active" data-scroll-target="#pakete-laden"><span class="header-section-number">15.1</span> Pakete laden</a></li>
+  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="header-section-number">15.2</span> Datenimport</a></li>
+  <li><a href="#datenjudo" id="toc-datenjudo" class="nav-link" data-scroll-target="#datenjudo"><span class="header-section-number">15.3</span> Datenjudo</a></li>
+  <li><a href="#datenvisualisierung" id="toc-datenvisualisierung" class="nav-link" data-scroll-target="#datenvisualisierung"><span class="header-section-number">15.4</span> Datenvisualisierung</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html">Fallstudien Aufgaben</a></li><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Loes.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html">Fallstudien Aufgaben</a></li><li class="breadcrumb-item"><a href="./QM1_Tut_Fallstudie_Penguins_Loes.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Lösungen</span></h1>
 </div>
 
 
@@ -366,23 +372,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Diese Fallstudie soll dazu dienen, den bisher gelernten Stoff sinnvoll auf einen Datensatz anzuwenden. Beschreibt in eurer Lösung am besten die einzelnen Schritte, die ihr ausführt, mit #Erklärungstext über dem Code. So ist euer Code nachvollziehbarer und in der Prüfung solltet ihr das genauso machen.</p>
 <p><img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" class="img-fluid"></p>
-<section id="pakete-laden" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">14.1</span> Pakete laden</h2>
+<section id="pakete-laden" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="pakete-laden"><span class="header-section-number">15.1</span> Pakete laden</h2>
 <p>Lade die erforderlichen Pakte (tidyverse, visdat)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="datenimport" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">14.2</span> Datenimport</h2>
+<section id="datenimport" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">15.2</span> Datenimport</h2>
 <p>Importiere den penguins Datensatz:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="datenjudo" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">14.3</span> Datenjudo</h2>
+<section id="datenjudo" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="datenjudo"><span class="header-section-number">15.3</span> Datenjudo</h2>
 <p>Lass dir die obersten Zeilen ausgeben</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
@@ -439,8 +445,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="datenvisualisierung" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">14.4</span> Datenvisualisierung</h2>
+<section id="datenvisualisierung" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="datenvisualisierung"><span class="header-section-number">15.4</span> Datenvisualisierung</h2>
 <p>Plotte die Variablentypen</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1122,7 +1128,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./QM1_Tut_Fallstudie_Penguins_Aufg.html" class="pagination-link" aria-label="Fallstudie Penguins Aufgaben">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Fallstudie Penguins Aufgaben</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
