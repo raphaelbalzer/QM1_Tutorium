@@ -1,0 +1,64 @@
+---
+title: "Umgang mit Fehlenden Werten"
+author: "Raphael Balzer"
+format: html
+---
+
+## Datenimport
+
+```{r}
+library(tidyverse)
+library(rsample)
+library(ggcorrplot)
+```
+
+```{r}
+d_train <- read.csv("weather_train.csv")
+d_test <- read.csv("weather_test.csv")
+```
+
+## EDA
+
+```{r}
+visdat::vis_dat(d_train)
+```
+
+```{r}
+visdat::vis_dat(d_test)
+```
+
+Wir erkennen auf den ersten Blick, dass die Spalte ``Rainfall`` zu 90 Prozent aus fehlenden Werten besteht. Somit enthält die Spalte kaum Informationen und sollte daher nicht verwendet oder besser gleich entfernt werden, um Verzerrungen bei Vorhersagen und Datenverlusten vorzubeugen. Wir entfernen die Spalte ganz einfach sowohl im Train, als auch im Test-Sample, indem wir dplyr's ``select`` verwenden. Wenn wir diese Spalte für Vorhersagen nutzen, können natürlich nur Vorhersagen für die Zeilen gemacht werden, in denen ``Rainfall`` einen Wert aufweist. Das wäre in diesem Fall fatal, da dies bei nur 10 Prozent der Zeilen der Fall ist und unsere Vorhersage dann zu 90% aus NA's bestehen würde. So würde es aussehen, wenn wir Vorhersagen mit der Spalte ``Rainfall`` machen würden:
+
+## Modellierung
+
+```{r}
+lm <- lm(Pressure ~ ., data = d_train) #Der Punkt ist eine Kurzschreibweise für alle verfügbaren Variablen
+```
+
+```{r}
+d_test <- d_test %>% 
+  mutate(pred = predict(lm, newdata = d_test))
+
+visdat::vis_dat(d_test)
+```
+
+Wie wir sehen, besteht ``pred`` fast ausschließlich aus NA's. Mit dieser Abgabe würden wir durchfallen. Also entfernen wir die Spalte einfach in beiden Datensätzen:
+
+```{r}
+d_train <- d_train %>% 
+  select(!Rainfall)
+
+d_test <- d_test %>% 
+  select(!Rainfall)
+```
+
+```{r}
+lm2 <- lm(Pressure ~ Humidity + Temperature, data = d_train)
+```
+
+```{r}
+d_test <- d_test %>% 
+  mutate(pred = predict(lm2, newdata = d_test))
+
+visdat::vis_dat(d_test)
+```

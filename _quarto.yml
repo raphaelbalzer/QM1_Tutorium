@@ -42,6 +42,7 @@ book:
       chapters:
         - iris_lm.qmd
         - QM1_Tut_Aufteilung.qmd
+        - Fehlende_werte.qmd
         - Probeklausur.qmd
     - part: "Fallstudien Aufgaben"
       chapters:
