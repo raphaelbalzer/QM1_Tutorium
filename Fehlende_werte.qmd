@@ -6,7 +6,7 @@ format: html
 
 ## Einleitung
 
-IN dieser Fallstudie soll es darum gehen, was zu tun ist, wenn der Datensatz eine Spalte enthält, die fast ausschließlich aus fehlenden Werten besteht.
+In dieser Fallstudie soll es darum gehen, was zu tun ist, wenn der Datensatz eine Spalte enthält, die fast ausschließlich aus fehlenden Werten besteht.
 
 ## Datenimport
 
