@@ -638,7 +638,7 @@
     "href": "Fehlende_werte.html",
     "title": "13  Umgang mit Fehlenden Werten",
     "section": "",
-    "text": "13.1 Datenimport\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(rsample)\nlibrary(ggcorrplot)\nd_train &lt;- read.csv(\"weather_train.csv\")\nd_test &lt;- read.csv(\"weather_test.csv\")",
+    "text": "13.1 Einleitung\nIN dieser Fallstudie soll es darum gehen, was zu tun ist, wenn der Datensatz eine Spalte enthält, die fast ausschließlich aus fehlenden Werten besteht.",
     "crumbs": [
       "Fallstudien Modellierung",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Umgang mit Fehlenden Werten</span>"
@@ -648,8 +648,8 @@
     "objectID": "Fehlende_werte.html#eda",
     "href": "Fehlende_werte.html#eda",
     "title": "13  Umgang mit Fehlenden Werten",
-    "section": "13.2 EDA",
-    "text": "13.2 EDA\n\nvisdat::vis_dat(d_train)\n\n\n\n\n\n\n\n\n\nvisdat::vis_dat(d_test)\n\n\n\n\n\n\n\n\nWir erkennen auf den ersten Blick, dass die Spalte Rainfall zu 90 Prozent aus fehlenden Werten besteht. Somit enthält die Spalte kaum Informationen und sollte daher nicht verwendet oder besser gleich entfernt werden, um Verzerrungen bei Vorhersagen und Datenverlusten vorzubeugen. Wir entfernen die Spalte ganz einfach sowohl im Train, als auch im Test-Sample, indem wir dplyr’s select verwenden. Wenn wir diese Spalte für Vorhersagen nutzen, können natürlich nur Vorhersagen für die Zeilen gemacht werden, in denen Rainfall einen Wert aufweist. Das wäre in diesem Fall fatal, da dies bei nur 10 Prozent der Zeilen der Fall ist und unsere Vorhersage dann zu 90% aus NA’s bestehen würde. So würde es aussehen, wenn wir Vorhersagen mit der Spalte Rainfall machen würden:",
+    "section": "13.3 EDA",
+    "text": "13.3 EDA\n\nvisdat::vis_dat(d_train)\n\n\n\n\n\n\n\n\n\nvisdat::vis_dat(d_test)\n\n\n\n\n\n\n\n\nWir erkennen auf den ersten Blick, dass die Spalte Rainfall zu 90 Prozent aus fehlenden Werten besteht. Somit enthält die Spalte kaum Informationen und sollte daher nicht verwendet oder besser gleich entfernt werden, um Verzerrungen bei Vorhersagen und Datenverlusten vorzubeugen. Wir entfernen die Spalte ganz einfach sowohl im Train, als auch im Test-Sample, indem wir dplyr’s select verwenden. Wenn wir diese Spalte für Vorhersagen nutzen, können natürlich nur Vorhersagen für die Zeilen gemacht werden, in denen Rainfall einen Wert aufweist. Das wäre in diesem Fall fatal, da dies bei nur 10 Prozent der Zeilen der Fall ist und unsere Vorhersage dann zu 90% aus NA’s bestehen würde. So würde es aussehen, wenn wir Vorhersagen mit der Spalte Rainfall machen würden:",
     "crumbs": [
       "Fallstudien Modellierung",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Umgang mit Fehlenden Werten</span>"
@@ -659,8 +659,8 @@
     "objectID": "Fehlende_werte.html#modellierung",
     "href": "Fehlende_werte.html#modellierung",
     "title": "13  Umgang mit Fehlenden Werten",
-    "section": "13.3 Modellierung",
-    "text": "13.3 Modellierung\n\nlm &lt;- lm(Pressure ~ ., data = d_train) #Der Punkt ist eine Kurzschreibweise für alle verfügbaren Variablen\n\n\nd_test &lt;- d_test %&gt;% \n  mutate(pred = predict(lm, newdata = d_test))\n\nvisdat::vis_dat(d_test)\n\n\n\n\n\n\n\n\nWie wir sehen, besteht pred fast ausschließlich aus NA’s. Mit dieser Abgabe würden wir durchfallen. Also entfernen wir die Spalte einfach in beiden Datensätzen:\n\nd_train &lt;- d_train %&gt;% \n  select(!Rainfall)\n\nd_test &lt;- d_test %&gt;% \n  select(!Rainfall)\n\n\nlm2 &lt;- lm(Pressure ~ Humidity + Temperature, data = d_train)\n\n\nd_test &lt;- d_test %&gt;% \n  mutate(pred = predict(lm2, newdata = d_test))\n\nvisdat::vis_dat(d_test)",
+    "section": "13.4 Modellierung",
+    "text": "13.4 Modellierung\n\nlm &lt;- lm(Pressure ~ ., data = d_train) #Der Punkt ist eine Kurzschreibweise für alle verfügbaren Variablen\n\n\nd_test &lt;- d_test %&gt;% \n  mutate(pred = predict(lm, newdata = d_test))\n\nvisdat::vis_dat(d_test)\n\n\n\n\n\n\n\n\nWie wir sehen, besteht pred fast ausschließlich aus NA’s. Mit dieser Abgabe würden wir durchfallen. Also entfernen wir die Spalte einfach in beiden Datensätzen:\n\nd_train &lt;- d_train %&gt;% \n  select(!Rainfall)\n\nd_test &lt;- d_test %&gt;% \n  select(!Rainfall)\n\n\nlm2 &lt;- lm(Pressure ~ Humidity + Temperature, data = d_train)\n\n\nd_test &lt;- d_test %&gt;% \n  mutate(pred = predict(lm2, newdata = d_test))\n\nvisdat::vis_dat(d_test)",
     "crumbs": [
       "Fallstudien Modellierung",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Umgang mit Fehlenden Werten</span>"
@@ -785,6 +785,17 @@
     "crumbs": [
       "Fallstudien Aufgaben",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Fallstudie Penguins Lösungen</span>"
+    ]
+  },
+  {
+    "objectID": "Fehlende_werte.html#datenimport",
+    "href": "Fehlende_werte.html#datenimport",
+    "title": "13  Umgang mit Fehlenden Werten",
+    "section": "13.2 Datenimport",
+    "text": "13.2 Datenimport\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(rsample)\nlibrary(ggcorrplot)\n\n\nd_train &lt;- read.csv(\"weather_train.csv\")\nd_test &lt;- read.csv(\"weather_test.csv\")",
+    "crumbs": [
+      "Fallstudien Modellierung",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Umgang mit Fehlenden Werten</span>"
     ]
   }
 ]

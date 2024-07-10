@@ -348,9 +348,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#datenimport" id="toc-datenimport" class="nav-link active" data-scroll-target="#datenimport"><span class="header-section-number">13.1</span> Datenimport</a></li>
-  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda"><span class="header-section-number">13.2</span> EDA</a></li>
-  <li><a href="#modellierung" id="toc-modellierung" class="nav-link" data-scroll-target="#modellierung"><span class="header-section-number">13.3</span> Modellierung</a></li>
+  <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung"><span class="header-section-number">13.1</span> Einleitung</a></li>
+  <li><a href="#datenimport" id="toc-datenimport" class="nav-link" data-scroll-target="#datenimport"><span class="header-section-number">13.2</span> Datenimport</a></li>
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda"><span class="header-section-number">13.3</span> EDA</a></li>
+  <li><a href="#modellierung" id="toc-modellierung" class="nav-link" data-scroll-target="#modellierung"><span class="header-section-number">13.4</span> Modellierung</a></li>
   </ul>
 </nav>
     </div>
@@ -382,8 +383,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="datenimport" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">13.1</span> Datenimport</h2>
+<section id="einleitung" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="einleitung"><span class="header-section-number">13.1</span> Einleitung</h2>
+<p>IN dieser Fallstudie soll es darum gehen, was zu tun ist, wenn der Datensatz eine Spalte enthält, die fast ausschließlich aus fehlenden Werten besteht.</p>
+</section>
+<section id="datenimport" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="datenimport"><span class="header-section-number">13.2</span> Datenimport</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -406,8 +411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>d_test <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"weather_test.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="eda" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="eda"><span class="header-section-number">13.2</span> EDA</h2>
+<section id="eda" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="eda"><span class="header-section-number">13.3</span> EDA</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>visdat<span class="sc">::</span><span class="fu">vis_dat</span>(d_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -430,8 +435,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Wir erkennen auf den ersten Blick, dass die Spalte <code>Rainfall</code> zu 90 Prozent aus fehlenden Werten besteht. Somit enthält die Spalte kaum Informationen und sollte daher nicht verwendet oder besser gleich entfernt werden, um Verzerrungen bei Vorhersagen und Datenverlusten vorzubeugen. Wir entfernen die Spalte ganz einfach sowohl im Train, als auch im Test-Sample, indem wir dplyr’s <code>select</code> verwenden. Wenn wir diese Spalte für Vorhersagen nutzen, können natürlich nur Vorhersagen für die Zeilen gemacht werden, in denen <code>Rainfall</code> einen Wert aufweist. Das wäre in diesem Fall fatal, da dies bei nur 10 Prozent der Zeilen der Fall ist und unsere Vorhersage dann zu 90% aus NA’s bestehen würde. So würde es aussehen, wenn wir Vorhersagen mit der Spalte <code>Rainfall</code> machen würden:</p>
 </section>
-<section id="modellierung" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="modellierung"><span class="header-section-number">13.3</span> Modellierung</h2>
+<section id="modellierung" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="modellierung"><span class="header-section-number">13.4</span> Modellierung</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Pressure <span class="sc">~</span> ., <span class="at">data =</span> d_train) <span class="co">#Der Punkt ist eine Kurzschreibweise für alle verfügbaren Variablen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
